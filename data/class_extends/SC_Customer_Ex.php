@@ -64,6 +64,14 @@ __EOS__;
         $objQuery->setOrder("other_deliv_id IS NULL DESC, other_deliv_id DESC");
         return $objQuery->select("*", $from, "", array($customer_id, $customer_id));
     }	
+
+    function getFavoriteProducts($customer_id) {
+
+    	$objQuery =& SC_Query_Ex::getSingletonInstance();
+    	$arrFavorites = $objQuery->getCol("product_id", "dtb_customer_favorite_products", "customer_id = ?", array($customer_id));
+    	
+		return $arrFavorites;
+    }
 }
 
 ?>

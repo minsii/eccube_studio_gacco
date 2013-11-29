@@ -171,3 +171,9 @@ INSERT INTO  mtb_constants (id ,name ,rank ,remarks) VALUES ('USE_PRODUCT_MASTER
 /*######## サイトHTML化 ########*/
 INSERT INTO mtb_constants (id ,name ,rank ,remarks) VALUES ('P_LIST_URLPATH',  'ROOT_URLPATH."products/list.php?category_id=%p"',  (SELECT MAX(rank)+1 FROM mtb_constants),  '商品一覧HTML出力');
 UPDATE mtb_constants SET name='ROOT_URLPATH. "products/detail.php?product_id=%p"' WHERE id='P_DETAIL_URLPATH';
+
+/*######################■商品非課税指定■######################*/
+ALTER TABLE dtb_products ADD COLUMN taxfree integer DEFAULT 0;
+ALTER TABLE dtb_order_detail ADD COLUMN taxfree integer DEFAULT 0;
+INSERT INTO  mtb_constants (id ,name ,rank ,remarks) VALUES ('USE_TAXFREE_PRODUCT',  'true',  (SELECT MAX(rank)+1 FROM mtb_constants),  '商品非課税機能を使用するフラグ|true:使用');
+

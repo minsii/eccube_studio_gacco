@@ -98,6 +98,12 @@ class LC_Page_Admin_Products_Product_Ex extends LC_Page_Admin_Products_Product {
         $objFormParam->addParam('公開・非公開', 'status', INT_LEN, 'n', array('EXIST_CHECK', 'NUM_CHECK', 'MAX_LENGTH_CHECK'));
         $objFormParam->addParam('商品ステータス', 'product_status', INT_LEN, 'n', array('NUM_CHECK', 'MAX_LENGTH_CHECK'));
 
+        /*## 商品非課税指定 ADD BEGIN ##*/
+        if(USE_TAXFREE_PRODUCT === true){
+        	$objFormParam->addParam('非課税', 'taxfree', INT_LEN, 'n', array('NUM_CHECK', 'MAX_LENGTH_CHECK'));
+        }
+        /*## 商品非課税指定 ADD END ##*/
+
         if (!$arrPost['has_product_class']) {
             // 新規登録, 規格なし商品の編集の場合
             $objFormParam->addParam('商品種別', 'product_type_id', INT_LEN, 'n', array('EXIST_CHECK', 'NUM_CHECK', 'MAX_LENGTH_CHECK'));
@@ -216,6 +222,13 @@ class LC_Page_Admin_Products_Product_Ex extends LC_Page_Admin_Products_Product {
         $sqlval['note'] = $arrList['note'];
         $sqlval['update_date'] = 'CURRENT_TIMESTAMP';
         $sqlval['creator_id'] = $_SESSION['member_id'];
+
+        /*## 商品非課税指定 ADD BEGIN ##*/
+        if(USE_TAXFREE_PRODUCT === true){
+        	$sqlval['taxfree'] = $arrList['taxfree'];
+        }
+        /*## 商品非課税指定 ADD END ##*/
+
         $arrRet = $objUpFile->getDBFileList();
         $sqlval = array_merge($sqlval, $arrRet);
 

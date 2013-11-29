@@ -215,7 +215,17 @@ function selectAll(target) {
             </td>
         </tr>
         <!--{/if}-->
-
+        <!--{*# 商品非課税指定 ADD BEGIN #*}-->
+        <!--{if $smarty.const.USE_TAXFREE_PRODUCT === true}-->
+        <tr>
+            <th>非課税</th>
+            <td>
+                <span class="attention"><!--{$arrErr.taxfree}--></span>
+                <input type="checkbox" name="taxfree" value="1" <!--{if $arrForm.taxfree == "1"}-->checked<!--{/if}--> />
+            </td>
+        </tr>
+        <!--{/if}-->
+        <!--{*# 商品非課税指定 ADD END #*}-->
         <tr>
             <th>商品送料</th>
             <td>

@@ -175,7 +175,16 @@
                 </td>
             </tr>
         <!--{/if}-->
-
+        <!--{*# 商品非課税指定 ADD BEGIN #*}-->
+        <!--{if $smarty.const.USE_TAXFREE_PRODUCT === true}-->
+        <tr>
+            <th>非課税</th>
+            <td>
+                <!--{if $arrForm.taxfree == "1"}-->はい<!--{else}-->いいえ<!--{/if}-->
+            </td>
+        </tr>
+        <!--{/if}-->
+        <!--{*# 商品非課税指定 ADD END #*}-->
         <tr>
             <th>商品送料</th>
             <td>

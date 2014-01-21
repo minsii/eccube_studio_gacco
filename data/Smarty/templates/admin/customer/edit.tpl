@@ -294,7 +294,7 @@
             <table class="list">
                 <tr>
                     <th>お届け先ID</th>
-                    <!--{if $smarty.const.USE_ADMIN_CUSTOMER_DELIV_LIST === true}-->
+                    <!--{if $smarty.const.USE_CUSTOMER_COMPANY === true}-->
                     <th>法人名</th>
                     <!--{/if}-->
                     <th>お名前</th>
@@ -303,12 +303,12 @@
                 <!--{section name=cnt loop=$arrOtherDeliv}-->
                     <tr>
                         <td><!--{$arrOtherDeliv[cnt].other_deliv_id}--></td>
-                    <!--{if $smarty.const.USE_ADMIN_CUSTOMER_DELIV_LIST === true}-->
+                    <!--{if $smarty.const.USE_CUSTOMER_COMPANY === true}-->
                         <td class="center"><!--{$arrOtherDeliv[cnt].company|h}--> <!--{$arrOtherDeliv[cnt].company_department|h}--></td>
                     <!--{/if}-->
                         <td class="center"><!--{$arrOtherDeliv[cnt].name01|h}--> <!--{$arrOtherDeliv[cnt].name02|h}--></td>
                         <!--{assign var=pref_id value=$arrOtherDeliv[cnt].pref}-->
-                        <td class="left">
+                        <td class="left" width="50%">
                           〒<!--{$arrOtherDeliv[cnt].zip01|h}-->-<!--{$arrOtherDeliv[cnt].zip02|h}-->  <!--{$arrPref[$pref_id]|h}--><!--{$arrOtherDeliv[cnt].addr01|h}--><!--{$arrOtherDeliv[cnt].addr02|h}-->
                         </td>
                     </tr>

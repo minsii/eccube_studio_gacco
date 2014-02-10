@@ -36,6 +36,9 @@ if (!defined('CACHE_REALDIR')) {
     define('CACHE_REALDIR', DATA_REALDIR . "cache/");
 }
 
+define('LOCAL_SEND_MAIL_HISTORY_FILE_PATH', DATA_REALDIR . "logs/mail.log");
+//define('LOCAL_SEND_MAIL_HISTORY_FILE_PATH', false);
+
 // クラスのオートローディングに対応するフックを入れるために、ここに入れる必要あり
 require_once(CLASS_EX_REALDIR . 'helper_extends/SC_Helper_Plugin_Ex.php');
 

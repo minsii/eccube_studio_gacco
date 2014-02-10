@@ -60,6 +60,24 @@
             </tr>
             <!--{/if}-->
 <!--{*## 事例問い合わせ ADD END ##*}-->
+<!--{*## 顧客法人管理 ADD BEGIN ##*}-->
+<!--{if $smarty.const.USE_CUSTOMER_COMPANY === true}-->
+            <tr>
+                <th>法人名</th>
+                <td><!--{$arrForm.company.value|h}--></td>
+            </tr>
+            <tr>
+                <th>法人名(フリガナ)</th>
+                <td><!--{$arrForm.company_kana.value|h}--></td>
+            </tr>
+            <!--{*
+            <tr>
+                <th>部署名</th>
+                <td><!--{$arrForm.company_department.value|h}--></td>
+            </tr>
+            *}-->
+<!--{/if}-->
+<!--{*## 顧客法人管理 ADD END ##*}-->
             <tr>
                 <th>お名前</th>
                 <td><!--{$arrForm.name01.value|h}-->　<!--{$arrForm.name02.value|h}--></td>

@@ -1,0 +1,797 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"
+    class="LC_Page_Products_List">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<link rel="stylesheet" href="http://49.212.158.227/css/common.css" type="text/css" media="all" />
+<link rel="stylesheet" href="http://49.212.158.227/user_data/packages/default/css/import.css"
+    type="text/css" media="all" />
+<link rel="alternate" type="application/rss+xml" title="RSS"
+    href="http://49.212.158.227/rss/" />
+<script type="text/javascript" src="http://49.212.158.227/js/css.js"></script>
+<script type="text/javascript" src="http://49.212.158.227/js/navi.js"></script>
+<script type="text/javascript" src="http://49.212.158.227/js/win_op.js"></script>
+<script type="text/javascript" src="http://49.212.158.227/js/site.js"></script>
+<script type="text/javascript" src="http://49.212.158.227/js/jquery-1.4.2.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+<!-- Optional theme -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+<!-- Latest compiled and minified JavaScript -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+    href="http://yui.yahooapis.com/pure/0.4.1/pure-min.css">
+<title>studio-gacco / 食品</title>
+<link rel="shortcut icon"
+    href="http://49.212.158.227/user_data/packages/default/img/common/favicon.ico" />
+<link rel="icon" type="http://49.212.158.227/image/vnd.microsoft.icon"
+    href="http://49.212.158.227/user_data/packages/default/img/common/favicon.ico" />
+<script type="text/javascript">
+	//<![CDATA[
+	var productsClassCategories = {
+		"2" : {
+			"__unselected" : {
+				"__unselected" : {
+					"name" : "\u9078\u629e\u3057\u3066\u304f\u3060\u3055\u3044",
+					"product_class_id" : "10",
+					"product_type" : "1"
+				}
+			},
+			"__unselected2" : {
+				"#" : {
+					"classcategory_id2" : "",
+					"name" : "\u9078\u629e\u3057\u3066\u304f\u3060\u3055\u3044"
+				},
+				"#0" : {
+					"classcategory_id2" : "0",
+					"name" : "",
+					"stock_find" : true,
+					"price01" : "1,785",
+					"price02" : "1,733",
+					"point" : "165",
+					"product_code" : "nabe-01",
+					"product_class_id" : "10",
+					"product_type" : "1"
+				}
+			}
+		},
+		"3" : {
+			"__unselected" : {
+				"__unselected" : {
+					"name" : "\u9078\u629e\u3057\u3066\u304f\u3060\u3055\u3044",
+					"product_class_id" : "11",
+					"product_type" : "2"
+				}
+			},
+			"__unselected2" : {
+				"#" : {
+					"classcategory_id2" : "",
+					"name" : "\u9078\u629e\u3057\u3066\u304f\u3060\u3055\u3044"
+				},
+				"#0" : {
+					"classcategory_id2" : "0",
+					"name" : "",
+					"stock_find" : true,
+					"price01" : "",
+					"price02" : "105",
+					"point" : "10",
+					"product_code" : "recipe-01",
+					"product_class_id" : "11",
+					"product_type" : "2"
+				}
+			}
+		},
+		"1" : {
+			"__unselected" : {
+				"__unselected" : {
+					"name" : "\u9078\u629e\u3057\u3066\u304f\u3060\u3055\u3044",
+					"product_class_id" : "1",
+					"product_type" : "1"
+				}
+			},
+			"3" : {
+				"#" : {
+					"classcategory_id2" : "",
+					"name" : "\u9078\u629e\u3057\u3066\u304f\u3060\u3055\u3044"
+				},
+				"#6" : {
+					"classcategory_id2" : "6",
+					"name" : "S",
+					"stock_find" : true,
+					"price01" : "1,050",
+					"price02" : "980",
+					"point" : "93",
+					"product_code" : "ice-01",
+					"product_class_id" : "1",
+					"product_type" : "1"
+				},
+				"#5" : {
+					"classcategory_id2" : "5",
+					"name" : "M",
+					"stock_find" : true,
+					"price01" : "1,050",
+					"price02" : "980",
+					"point" : "93",
+					"product_code" : "ice-02",
+					"product_class_id" : "2",
+					"product_type" : "1"
+				},
+				"#4" : {
+					"classcategory_id2" : "4",
+					"name" : "L",
+					"stock_find" : true,
+					"price01" : "1,050",
+					"price02" : "980",
+					"point" : "93",
+					"product_code" : "ice-03",
+					"product_class_id" : "3",
+					"product_type" : "1"
+				}
+			},
+			"2" : {
+				"#" : {
+					"classcategory_id2" : "",
+					"name" : "\u9078\u629e\u3057\u3066\u304f\u3060\u3055\u3044"
+				},
+				"#6" : {
+					"classcategory_id2" : "6",
+					"name" : "S",
+					"stock_find" : true,
+					"price01" : "1,050",
+					"price02" : "980",
+					"point" : "93",
+					"product_code" : "ice-04",
+					"product_class_id" : "4",
+					"product_type" : "1"
+				},
+				"#5" : {
+					"classcategory_id2" : "5",
+					"name" : "M",
+					"stock_find" : true,
+					"price01" : "1,050",
+					"price02" : "980",
+					"point" : "93",
+					"product_code" : "ice-05",
+					"product_class_id" : "5",
+					"product_type" : "1"
+				},
+				"#4" : {
+					"classcategory_id2" : "4",
+					"name" : "L",
+					"stock_find" : true,
+					"price01" : "1,050",
+					"price02" : "980",
+					"point" : "93",
+					"product_code" : "ice-06",
+					"product_class_id" : "6",
+					"product_type" : "1"
+				}
+			},
+			"1" : {
+				"#" : {
+					"classcategory_id2" : "",
+					"name" : "\u9078\u629e\u3057\u3066\u304f\u3060\u3055\u3044"
+				},
+				"#6" : {
+					"classcategory_id2" : "6",
+					"name" : "S",
+					"stock_find" : true,
+					"price01" : "1,050",
+					"price02" : "980",
+					"point" : "93",
+					"product_code" : "ice-07",
+					"product_class_id" : "7",
+					"product_type" : "1"
+				},
+				"#5" : {
+					"classcategory_id2" : "5",
+					"name" : "M",
+					"stock_find" : true,
+					"price01" : "1,050",
+					"price02" : "980",
+					"point" : "93",
+					"product_code" : "ice-08",
+					"product_class_id" : "8",
+					"product_type" : "1"
+				},
+				"#4" : {
+					"classcategory_id2" : "4",
+					"name" : "L",
+					"stock_find" : true,
+					"price01" : "1,050",
+					"price02" : "980",
+					"point" : "93",
+					"product_code" : "ice-09",
+					"product_class_id" : "9",
+					"product_type" : "1"
+				}
+			}
+		}
+	};
+	function fnOnLoad() {
+		fnSetClassCategories(document.product_form2);
+		fnSetClassCategories(document.product_form3);
+		fnSetClassCategories(document.product_form1);
+	}
+	$(function() {
+		fnOnLoad();
+	});
+	//]]>
+</script>
+<STYLE type="text/css">
+body {
+  
+}
+
+body #wrap_all {
+  background: none;
+}
+
+header.page_header{
+  min-width: 950px;
+}
+header.page_header > .pure-g-r {
+  margin: auto;
+  width: 950px;
+}
+header.page_header h1.logo em{
+  display:none;
+}
+
+footer.page_footer > .pure-g-r {
+  margin: auto;
+  width: 950px;
+}
+div#container {
+  width: 950px;
+}
+div#undercolumn {
+    float:none;
+	width: 700px;
+	margin: 0;
+}
+.breadcrumb>li a {
+	color: #990000;
+}
+.breadcrumb>li:first-child {
+	padding-left:20px;
+	background-image:url(img/page/common/icon_breadcrumb_home.png);
+	background-repeat:no-repeat;
+	background-position:0px 5px;
+}
+.breadcrumb>li+li:before {
+	content: ">";
+	color:#000;
+}
+
+div#undercolumn h2.title{
+	background-image:url(img/page/common/h2_title_bg.png);
+	background-repeat:no-repeat;
+	padding: 8px 0px 20px 55px;
+	color: #653602;
+	font-weight: bold;
+	font-size: 130%;
+	width:auto;
+	margin:0px auto;
+}
+div#undercolumn .pure-u-1-2 > h2.title{
+	margin-right:25px;
+}
+h3.title{
+	color:#990000;
+	border-bottom:1px solid #990000;
+	margin-right:10px;
+	padding:0.2em;
+	font-weight:bold;
+}
+h3.title:before{
+	content: "▶";
+	color:#990000;
+	padding:0.2em;
+}
+.pure-u-1-2 > .panel-body >h3.title{
+	margin-right:10px;
+}
+.box_staff > .panel{
+	border-color:#c9a277;
+}
+.box_staff > .panel .media-body{
+	background-image:url(img/page/maker/bg_01.png);
+	background-repeat:no-repeat;
+	padding: 40px 65px;
+	background-position: 35px 0px;
+	height: 195px;
+}
+.box_staff > .panel .media-body .media-heading{
+	color:#9A0000;
+	font-weight:bold;
+	text-align:center;
+}
+.box_staff > .panel .media-body p{
+	color:#3f1b03;
+}
+.cowboy_boot > .pure-g-r > div {
+	padding:1em;
+}
+div#rightcolumn {
+	width: 250px;
+}
+div#rightcolumn > div{
+	width: 217px;
+	margin:0px auto;
+	padding:0px;
+	vertical-align:top;
+}
+.box_searchproduct {
+	margin:0px;
+	padding:0px;
+}
+.box_searchproduct .panel {
+	padding:0px;
+}
+.box_searchproduct .panel-default {
+	border-color:#61401F;
+	border-radius:0px;
+}
+.box_searchproduct .panel-heading {
+	padding:0px;
+}
+
+.box_searchproduct .panel-body .btn-default{
+	background-color:#555;
+	background-image:none;
+	color:#FFF;
+}
+.box_searchproduct .panel-body input{
+	background-color:#DFDDDE;
+	background-image:none;
+	color:#FFF;
+	border:none;
+	
+}
+.box_searchproduct .panel-body .glyphicon{
+	background-color:#DFDDDE;
+	background-image:none;
+	color:#FFF;
+	border:none;
+}
+.box_ladyitems{
+}
+.box_ladyitems > h3{
+	padding:4px 10px;
+	color:#FFF;
+	font-weight:bold;
+	margin: 0em 0;
+	font-size:1em;
+	line-height:18px;
+	background-image:url(img/page/sidebar/boxladyitem/title_bg.png);
+}
+.box_ladyitems .list-group > a{
+	background-image:url(img/page/sidebar/boxladyitem/bg01.png);
+	border-color:#5e3f20;
+	color:#5e3f20;
+	border-radius:0px;
+}
+.box_ladyitems .list-group > a.row2{
+	background-image:url(img/page/sidebar/boxladyitem/bg02.png);
+}
+
+.box_sizeitems{
+}
+.box_sizeitems > h3{
+	padding:4px 10px;
+	color:#FFF;
+	font-weight:bold;
+	margin: 0em 0;
+	font-size:1em;
+	line-height:18px;
+	background-image:url(img/page/sidebar/boxladyitem/title_bg.png);
+}
+.box_sizeitems .list-group > a{
+	border-color:#5e3f20;
+	color:#5e3f20;
+	border-radius:0px;
+	padding:5px 10px;
+	border-top:1px dashed #5e3f20;
+}
+
+.box_coloritems{
+}
+.box_coloritems > h3{
+	padding:4px 10px;
+	color:#FFF;
+	font-weight:bold;
+	margin: 0em 0;
+	font-size:1em;
+	line-height:18px;
+	background-image:url(img/page/sidebar/boxladyitem/title_bg.png);
+}
+.box_coloritems .list-group > a{
+	border-color:#5e3f20;
+	color:#000;
+	border-radius:0px;
+	padding:5px 10px;
+	border-top:1px dashed #5e3f20;
+}
+
+.box_freeservice{
+
+}
+.box_freeservice > h3{
+	padding:4px 10px;
+	color:#FFF;
+	font-weight:bold;
+	margin: 0em 0;
+	font-size:1em;
+	line-height:18px;
+	background-image:url(img/page/sidebar/boxladyitem/title_bg.png);
+}
+.box_freeservice .list-group > a{
+	border-color:#5e3f20;
+	color:#000;
+	border-radius:0px;
+	padding:5px 10px;
+	border-top:1px dashed #5e3f20;
+}
+
+
+</STYLE>
+</head>
+<!-- ▼BODY部 スタート -->
+<body>
+<noscript>
+<p>JavaScript を有効にしてご利用下さい.</p>
+</noscript>
+<div class="frame_outer"> <a name="top" id="top"></a>
+  <div id="wrap_all">
+    <!--▼HEADER-->
+    <header class="page_header">
+      <div class="pure-g-r ">
+        <div class="pure-u-1-2 text-left">
+          <h1 class="logo"> <a href="http://49.212.158.227/"><img src="img/page/common/logo.png" /><em>studio-gacco/</em></a> </h1>
+        </div>
+        <div class="pure-u-1-2 text-left">
+			<div class="panel-body">
+				<div class="pure-u-1 pure-g-r">
+				  <div class="pure-u-1-4"><a href="TOP_URLPATH"><img src="img/page/common/btn_madeinjapan.png" /></a></div>
+				  <div class="pure-u-1-4"><a href="http://49.212.158.227/entry/kiyaku.php"><img src="img/page/common/btn_sozai.png" /></a></div>
+				  <div class="pure-u-1-4"><a href="http://49.212.158.227/mypage/login.php"><img src="img/page/common/btn_ashikata.png" /></a></div>
+				  <div class="pure-u-1-4"><a href="http://49.212.158.227/cart/index.php"><img src="img/page/common/btn_company.png" /></a></div>
+				</div>
+			</div>
+			<div class="panel-body">
+				<div class="pure-u-1 pure-g-r">
+				  <div class="pure-u-1-4"><a href="TOP_URLPATH"><img src="img/page/common/btn_otoiawase.png" /></a></div>
+				  <div class="pure-u-1-4"><a href="http://49.212.158.227/entry/kiyaku.php"><img src="img/page/common/btn_cart.png" /></a></div>
+				  <div class="pure-u-1-4"><a href="http://49.212.158.227/mypage/login.php"><img src="img/page/common/btn_mypage.png" /></a></div>
+				  <div class="pure-u-1-4"><a href="http://49.212.158.227/cart/index.php"><img src="img/page/common/btn_login.png" /></a></div>
+				</div>
+			</div>
+        </div>
+      </div>
+    </header>
+    <!--▲HEADER-->
+    <div id="container" class="clearfix pure-g-r">
+      <ol class="breadcrumb  pure-u-1">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Library</a></li>
+        <li class="active">Data</li>
+      </ol>
+      <div id="two_maincolumn_left" class="main_column pure-u-4-6 pure-g-r">
+        <!-- ▼メイン -->
+        <script type="text/javascript" src="http://49.212.158.227/js/products.js"></script>
+        <div id="undercolumn" class="">
+          <!--★タイトル★-->
+          <div class="pure-u-1 "> <img src="img/page/common/maker_main_img.png"> </div>
+          <div class="pure-u-1 ">
+            <h2 class="title">日本人に会う靴作り</h2>
+			<div class="pure-g-r">
+				<div class="pure-u-1-2 panel-body"> <img src="img/page/maker/img_01.png" width="326" height="226"> </div>
+				<div class="pure-u-1-2 panel-body"> <img src="img/page/maker/img_02.png" width="304" height="226"> </div>
+			</div>
+          </div>
+          <div class="pure-u-1-2">
+            <h2 class="title">木型のこだわり</h2>
+			<div class="panel-body">
+				<div> <img src="img/page/maker/img_03.png" width="310" height="226"> </div>
+				<h3 class="title">日本人向けの木型</h3>
+				<p>ああああああああ</p>
+				<div class="text-center"><a href=""><img src="img/page/maker/btn_detail.png" /></a></div>
+			</div>
+          </div>
+          <div class="pure-u-1-2">
+            <h2 class="title">木型のこだわり</h2>
+			<div class="panel-body">
+				<div> <img src="img/page/maker/img_04.png" width="310" height="226"> </div>
+				<h3 class="title">日本人向けの木型</h3>
+				<p>ああああああああ</p>
+				<div class="text-center"><a href=""><img src="img/page/maker/btn_detail.png" /></a></div>
+			</div>
+          </div>
+          <div class="pure-u-1 box_staff">
+            <h2 class="title">スタッフ</h2>
+			<div class="box_staff panel panel-default panel-body">
+				<div class="media ">
+				  <a class="pull-left" href="#">
+					<img src="img/page/maker/img_05.png" alt="..." width="393" height="198" class="media-object"></a>
+				  <div class="media-body">
+					<h4 class="media-heading">Media heading</h4>
+					<p>Media headingMedia headingMedia heading</p>
+				  </div>
+				</div>
+			</div>
+			<div class="panel panel-default panel-body">
+				<div class="media ">
+				  <a class="pull-left" href="#">
+					<img src="img/page/maker/img_05.png" alt="..." width="393" height="198" class="media-object"></a>
+				  <div class="media-body">
+					<h4 class="media-heading">Media heading</h4>
+					...
+				  </div>
+				</div>
+			</div>
+          </div>
+          <div class="cowboy_boot pure-u-1">
+            <h2 class="title">ウエスタンブーツ</h2>
+            <div class="pure-g-r">
+              <div class="pure-u-1-3"><a href="#" class=""><img class="img-thumbnail" src="img/page/maker/img_06.png" width="185" height="185"></a></div>
+              <div class="pure-u-1-3"><a href="#" class=""><img class="img-thumbnail" src="img/page/maker/img_06.png" width="185" height="185"></a></div>
+              <div class="pure-u-1-3"><a href="#" class=""><img class="img-thumbnail" src="img/page/maker/img_06.png" width="185" height="185"></a></div>
+              <div class="pure-u-1-3"><a href="#" class=""><img class="img-thumbnail" src="img/page/maker/img_06.png" width="185" height="185"></a></div>
+              <div class="pure-u-1-3"><a href="#" class=""><img class="img-thumbnail" src="img/page/maker/img_06.png" width="185" height="185"></a></div>
+              <div class="pure-u-1-3"><a href="#" class=""><img class="img-thumbnail" src="img/page/maker/img_06.png" width="185" height="185"></a></div>
+              <div class="pure-u-1-3"><a href="#" class=""><img class="img-thumbnail" src="img/page/maker/img_06.png" width="185" height="185"></a></div>
+              <div class="pure-u-1-3"><a href="#" class=""><img class="img-thumbnail" src="img/page/maker/img_06.png" width="185" height="185"></a></div>
+              <div class="pure-u-1-3"><a href="#" class=""><img class="img-thumbnail" src="img/page/maker/img_06.png" width="185" height="185"></a></div>
+            </div>
+          </div>
+        </div>
+		
+        <!-- ▲メイン -->
+      </div>
+      <div id="rightcolumn" class="side_column pure-u-2-6">
+	  	<div class=" pure-g-r">
+			<div class="box_searchproduct pure-u-1">
+				<div class="panel panel-default ">
+					<div class="panel-heading"><img src="img/page/sidebar/searchproduct/title.png" /></div>
+					<div class="panel-body ">
+						<form class="" role="form">
+							<div class="form-group">
+								<div class="">
+									<div class=" form-group">
+										  <label class="" for="products">フリーワード検索</label>
+										<div class="input-group input-group-sm">
+										  <span class="input-group-addon glyphicon glyphicon-search"></span>
+										  <input id="products" type="text" class="form-control">
+										  <span class="input-group-btn">
+											<button class="btn btn-default" type="button">検索</button>
+										  </span>
+										</div><!-- /input-group -->
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	  	<div class=" pure-g-r">
+			<div class="box_ladyitems pure-u-1">
+				<h3>レディースアイテム<a href="#"><span class="pull-right"><img src="img/page/sidebar/boxladyitem/btn_list.png" /></span></a></h3>
+				<div class="list-group">
+				  <a href="#" class="list-group-item">
+					<div class="media">
+						<img src="img/page/sidebar/boxladyitem/item_img01.png" alt="..." width="39" height="39" class="media-object pull-left">
+					  <div class="media-body">
+						<h4 class="media-heading lead">Media heading</h4>
+					  </div>
+				  </div>
+				  </a>
+				  <a href="#" class="list-group-item row2">
+					<div class="media">
+						<img src="img/page/sidebar/boxladyitem/item_img01.png" alt="..." width="39" height="39" class="media-object pull-left">
+					  <div class="media-body">
+						<h4 class="media-heading lead">Media heading</h4>
+					  </div>
+				  </div>
+				  </a>
+				  <a href="#" class="list-group-item">
+					<div class="media">
+						<img src="img/page/sidebar/boxladyitem/item_img01.png" alt="..." width="39" height="39" class="media-object pull-left">
+					  <div class="media-body">
+						<h4 class="media-heading lead">Media heading</h4>
+					  </div>
+				  </div>
+				  </a>
+				  <a href="#" class="list-group-item row2">
+					<div class="media">
+						<img src="img/page/sidebar/boxladyitem/item_img01.png" alt="..." width="39" height="39" class="media-object pull-left">
+					  <div class="media-body">
+						<h4 class="media-heading lead">Media heading</h4>
+					  </div>
+				  </div>
+				  </a>
+				</div>
+			</div>
+		</div>
+	  	<div class=" pure-g-r">
+			<div class="box_ladyitems pure-u-1">
+				<h3><a href="#"><span class="pull-right">一覧</span></a></h3>
+				<div class="list-group">
+				  <a href="#" class="list-group-item active">
+					Cras justo odio
+				  </a>
+				  <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+				  <a href="#" class="list-group-item">Morbi leo risus</a>
+				  <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+				  <a href="#" class="list-group-item">Vestibulum at eros</a>
+				</div>
+			</div>
+		</div>
+		
+	  	<div class=" pure-g-r">
+			<div class="box_sizeitems pure-u-1">
+				<h3>サイズから選ぶ</h3>
+				<div class="list-group">
+				  <a href="#" class="list-group-item ">
+					<img src="img/page/sidebar/boxsizeitem/icon01.png" /> Cras justo odio
+				  </a>
+				  <a href="#" class="list-group-item ">
+					<img src="img/page/sidebar/boxsizeitem/icon01.png" /> Cras justo odio
+				  </a>
+				  <a href="#" class="list-group-item ">
+					<img src="img/page/sidebar/boxsizeitem/icon01.png" /> Cras justo odio
+				  </a>
+				  <a href="#" class="list-group-item ">
+					<img src="img/page/sidebar/boxsizeitem/icon01.png" /> Cras justo odio
+				  </a>
+				</div>
+			</div>
+		</div>
+		
+		<div class=" pure-g-r">
+			<div class="box_coloritems pure-u-1">
+				<h3>色から選ぶ</h3>
+				<div class="list-group">
+				  <a href="#" class="list-group-item">
+					<div class="media">
+						<img src="img/page/sidebar/boxcoloritem/item_img01.png" alt="..." width="39" height="39" class="media-object pull-left">
+					  <div class="media-body">
+						<h4 class="media-heading lead">Media heading</h4>
+					  </div>
+				  </div>
+				  </a>
+				  <a href="#" class="list-group-item row2">
+					<div class="media">
+						<img src="img/page/sidebar/boxcoloritem/item_img01.png" alt="..." width="39" height="39" class="media-object pull-left">
+					  <div class="media-body">
+						<h4 class="media-heading lead">Media heading</h4>
+					  </div>
+				  </div>
+				  </a>
+				  <a href="#" class="list-group-item">
+					<div class="media">
+						<img src="img/page/sidebar/boxcoloritem/item_img01.png" alt="..." width="39" height="39" class="media-object pull-left">
+					  <div class="media-body">
+						<h4 class="media-heading lead">Media heading</h4>
+					  </div>
+				  </div>
+				  </a>
+				  <a href="#" class="list-group-item row2">
+					<div class="media">
+						<img src="img/page/sidebar/boxcoloritem/item_img01.png" alt="..." width="39" height="39" class="media-object pull-left">
+					  <div class="media-body">
+						<h4 class="media-heading lead">Media heading</h4>
+					  </div>
+				  </div>
+				  </a>
+				</div>
+			</div>
+		</div>
+		<div class=" pure-g-r">
+			<div class="pure-u-1">
+				<a href="#"><img src="img/page/sidebar/boxbnr/bnr_studio-gacco.png" /></a>
+			</div>
+		</div>
+		<div class=" pure-g-r">
+			<div class="box_freeservice pure-u-1">
+				<h3>嬉しい無料サービス</h3>
+				<div class="list-group">
+				  <a href="#" class="list-group-item">
+					<div class="media">
+						<img src="img/page/sidebar/boxfreeservice/item_img01.png" alt="..." width="39" height="39" class="media-object pull-left">
+					  <div class="media-body">
+						<h4 class="media-heading lead">Media heading</h4>
+					  </div>
+				  </div>
+				  </a>
+				  <a href="#" class="list-group-item row2">
+					<div class="media">
+						<img src="img/page/sidebar/boxcoloritem/item_img01.png" alt="..." width="39" height="39" class="media-object pull-left">
+					  <div class="media-body">
+						<h4 class="media-heading lead">Media heading</h4>
+					  </div>
+				  </div>
+				  </a>
+				  <a href="#" class="list-group-item">
+					<div class="media">
+						<img src="img/page/sidebar/boxcoloritem/item_img01.png" alt="..." width="39" height="39" class="media-object pull-left">
+					  <div class="media-body">
+						<h4 class="media-heading lead">Media heading</h4>
+					  </div>
+				  </div>
+				  </a>
+				  <a href="#" class="list-group-item row2">
+					<div class="media">
+						<img src="img/page/sidebar/boxcoloritem/item_img01.png" alt="..." width="39" height="39" class="media-object pull-left">
+					  <div class="media-body">
+						<h4 class="media-heading lead">Media heading</h4>
+					  </div>
+				  </div>
+				  </a>
+				</div>
+			</div>
+		</div>
+		<div class=" pure-g-r">
+			<div class="pure-u-1">
+				<a href="#"><img src="img/page/sidebar/boxbnr/bnr_outlet.png" width="215" height="86" /></a>
+			</div>
+		</div>
+        <!-- ▼カテゴリ -->
+        <!--商品カテゴリここから-->
+        <!--商品カテゴリここまで-->
+        <!-- ▲カテゴリ -->
+        <!-- ▼利用ガイド -->
+        <!-- ▲利用ガイド -->
+      </div>
+      <div class="pure-g-r">
+        <div>
+          <div class="pure-g-r">
+            <div class="pure-u-3-4">
+              <h3>無料でおこってます</h3>
+              <div class="pure-g-r">
+                <div class="pure-u-1-3"><img src="img/page/common/item_img_01.png"></div>
+                <div class="pure-u-1-3"><img src="img/page/common/item_img_01.png"></div>
+                <div class="pure-u-1-3"><img src="img/page/common/item_img_01.png"></div>
+              </div>
+            </div>
+            <div class="pure-u-1-4">
+              <h3>Facebook</h3>
+              <div class="pure-g-r">
+                <div class="pure-u-1"><img src="img/page/common/item_img_01.png"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="pure-g-r">
+            <div class="pure-u-3-4">
+              <h3>こンテンツ</h3>
+              <div class="pure-g-r">
+                <div class="pure-u-1-3"><img src="img/page/common/item_img_01.png"></div>
+                <div class="pure-u-1-3"><img src="img/page/common/item_img_01.png"></div>
+                <div class="pure-u-1-3"><img src="img/page/common/item_img_01.png"></div>
+              </div>
+            </div>
+            <div class="pure-u-1-4">
+              <h3>お問い合わせ</h3>
+              <div class="pure-g-r">
+                <div class="pure-u-1"><img src="img/page/common/item_img_01.png"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--▼FOTTER-->
+    <div id="footer">(C)Co-CoShop All rights reserved.</div>
+    <!--▲FOTTER-->
+  </div>
+  <!-- footer_contents(end) -->
+</div>
+</body>
+<!-- ▲BODY部 エンド -->
+</html>

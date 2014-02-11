@@ -322,6 +322,47 @@
 <!--{/if}-->
 <!--{*## 顧客管理画面にお届け先一覧表示 ADD END ##*}-->
 
+<!--{*## 顧客管理画面に記念日一覧表示 ADD BEGIN ##*}-->
+<!--{if $smarty.const.USE_ANNIVERSARY === true}-->
+        <!--{assign var=multipager_prefix value="anni"}-->
+        <input type="hidden" name="search_anni_pageno" value="<!--{$tpl_multi_pageno[$multipager_prefix]}-->">
+        <br />
+        <h2>登録済み記念日一覧</h2>
+        <!--{if $tpl_multi_linemax[$multipager_prefix] > 0}-->
+        <p><span class="attention"><!--登録済み記念日一覧--><!--{$tpl_multi_linemax[$multipager_prefix]}-->件</span>&nbsp;が該当しました。</p>
+
+        <!--{include file=$tpl_multi_pager}-->
+
+        <!--{* 登録済み記念日一覧表示テーブル *}-->
+        <table summary="記念日登録"> 
+          <col width="10%" />
+          <col width="20%" />
+          <col width="20%" />
+          <col width="50%" />
+          <tr> 
+            <th class="center">日付</th> 
+            <th class="center">お名前</th> 
+            <th class="center">イベント</th> 
+            <th class="center">メモ</th>  
+          </tr> 
+
+          <!--{section name=data loop=$arrAnniversary}-->
+          <!--{assign var=anniversary value=$arrAnniversary[data]}-->
+          <tr> 
+            <td class="center"><!--{$anniversary.dt_month|escape}-->月<!--{$anniversary.dt_day|escape}-->日</td> 
+            <td class="center"><!--{$anniversary.name|escape}--></td> 
+            <td class="center"><!--{$arrEvent[$anniversary.event_id]|escape}--></td> 
+            <td class="left"><!--{$anniversary.memo|escape|nl2br}--></td>  
+          </tr> 
+          <!--{/section}-->
+        </table>
+        <!--{else}-->
+            <div class="message">記念日情報はありません。</div>
+        <!--{/if}-->
+        <!--{assign var=multipager_prefix value=""}--><!--{* unset multipager_prefix *}-->
+<!--{/if}-->
+<!--{*## 顧客管理画面に記念日一覧表示 ADD END ##*}-->
+
         <input type="hidden" name="order_id" value="" />
         <input type="hidden" name="search_pageno" value="<!--{$tpl_pageno}-->">
         <input type="hidden" name="edit_customer_id" value="<!--{$edit_customer_id}-->" >

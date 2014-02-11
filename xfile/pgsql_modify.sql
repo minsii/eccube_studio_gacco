@@ -177,3 +177,40 @@ ALTER TABLE dtb_products ADD COLUMN taxfree integer DEFAULT 0;
 ALTER TABLE dtb_order_detail ADD COLUMN taxfree integer DEFAULT 0;
 INSERT INTO  mtb_constants (id ,name ,rank ,remarks) VALUES ('USE_TAXFREE_PRODUCT',  'true',  (SELECT MAX(rank)+1 FROM mtb_constants),  '商品非課税機能を使用するフラグ|true:使用');
 
+/*######################■記念日登録■######################*/
+CREATE TABLE dtb_anniversary (
+    anniversary_id serial,
+    customer_id integer NOT NULL,
+    dt_month integer NOT NULL,
+    dt_day integer NOT NULL,
+    name text NOT NULL,
+    event_id  integer,
+    memo text,
+    del_flg integer DEFAULT 0,
+    rank integer NOT NULL,
+    create_date timestamp without time zone NOT NULL DEFAULT now(),
+    update_date timestamp without time zone NOT NULL,
+    CONSTRAINT dtb_anniversary_pkey PRIMARY KEY (anniversary_id)
+);
+
+CREATE TABLE mtb_anniversary_event (
+  id smallint NOT NULL,
+  "name" text,
+  rank smallint NOT NULL DEFAULT 0,
+  CONSTRAINT mtb_anniversary_event_pkey PRIMARY KEY (id)
+);
+
+INSERT INTO mtb_anniversary_event (id, name, rank) VALUES (1, '誕生日', 0);
+INSERT INTO mtb_anniversary_event (id, name, rank) VALUES (2, '結婚記念日', 1);
+INSERT INTO mtb_anniversary_event (id, name, rank) VALUES (3, 'その他', 2);
+
+INSERT INTO dtb_pagelayout VALUES (10, (SELECT MAX(page_id)+1 FROM dtb_pagelayout WHERE device_type_id=10), 'MYページ/記念日登録', 'mypage/anniversary.php', 'mypage/anniversary', 1, 1, 2, NULL, NULL, NULL, NULL, 'now()', 'now()', NULL, NULL);
+
+INSERT INTO mtb_mail_template VALUES ((SELECT MAX(id)+1 FROM mtb_mail_template), '記念日お知らせメール', (SELECT MAX(rank)+1 FROM mtb_mail_template));
+INSERT INTO mtb_mail_tpl_path VALUES ((SELECT id FROM mtb_mail_template WHERE name='記念日お知らせメール'), 'mail_templates/anni_reminder_mail.tpl', (SELECT MAX(rank)+1 FROM mtb_mail_tpl_path));
+
+
+INSERT INTO mtb_constants (id ,name ,rank ,remarks) VALUES ('USE_ANNIVERSARY',  'true',  (SELECT MAX(rank)+1 FROM mtb_constants),  '記念日登録使用フラグ|true:使用');
+INSERT INTO mtb_constants (id, name, rank, remarks) VALUES ('ANNIVERSARY_MAX', '20', (SELECT MAX(rank)+1 FROM mtb_constants), '記念日登録最大数');
+INSERT INTO mtb_constants (id ,name ,rank ,remarks) VALUES ('ANNI_REMINDER_MAIL_TPL', (SELECT id FROM mtb_mail_template WHERE name='記念日お知らせメール'), (SELECT MAX(rank)+1 FROM mtb_constants), '記念日リマインダメールテンプレートID|falseに設定した場合はリマインダ機能を無効にする');
+INSERT INTO mtb_constants (id ,name ,rank ,remarks) VALUES ('ANNI_REMINDER_DAY_BEFORE', '10', (SELECT MAX(rank)+1 FROM mtb_constants), '記念日リマインダの通知日(記念日の何日前)');

@@ -34,4 +34,65 @@ require_once CLASS_REALDIR . 'SC_SendMail.php';
  * @version $Id: SC_SendMail_Ex.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
 class SC_SendMail_Ex extends SC_SendMail {
+	/*## 送信結果一時保存 ADD BEGIN ##*/
+	var $send_result;
+	var $org_subject;
+	var $org_body;
+	var $org_to;
+
+	// 件名の設定
+	function setSubject($subject) {
+		$this->org_subject = $subject;
+		parent::setSubject($subject);
+	}
+
+	// 本文の設定
+	function setBody($body) {
+		$this->org_body = $body;
+		parent::setBody($body);
+	}
+
+	// 宛先の設定
+	function setTo($to, $to_name = '') {
+		$this->org_to = '"'. $to_name. '"'. "<$to>";
+		parent::setTo($to, $to_name);
+	}
+	
+    function setItem($to, $subject, $body, $fromaddress, $from_name, $reply_to='', $return_path='', $errors_to='', $bcc='', $cc ='') {
+    	$this->org_to = $to;
+    	$this->org_subject = $subject;
+    	$this->org_body = $body;
+    	
+        parent::setBase($to, $subject, $body, $fromaddress, $from_name, $reply_to, $return_path, $errors_to, $bcc, $cc);
+    }
+        
+	/**
+	 * TXTメール送信を実行する.
+	 *
+	 * 設定された情報を利用して, メールを送信する.
+	 *
+	 * @return void
+	 */
+	function sendMail($isHtml = false) {
+		if(defined("LOCAL_SEND_MAIL_HISTORY_FILE_PATH") && 
+			LOCAL_SEND_MAIL_HISTORY_FILE_PATH != false){
+				$mail =
+"
+======================================================================= BEGIN ======
+FROM: {$this->from}
+TO: {$this->org_to}
+BCC: {$this->bcc}
+REPLY-TO: {$this->replay_to}
+SUBJECT: {$this->org_subject}
+BODY:
+------------------------------------------------------------------------------- 
+{$this->org_body}
+======================================================================= END ======
+";
+			GC_Utils_Ex::gfPrintLog($mail, LOCAL_SEND_MAIL_HISTORY_FILE_PATH, false);
+		}
+			
+		return parent::sendMail($isHtml);
+	}
+	/*## 送信結果一時保存 ADD END ##*/
 }

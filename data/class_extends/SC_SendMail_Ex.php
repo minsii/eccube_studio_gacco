@@ -57,6 +57,14 @@ class SC_SendMail_Ex extends SC_SendMail {
 		$this->org_to = '"'. $to_name. '"'. "<$to>";
 		parent::setTo($to, $to_name);
 	}
+	
+    function setItem($to, $subject, $body, $fromaddress, $from_name, $reply_to='', $return_path='', $errors_to='', $bcc='', $cc ='') {
+    	$this->org_to = $to;
+    	$this->org_subject = $subject;
+    	$this->org_body = $body;
+    	
+        parent::setBase($to, $subject, $body, $fromaddress, $from_name, $reply_to, $return_path, $errors_to, $bcc, $cc);
+    }
         
 	/**
 	 * TXTメール送信を実行する.

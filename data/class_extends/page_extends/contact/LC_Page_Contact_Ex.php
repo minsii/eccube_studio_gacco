@@ -154,5 +154,12 @@ class LC_Page_Contact_Ex extends LC_Page_Contact {
     		$objFormParam->addParam("お問い合わせ対象事例名", 'example_name');
     	}
         /*## 事例問い合わせ ADD END ##*/
+    	
+    	/*## 顧客法人管理 ADD BEGIN ##*/
+    	if(constant("USE_CUSTOMER_COMPANY") === true){
+    		$objFormParam->addParam('法人名', 'company', STEXT_LEN, 'KVa', array('SPTAB_CHECK','MAX_LENGTH_CHECK'));
+    		$objFormParam->addParam('法人名(フリガナ)', 'company_kana', STEXT_LEN, 'KVCa', array('SPTAB_CHECK','MAX_LENGTH_CHECK', 'KANA_CHECK'));
+    		$objFormParam->addParam("部署名", 'company_department', STEXT_LEN, 'aKV', array("MAX_LENGTH_CHECK"));
+    	}
     }
 }

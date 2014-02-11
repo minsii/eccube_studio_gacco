@@ -45,6 +45,13 @@ class LC_Page_Admin_Customer_Edit_Ex extends LC_Page_Admin_Customer_Edit {
      */
     function init() {
         parent::init();
+        
+        /*## 顧客管理画面に記念日一覧表示 ADD BEGIN ##*/
+        if(USE_ANNIVERSARY === true){
+        	$masterData = new SC_DB_MasterData_Ex();
+        	$this->arrEvent = $masterData->getMasterData("mtb_anniversary_event");
+        }
+        /*## 顧客管理画面に記念日一覧表示 ADD END ##*/
     }
 
     /**
@@ -100,6 +107,12 @@ class LC_Page_Admin_Customer_Edit_Ex extends LC_Page_Admin_Customer_Edit {
                 $this->lfGetOtherDeliv($objFormSearchParam->getValue('edit_customer_id'));
                 /*## 顧客管理画面にお届け先一覧表示 ADD END ##*/
                 
+                /*## 顧客管理画面に記念日一覧表示 ADD BEGIN ##*/
+                if(USE_ANNIVERSARY === true){
+                	$this->lfGetAnniversaryList($objFormSearchParam->getValue('edit_customer_id'));
+                }
+                /*## 顧客管理画面に記念日一覧表示 ADD END ##*/
+                
                 break;
             case 'confirm':
                 // パラメーター処理
@@ -145,6 +158,12 @@ class LC_Page_Admin_Customer_Edit_Ex extends LC_Page_Admin_Customer_Edit {
                 /*## 顧客管理画面にお届け先一覧表示 ADD BEGIN ##*/
                 $this->lfGetOtherDeliv($objFormParam->getValue('customer_id'));
                 /*## 顧客管理画面にお届け先一覧表示 ADD END ##*/
+                
+                /*## 顧客管理画面に記念日一覧表示 ADD BEGIN ##*/
+                if(USE_ANNIVERSARY === true){
+                	$this->lfGetAnniversaryList($objFormParam->getValue('customer_id'));
+                }
+                /*## 顧客管理画面に記念日一覧表示 ADD END ##*/
                 
                 break;
             case 'complete':
@@ -195,4 +214,17 @@ class LC_Page_Admin_Customer_Edit_Ex extends LC_Page_Admin_Customer_Edit {
     	$this->tpl_multi_linemax["deliv"] = count($this->arrOtherDeliv);
     }
     /*## 顧客管理画面にお届け先一覧表示 ADD END ##*/
+    
+    /*## 顧客管理画面に記念日一覧表示 ADD BEGIN ##*/
+	function lfGetAnniversaryList($customerId){
+		$objQuery = new SC_Query();
+		$where = "customer_id = ? AND del_flg = 0";
+		$arrval = array($customerId);
+
+		$this->tpl_multi_linemax["anni"] = $objQuery->count("dtb_anniversary", $where, $arrval);
+
+		$objQuery->setOrder('rank');
+		$this->arrAnniversary = $objQuery->select("*", "dtb_anniversary", $where, $arrval);
+	}
+	/*## 顧客管理画面に記念日一覧表示 ADD END ##*/
 }

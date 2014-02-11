@@ -57,6 +57,36 @@
             </tr>
             <!--{/if}-->
 <!--{*## 事例問い合わせ ADD END ##*}-->
+<!--{*## 顧客法人管理 ADD BEGIN ##*}-->
+<!--{if $smarty.const.USE_CUSTOMER_COMPANY === true}-->
+<tr>
+    <th>法人名</th>
+    <td>
+        <!--{assign var=key value="company"}-->
+        <span class="attention"><!--{$arrErr[$key]}--></span>
+        <input type="text" name="<!--{$key}-->" value="<!--{$arrForm[$key].value|default:$arrData[$key]}-->" maxlength="<!--{$smarty.const.STEXT_LEN}-->" style="<!--{$arrErr[$key]|sfGetErrorColor}-->; ime-mode: active;" class="box380" />
+    </td>
+</tr>
+<tr>
+    <th>法人名(フリガナ)</th>
+    <td>
+        <!--{assign var=key value="company_kana"}-->
+        <span class="attention"><!--{$arrErr[$key]}--></span>
+        <input type="text" name="<!--{$key}-->" value="<!--{$arrForm[$key].value|default:$arrData[$key]}-->" maxlength="<!--{$smarty.const.STEXT_LEN}-->" style="<!--{$arrErr[$key]|sfGetErrorColor}-->; ime-mode: active;" class="box380" />
+    </td>
+</tr>
+<!--{*
+<tr>
+    <th>部署名</th>
+    <td>
+        <!--{assign var=key value="company_department"}-->
+        <span class="attention"><!--{$arrErr[$key]}--></span>
+        <input type="text" name="<!--{$key}-->" value="<!--{$arrForm[$key].value|default:$arrData[$key]}-->" maxlength="<!--{$smarty.const.STEXT_LEN}-->" style="<!--{$arrErr[$key]|sfGetErrorColor}-->; ime-mode: active;" class="box380" />
+    </td>
+</tr>
+*}-->
+<!--{/if}-->
+<!--{*## 顧客法人管理 ADD END ##*}-->
             <tr>
                 <th>お名前<span class="attention">※</span></th>
                 <td>

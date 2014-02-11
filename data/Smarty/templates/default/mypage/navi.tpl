@@ -38,6 +38,12 @@
                     会員登録内容変更</a></li>
                 <li><a href="delivery.php" class="<!--{if $tpl_mypageno == 'delivery'}--> selected<!--{/if}-->">
                     お届け先追加・変更</a></li>
+                <!--{*## 記念日登録 ADD BEGIN ##*}-->
+                <!--{if $smarty.const.USE_ANNIVERSARY === true}-->
+                <li><a href="anniversary.php" class="<!--{if $tpl_mypageno == 'anniversary'}--> selected<!--{/if}-->">
+                    記念日登録</a></li>
+                <!--{/if}-->
+                <!--{*## 記念日登録 ADD END ##*}-->
                 <li><a href="refusal.php" class="<!--{if $tpl_mypageno == 'refusal'}--> selected<!--{/if}-->">
                     退会手続き</a></li>
 

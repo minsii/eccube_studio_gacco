@@ -25,7 +25,7 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.1/pure-min.css">
-<link rel="stylesheet" href="http://49.212.158.227/user_data/packages/default/css/pages.css"/>
+<link rel="stylesheet" href="../user_data/packages/default/css/pages.css"/>
 
 <title>studio-gacco</title>
 <link rel="shortcut icon"

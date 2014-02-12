@@ -162,4 +162,40 @@ class LC_Page_Contact_Ex extends LC_Page_Contact {
     		$objFormParam->addParam("部署名", 'company_department', STEXT_LEN, 'aKV', array("MAX_LENGTH_CHECK"));
     	}
     }
+    
+    /**
+     * メールの送信を行う。
+     *
+     * @return void
+     */
+    function lfSendMail(&$objPage) {
+        $CONF = SC_Helper_DB_Ex::sfGetBasisData();
+        $objPage->tpl_shopname = $CONF['shop_name'];
+        $objPage->tpl_infoemail = $CONF['email02'];
+        $helperMail = new SC_Helper_Mail_Ex();
+        $helperMail->setPage($this);
+        $helperMail->sfSendTemplateMail(
+            $objPage->arrForm['email']['value'],            // to
+            $objPage->arrForm['name01']['value'] .' 様',    // to_name
+            5,                                              // template_id
+            $objPage,                                       // objPage
+            $CONF['email03'],                               // from_address
+            $CONF['shop_name'],                             // from_name
+            $CONF['email02'],                               // reply_to
+            $CONF['email02']                                // bcc
+        );
+        parent::lfSendMail($objPage);
+        
+        /*## 問い合わせ履歴管理 ADD BEGIN ##*/
+        if(USE_CONTACT_HISTORY === true){
+        	$customer_id = null;
+        	$objCustomer = new SC_Customer_Ex();
+        	if ($objCustomer->isLoginSuccess(true) === true) {
+        		$customer_id = $objCustomer->getValue('customer_id');
+        	}
+        	$arrMail = $helperMail->sfGetTemplateMail(5, $objPage);
+        	$helperMail->sfSaveContactHistory($objPage->arrForm['email']['value'], $arrMail["subject"], $arrMail["body"], $customer_id);
+        }
+        /*## 問い合わせ履歴管理 ADD END ##*/
+    }
 }

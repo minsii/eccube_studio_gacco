@@ -214,3 +214,55 @@ INSERT INTO mtb_constants (id ,name ,rank ,remarks) VALUES ('USE_ANNIVERSARY',  
 INSERT INTO mtb_constants (id, name, rank, remarks) VALUES ('ANNIVERSARY_MAX', '20', (SELECT MAX(rank)+1 FROM mtb_constants), '記念日登録最大数');
 INSERT INTO mtb_constants (id ,name ,rank ,remarks) VALUES ('ANNI_REMINDER_MAIL_TPL', (SELECT id FROM mtb_mail_template WHERE name='記念日お知らせメール'), (SELECT MAX(rank)+1 FROM mtb_constants), '記念日リマインダメールテンプレートID|falseに設定した場合はリマインダ機能を無効にする');
 INSERT INTO mtb_constants (id ,name ,rank ,remarks) VALUES ('ANNI_REMINDER_DAY_BEFORE', '10', (SELECT MAX(rank)+1 FROM mtb_constants), '記念日リマインダの通知日(記念日の何日前)');
+
+/*######################■問い合わせ履歴管理■######################*/
+INSERT INTO mtb_constants (id ,name ,rank ,remarks) VALUES ('USE_CONTACT_HISTORY',  'true',  (SELECT MAX(rank)+1 FROM mtb_constants),  '問い合わせ履歴管理使用フラグ|true:使用');
+
+CREATE TABLE dtb_contact_history(
+    contact_id serial,
+    contact_type integer DEFAULT 1,
+    status integer DEFAULT 1,
+    customer_id integer,
+    sender_email text,
+    subject text,
+    body text,
+    attachment text,
+    del_flg integer DEFAULT 0,
+    create_date timestamp without time zone NOT NULL DEFAULT now(),
+    update_date timestamp without time zone NOT NULL,
+    CONSTRAINT dtb_contact_history_pkey PRIMARY KEY (contact_id)
+);
+
+
+CREATE TABLE mtb_contact_type (
+  id smallint NOT NULL,
+  "name" text,
+  rank smallint NOT NULL DEFAULT 0,
+  CONSTRAINT mtb_contact_type_pkey PRIMARY KEY (id)
+);
+
+INSERT INTO mtb_contact_type (id, name, rank) VALUES (1, '問い合わせ', 0);
+INSERT INTO mtb_contact_type (id, name, rank) VALUES (2, '修理', 1);
+
+
+CREATE TABLE mtb_contact_status (
+  id smallint NOT NULL,
+  "name" text,
+  rank smallint NOT NULL DEFAULT 0,
+  CONSTRAINT mtb_contact_status_pkey PRIMARY KEY (id)
+);
+
+INSERT INTO mtb_contact_status (id, name, rank) VALUES (1, '新規受付', 0);
+INSERT INTO mtb_contact_status (id, name, rank) VALUES (2, '処理中', 1);
+INSERT INTO mtb_contact_status (id, name, rank) VALUES (3, '対応済み', 2);
+
+CREATE TABLE mtb_contact_status_color (
+  id smallint NOT NULL,
+  "name" text,
+  rank smallint NOT NULL DEFAULT 0,
+  CONSTRAINT mtb_contact_status_color_pkey PRIMARY KEY (id)
+);
+
+INSERT INTO mtb_contact_status_color (id, name, rank) VALUES (1, '#FFFFFF', 0);
+INSERT INTO mtb_contact_status_color (id, name, rank) VALUES (2, '#BFDFFF', 1);
+INSERT INTO mtb_contact_status_color (id, name, rank) VALUES (3, '#C9C9C9', 2);

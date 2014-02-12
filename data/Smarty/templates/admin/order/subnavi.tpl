@@ -28,4 +28,11 @@
     <li id="navi-order-status"
         class="<!--{if $tpl_mainno == 'order' && $tpl_subno == 'status'}-->on<!--{/if}-->"
     ><a href="<!--{$smarty.const.ROOT_URLPATH}--><!--{$smarty.const.ADMIN_DIR}-->order/status.php"><span>対応状況管理</span></a></li>
+    <!--{*## 問い合わせ履歴管理 ADD BEGIN ##*}-->
+    <!--{if $smarty.const.USE_CONTACT_HISTORY === true}-->
+    <li id="navi-order-contact_history"
+        class="<!--{if $tpl_mainno == 'contact_history' && $tpl_subno == 'contact_history'}-->on<!--{/if}-->"
+    ><a href="<!--{$smarty.const.ROOT_URLPATH}--><!--{$smarty.const.ADMIN_DIR}-->order/contact_history.php"><span>問い合わせ履歴</span></a></li>
+    <!--{/if}-->
+    <!--{*## 問い合わせ履歴管理 ADD END ##*}-->
 </ul>

@@ -158,5 +158,50 @@ class SC_Helper_Mail_Ex extends SC_Helper_Mail {
 
 		return $objSendMail;
 	}
+	
+	/*## 問い合わせ履歴管理 ADD BEGIN ##*/
+    // DBに登録されたテンプレートの内容を取得する
+    function sfGetTemplateMail($template_id, &$objPage) {
+
+        $objQuery =& SC_Query_Ex::getSingletonInstance();
+        // メールテンプレート情報の取得
+        $where = 'template_id = ?';
+        $arrRet = $objQuery->select('subject, header, footer', 'dtb_mailtemplate', $where, array($template_id));
+        $objPage->tpl_header = $arrRet[0]['header'];
+        $objPage->tpl_footer = $arrRet[0]['footer'];
+        $tmp_subject = $arrRet[0]['subject'];
+
+        $arrInfo = SC_Helper_DB_Ex::sfGetBasisData();
+
+        $objMailView = new SC_SiteView_Ex();
+        $objMailView->setPage($this->getPage());
+        // メール本文の取得
+        $objMailView->assignobj($objPage);
+        $body = $objMailView->fetch($this->arrMAILTPLPATH[$template_id]);
+        $tosubject = $this->sfMakeSubject($tmp_subject, $objMailView);
+
+        return array("subject" => $tosubject, "body" => $body);
+    }
+    
+    // 問い合わせメール配信履歴への登録
+    function sfSaveContactHistory($to, $subject, $body, $customer_id = null, $contact_type=1, $attachment = "") {
+        $sqlval = array();
+        $sqlval['contact_type'] = $contact_type;
+        $sqlval['status'] = 1;
+        if(!empty($customer_id)){
+        	$sqlval['customer_id'] = $customer_id;
+        }
+        $sqlval['sender_email'] = $to;
+        $sqlval['subject'] = $subject;
+        $sqlval['body'] = $body;
+       	$sqlval['attachment'] = $attachment;
+        
+        $sqlval['create_date'] = 'now()';
+        $sqlval['update_date'] = 'now()';
+        
+        $objQuery =& SC_Query_Ex::getSingletonInstance();
+        $objQuery->insert('dtb_contact_history', $sqlval);
+    }
+    /*## 問い合わせ履歴管理 ADD END ##*/
 }
 ?>

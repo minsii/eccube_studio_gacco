@@ -266,3 +266,47 @@ CREATE TABLE mtb_contact_status_color (
 INSERT INTO mtb_contact_status_color (id, name, rank) VALUES (1, '#FFFFFF', 0);
 INSERT INTO mtb_contact_status_color (id, name, rank) VALUES (2, '#BFDFFF', 1);
 INSERT INTO mtb_contact_status_color (id, name, rank) VALUES (3, '#C9C9C9', 2);
+
+/*######################■事例集■######################*/
+INSERT INTO mtb_constants (id ,name ,rank ,remarks) VALUES ('USE_JIREI',  'true',  (SELECT MAX(rank)+1 FROM mtb_constants),  '事例集使用フラグ|true:使用');
+INSERT INTO mtb_constants (id ,name ,rank ,remarks) VALUES ('JIREI_IMAGE_WIDTH',  '500',  (SELECT MAX(rank)+1 FROM mtb_constants),  '事例画像幅');
+INSERT INTO mtb_constants (id ,name ,rank ,remarks) VALUES ('JIREI_IMAGE_HEIGHT',  '500',  (SELECT MAX(rank)+1 FROM mtb_constants),  '事例画像縦');
+INSERT INTO mtb_constants(id, name, rank, remarks) VALUES('JIREI_LIST_MAX', '6', (SELECT MAX(rank)+1 FROM mtb_constants), '事例一覧最大表示数');
+
+DROP TABLE IF EXISTS dtb_portfolio;
+CREATE TABLE dtb_portfolio (
+    portfolio_id serial NOT NULL,
+    portfolio_name text,
+    rank INT,
+    creator_id INT NOT NULL,
+    create_date timestamp without time zone NOT NULL DEFAULT now(),
+    update_date timestamp without time zone NOT NULL DEFAULT now(),
+    del_flg smallint DEFAULT 0 NOT NULL,
+    portfolio_main_image text,
+    portfolio_info text,
+    portfolio_category_id INT,
+    title text,
+    description text,
+    keyword text,
+    h1 text,
+    CONSTRAINT dtb_portfolio_pkey PRIMARY KEY (portfolio_id)
+);
+
+DROP TABLE IF EXISTS dtb_portfolio_category;
+CREATE TABLE dtb_portfolio_category (
+    portfolio_category_id serial NOT NULL,
+    portfolio_category_name text,
+    rank INT,
+    creator_id INT NOT NULL,
+    create_date timestamp without time zone NOT NULL DEFAULT now(),
+    update_date timestamp without time zone NOT NULL DEFAULT now(),
+    del_flg smallint DEFAULT 0 NOT NULL,
+    portfolio_category_main_image text,
+    portfolio_category_info text,
+    portfolio_category_info2 text,
+    title text,
+    description text,
+    keyword text,
+    h1 text,
+    CONSTRAINT dtb_portfolio_category_pkey PRIMARY KEY (portfolio_category_id)
+);

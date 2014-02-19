@@ -25,6 +25,12 @@
 <ul class="level1">
 <li<!--{if $tpl_subno == 'index'}--> class="on"<!--{/if}--> id="navi-contents-index"><a href="<!--{$smarty.const.ROOT_URLPATH}--><!--{$smarty.const.ADMIN_DIR}-->contents/<!--{$smarty.const.DIR_INDEX_PATH}-->"><span>新着情報管理</span></a></li>
 <li<!--{if $tpl_subno == 'recommend'}--> class="on"<!--{/if}--> id="navi-contents-recommend"><a href="<!--{$smarty.const.ROOT_URLPATH}--><!--{$smarty.const.ADMIN_DIR}-->contents/recommend.php"><span>おすすめ商品管理</span></a></li>
+<!--{*## 事例管理 ADD BEGIN ##*}-->
+<!--{if $smarty.const.USE_JIREI === true}-->
+<li<!--{if $tpl_subno == 'portfolio_category'}--> class="on"<!--{/if}--> id="navi-contents-portfolio-category"><a href="<!--{$smarty.const.ROOT_URLPATH}--><!--{$smarty.const.ADMIN_DIR}-->contents/portfolio_category.php"><span>事例カテゴリ登録</span></a></li>
+<li<!--{if $tpl_subno == 'portfolio'}--> class="on"<!--{/if}--> id="navi-contents-portfolio"><a href="<!--{$smarty.const.ROOT_URLPATH}--><!--{$smarty.const.ADMIN_DIR}-->contents/portfolio.php"><span>事例登録</span></a></li>
+<!--{/if}-->
+<!--{*## 事例管理 ADD BEGIN ##*}-->
 <li<!--{if $tpl_subno == 'file'}--> class="on"<!--{/if}--> id="navi-contents-file"><a href="<!--{$smarty.const.ROOT_URLPATH}--><!--{$smarty.const.ADMIN_DIR}-->contents/file_manager.php"><span>ファイル管理</span></a></li>
 <li<!--{if $tpl_subno == 'csv'}--> class="on"<!--{/if}--> class="on_level2" id="navi-contents-csv"><a href="<!--{$smarty.const.ROOT_URLPATH}--><!--{$smarty.const.ADMIN_DIR}-->contents/csv.php"><span>CSV出力項目設定</span></a>
     <ul id="navi-csv-sub" class="level2">

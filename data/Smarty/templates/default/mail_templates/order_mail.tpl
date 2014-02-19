@@ -65,14 +65,14 @@
 <!--{*## 追加規格 ADD END ##*}-->
 <!--{*## 商品非課税 MDF BEGIN ##*}-->
 単価：￥ <!--{if $smarty.const.USE_TAXFREE_PRODUCT === true && $arrOrderDetail[cnt].taxfree == 1}--><!--{$arrOrderDetail[cnt].price|number_format}-->円（税抜）
-<!--{else}--><!--{$arrOrderDetail[cnt].price|sfCalcIncTax:$arrInfo.tax:$arrInfo.tax_rule|number_format}-->円（税込）
+<!--{else}--><!--{$arrOrderDetail[cnt].price|sfCalcIncTax:$arrOrderDetail[cnt].tax_rate:$arrOrderDetail[cnt].tax_rule|number_format}-->円（税込）
 <!--{/if}-->
 <!--{*## 商品非課税 MDF END ##*}-->
 数量：<!--{$arrOrderDetail[cnt].quantity}-->
 
 <!--{/section}-->
 -------------------------------------------------
-小　計 ￥ <!--{$arrOrder.subtotal|number_format|default:0}--> (うち消費税 ￥<!--{$arrOrder.tax|number_format|default:0}-->）
+小　計 ￥ <!--{$arrOrder.subtotal|number_format|default:0}--> <!--{if 0 < $arrOrder.tax}-->(うち消費税 ￥<!--{$arrOrder.tax|number_format|default:0}-->）<!--{/if}-->
 値引き ￥ <!--{$arrOrder.use_point*$smarty.const.POINT_VALUE+$arrOrder.discount|number_format|default:0}-->
 送　料 ￥ <!--{$arrOrder.deliv_fee|number_format|default:0}-->
 手数料 ￥ <!--{$arrOrder.charge|number_format|default:0}-->
@@ -118,7 +118,7 @@
 商品名: <!--{$item.product_name}--> <!--{$item.classcategory_name1}--> <!--{$item.classcategory_name2}-->
 <!--{*## 商品非課税 MDF BEGIN ##*}-->
 <!--{if $smarty.const.USE_TAXFREE_PRODUCT !== true}-->
-単価：￥ <!--{$item.price|sfCalcIncTax|number_format}-->円（税込）
+単価：￥ <!--{$item.price|sfCalcIncTax:$arrOrder.order_tax_rate:$arrOrder.order_tax_rule|number_format}-->円（税込）
 <!--{/if}-->
 <!--{*## 商品非課税 MDF END ##*}-->
 数量：<!--{$item.quantity}-->

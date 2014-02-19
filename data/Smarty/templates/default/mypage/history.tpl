@@ -85,12 +85,14 @@
                     </td>
                     <!--{assign var=price value=`$orderDetail.price`}-->
                     <!--{assign var=quantity value=`$orderDetail.quantity`}-->
+                    <!--{assign var=tax_rate value=`$orderDetail.tax_rate`}-->
+                    <!--{assign var=tax_rule value=`$orderDetail.tax_rule`}-->
                     <td class="alignR" nowrap>
                     <!--{*## 商品非課税 MDF BEGIN ##*}-->
                     <!--{if $smarty.const.USE_TAXFREE_PRODUCT === true && $orderDetail.taxfree == 1}-->
                         <!--{$price|number_format}-->円（税抜）
                     <!--{else}-->
-                        <!--{$price|sfCalcIncTax|number_format}-->円（税込）
+                        <!--{$price|sfCalcIncTax:$tax_rate:$tax_rule|number_format|h}-->円（税込）
                     <!--{/if}-->
                     <!--{*## 商品非課税 MDF END ##*}-->
                     </td>
@@ -100,7 +102,7 @@
                     <!--{if $smarty.const.USE_TAXFREE_PRODUCT === true && $orderDetail.taxfree == 1}-->
                         <!--{$price|sfMultiply:$quantity|number_format}-->円
                     <!--{else}-->
-                        <!--{$price|sfCalcIncTax|sfMultiply:$quantity|number_format}-->円
+                        <!--{$price|sfCalcIncTax:$tax_rate:$tax_rule|sfMultiply:$quantity|number_format}-->円
                     <!--{/if}-->
                     <!--{*## 商品非課税 MDF END ##*}-->
                     </td>
@@ -185,7 +187,7 @@
                                 <!--{/if}-->
                             </td>
                             <td class="alignR">
-                                <!--{$item.price|sfCalcIncTax|number_format}-->円
+                                <!--{$item.price|sfCalcIncTax:$tpl_arrOrderData.order_tax_rate:$tpl_arrOrderData.order_tax_rule|number_format}-->円
                             </td>
                             <td class="alignC"><!--{$item.quantity}--></td>
                             <!--{* XXX 購入小計と誤差が出るためコメントアウト

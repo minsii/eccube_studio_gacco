@@ -559,6 +559,8 @@ CREATE TABLE dtb_order (
     add_point numeric NOT NULL DEFAULT 0,
     birth_point numeric NOT NULL DEFAULT 0,
     tax numeric,
+    order_tax_rate numeric,
+    order_tax_rule smallint,
     total numeric,
     payment_total numeric,
     payment_id int,
@@ -619,6 +621,8 @@ CREATE TABLE dtb_order_temp (
     add_point numeric NOT NULL DEFAULT 0,
     birth_point numeric NOT NULL DEFAULT 0,
     tax numeric,
+    order_tax_rate numeric,
+    order_tax_rule smallint,
     total numeric,
     payment_total numeric,
     payment_id int,
@@ -716,6 +720,7 @@ CREATE TABLE dtb_other_deliv (
     fax03 text,
     PRIMARY KEY (other_deliv_id)
 );
+
 
 CREATE TABLE dtb_order_detail (
     order_detail_id int NOT NULL,

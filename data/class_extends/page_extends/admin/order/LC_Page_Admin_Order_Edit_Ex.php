@@ -237,7 +237,6 @@ class LC_Page_Admin_Order_Edit_Ex extends LC_Page_Admin_Order_Edit {
 		$this->arrAllShipping = $objFormParam->getSwapArray(array_merge($this->arrShippingKeys, $this->arrShipmentItemKeys));
 		$this->arrDelivTime = $objPurchase->getDelivTime($objFormParam->getValue('deliv_id'));
 		$this->tpl_onload .= $this->getAnchorKey($objFormParam);
-		$this->arrInfo = SC_Helper_DB_Ex::sfGetBasisData();
 		if ($arrValuesBefore['payment_id'])
 		$this->arrPayment[$arrValuesBefore['payment_id']] = $arrValuesBefore['payment_method'];
 
@@ -478,12 +477,14 @@ class LC_Page_Admin_Order_Edit_Ex extends LC_Page_Admin_Order_Edit {
 			$arrProduct['quantity'] = 1;
 			$arrProduct['price'] = $arrProduct['price02'];
 			$arrProduct['product_name'] = $arrProduct['name'];
-
+			$arrProduct['tax_rate'] = $objFormParam->getValue('order_tax_rate') == '' ? $this->arrInfo['tax']      : $objFormParam->getValue('order_tax_rate');
+            $arrProduct['tax_rule'] = $objFormParam->getValue('order_tax_rule') == '' ? $this->arrInfo['tax_rule'] : $objFormParam->getValue('order_tax_rule');
+            
 			$arrUpdateKeys = array('product_id', 'product_class_id',
                                    'product_type_id', 'point_rate',
                                    'product_code', 'product_name',
                                    'classcategory_name1', 'classcategory_name2',
-                                   'quantity', 'price');
+                                   'quantity', 'price', 'tax_rate', 'tax_rule');
 			/*## 追加規格 ADD BEGIN ##*/
 			if(USE_EXTRA_CLASS === true){
 				$arrUpdateKeys[] = 'extra_info';
@@ -537,7 +538,7 @@ class LC_Page_Admin_Order_Edit_Ex extends LC_Page_Admin_Order_Edit {
                                'product_type_id', 'point_rate',
                                'product_code', 'product_name',
                                'classcategory_name1', 'classcategory_name2',
-                               'quantity', 'price');
+                               'quantity', 'price', 'tax_rate', 'tax_rule');
         /*## 追加規格 ADD BEGIN ##*/
         if(USE_EXTRA_CLASS === true){
 			$arrDeleteKeys[] = "extra_info";
@@ -610,7 +611,10 @@ class LC_Page_Admin_Order_Edit_Ex extends LC_Page_Admin_Order_Edit {
                           'price', 'quantity',
                           "point_rate",
                           "classcategory_name1",
-                          "classcategory_name2");
+                          "classcategory_name2",
+                		  "tax_rate",
+                		  "tax_rule"
+        );
         if(USE_EXTRA_CLASS === true){
         	$arrCols[] = "extra_info";
         }

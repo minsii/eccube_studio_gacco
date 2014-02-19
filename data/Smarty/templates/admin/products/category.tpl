@@ -178,8 +178,7 @@ function lfDeleteRecommend(key){
                      商品コード：<!--{$arrRecommend[$recommend_no].product_code_min}--><br />
                      商品名：<!--{$arrRecommend[$recommend_no].name|escape}--><br />
                      <!--{assign var=key value="recommend_comment`$smarty.section.cnt.iteration`"}-->
-                     <textarea name="<!--{$key}-->" cols="60" rows="8" class="area60" style="<!--{$arrErr[$key]|sfGetErrorColor}-->" >
-                     <!--{"\n"}--><!--{$arrRecommend[$recommend_no].comment|h}--></textarea><br />
+                     <textarea name="<!--{$key}-->" cols="60" rows="8" class="area60" style="<!--{$arrErr[$key]|sfGetErrorColor}-->" ><!--{$arrRecommend[$recommend_no].comment|h}--></textarea><br />
                      <span class="attention"> (上限<!--{$smarty.const.LTEXT_LEN}-->文字)</span>
                     </td>
                   </tr>
@@ -220,7 +219,6 @@ function lfDeleteRecommend(key){
 
 
                 <!--{*## CATEGORY 情報 ## ADD BEGIN*}-->
-<!--{*
                 <!--{if $smarty.const.USE_CATEGORY_INFO === true}-->
                 <!--{foreach key=name item=value from=$arrHiddenForm}-->
                 <input type="hidden" name="<!--{$name}-->" value="<!--{$value}-->">
@@ -240,7 +238,6 @@ function lfDeleteRecommend(key){
                 <input type="text" name="category_main_image_alt" id="category_main_image_alt" class="box30" value="<!--{$arrForm.category_main_image_alt|escape}-->">
                 <span class="attention"> (上限<!--{$smarty.const.LTEXT_LEN}-->文字)</span>
                 <!--{/if}-->
-*}-->
                 <!--{*## CATEGORY 情報 ## ADD END*}-->
                 <br /><br /><a class="btn-normal" href="javascript:;" onclick="fnModeSubmit('edit','',''); return false;"><span class="btn-next">登録</span></a>
         </div>

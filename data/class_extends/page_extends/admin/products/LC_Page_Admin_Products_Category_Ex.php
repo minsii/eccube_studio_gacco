@@ -81,7 +81,7 @@ class LC_Page_Admin_Products_Category_Ex extends LC_Page_Admin_Products_Category
         	$this->lfInitFile($objUpFile);
         }
         /*## CATEGORY 情報 ADD END ##*/        
-        
+
 		/*## カテゴリお勧め商品 ADD BEGIN ##*/
         $this->objRcmdFormParam = new SC_FormParam_Ex();
         $this->initRecommendParam();
@@ -107,12 +107,30 @@ class LC_Page_Admin_Products_Category_Ex extends LC_Page_Admin_Products_Category
             if(count($this->arrErr)){
             	$this->arrForm = $objFormParam->getHashArray();
             	$this->lfLoadTempRecommend();
-            }      
-            /*## カテゴリお勧め商品 ADD END ##*/ 
+            	 
+            	$objUpFile->setHiddenFileList($arrPOST);
+            	 
+            	/*## CATEGORY 情報 ADD BEGIN ##*/
+            	if(constant("USE_CATEGORY_INFO") === true){
+            		$this->arrHiddenForm = $objUpFile->getHiddenFileList();
+            		// 入力画面表示設定
+            		$this->arrFile = $objUpFile->getFormFileList(IMAGE_TEMP_URLPATH, IMAGE_SAVE_URLPATH);
+            	}
+            	/*## CATEGORY 情報 ADD END ##*/
+            }
+            /*## カテゴリお勧め商品 ADD END ##*/
             break;
         // 入力ボックスへ編集対象のカテゴリ名をセット
         case 'pre_edit':
             $this->doPreEdit($objFormParam, $objUpFile);
+
+            /*## CATEGORY 情報 ADD BEGIN ##*/
+            if(constant("USE_CATEGORY_INFO") === true){
+            	$this->arrHiddenForm = $objUpFile->getHiddenFileList();
+            	// 入力画面表示設定
+            	$this->arrFile = $objUpFile->getFormFileList(IMAGE_TEMP_URLPATH, IMAGE_SAVE_URLPATH);
+            }
+            /*## CATEGORY 情報 ADD END ##*/
             break;
         // カテゴリ削除
         case 'delete':
@@ -220,21 +238,21 @@ class LC_Page_Admin_Products_Category_Ex extends LC_Page_Admin_Products_Category
         		}
          	}
          	$this->lfLoadTempRecommend();
+         	
+         	/*## CATEGORY 情報 ADD BEGIN ##*/
+         	if(constant("USE_CATEGORY_INFO") === true){
+         		$this->arrHiddenForm = $objUpFile->getHiddenFileList();
+         		// 入力画面表示設定
+         		$this->arrFile = $objUpFile->getFormFileList(IMAGE_TEMP_URLPATH, IMAGE_SAVE_URLPATH);
+         	}
+         	/*## CATEGORY 情報 ADD END ##*/
         	break;
 /*## CATEGORY 情報 ADD END ##*/
         	
         default:
             break;
         }
- 
- 		/*## CATEGORY 情報 ADD BEGIN ##*/       
-        if(constant("USE_CATEGORY_INFO") === true){
-        	$this->arrHiddenForm = $objUpFile->getHiddenFileList();
-         // 入力画面表示設定
-        	$this->arrFile = $objUpFile->getFormFileList(IMAGE_TEMP_URLPATH, IMAGE_SAVE_URLPATH);
-        }
-        /*## CATEGORY 情報 ADD END ##*/
-        
+
         $parent_category_id = $objFormParam->getValue('parent_category_id');
         // 空の場合は親カテゴリを0にする
         if (empty($parent_category_id)) {
@@ -314,15 +332,15 @@ class LC_Page_Admin_Products_Category_Ex extends LC_Page_Admin_Products_Category
 
         // 編集対象のカテゴリ名をDBより取得する
         $where = 'category_id = ?';
-        $arrRes = $objQuery->getRow('*', 'dtb_category', $where, array($category_id));
+        $arrRet = $objQuery->getRow('*', 'dtb_category', $where, array($category_id));
 
-        $objFormParam->setParam($arrRes);
+        $objFormParam->setParam($arrRet);
 
         $this->arrForm = $objFormParam->getHashArray();
         
 		/*## CATEGORY 情報 ## ADD BEGIN*/
 		if(constant("USE_CATEGORY_INFO") === true){
-			$objUpFile->setDBFileList($arrRet[0]);
+			$objUpFile->setDBFileList($arrRet);
 		}
 		/*## CATEGORY 情報 MDF END ##*/
 		

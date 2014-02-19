@@ -45,6 +45,13 @@ class LC_Page_Admin_Products_Ex extends LC_Page_Admin_Products {
 	 */
 	function init() {
 		parent::init();
+		
+		/*## 商品マスタ一覧で発送日目安管理 ADD BEGIN ##*/
+		$masterData = new SC_DB_MasterData_Ex();
+		if(USE_PRODUCT_MASTER_EDIT_DELIV_DATE === true){
+			$this->arrDELIVERYDATE = $masterData->getMasterData('mtb_delivery_date');
+		}
+        /*## 商品マスタ一覧で発送日目安管理 ADD END ##*/
 	}
 
 	/**
@@ -108,6 +115,14 @@ class LC_Page_Admin_Products_Ex extends LC_Page_Admin_Products {
 					$_POST["mode"] = "search";
 				}
 				/*## 商品マスタ一覧で在庫変更 ADD END ##*/
+
+				/*## 商品マスタ一覧で発送日目安管理 ADD BEGIN ##*/
+			case 'change_all_deliv_date':
+				if(USE_PRODUCT_MASTER_EDIT_DELIV_DATE === true){
+					$this->changeProductsDelivDate();
+					$_POST["mode"] = "search";
+				}
+				/*## 商品マスタ一覧で発送日目安管理 ADD END ##*/
 				
 				// 検索パラメーター生成後に処理実行するため breakしない
 			case 'csv':
@@ -196,6 +211,12 @@ class LC_Page_Admin_Products_Ex extends LC_Page_Admin_Products {
 
 		// 読み込む列とテーブルの指定
 		$col = 'product_id, name, main_list_image, status, product_code_min, product_code_max, price02_min, price02_max, stock_min, stock_max, stock_unlimited_min, stock_unlimited_max, update_date';
+		/*## 商品マスタ一覧で発送日目安管理 ADD BEGIN ##*/
+		if(USE_PRODUCT_MASTER_EDIT_DELIV_DATE === true){
+			$col .= ',deliv_date_id';
+		}
+		/*## 商品マスタ一覧で発送日目安管理 ADD END ##*/
+		
 		$from = $objProduct->alldtlSQL();
 
 		$objQuery->setLimitOffset($limit, $offset);
@@ -290,6 +311,22 @@ class LC_Page_Admin_Products_Ex extends LC_Page_Admin_Products {
 	/*## 商品マスタ一覧で在庫変更 ADD END ##*/
 
 	
+	/*## 商品マスタ一覧で発送日目安管理 ADD BEGIN ##*/
+	function changeProductsDelivDate(){
+		$objQuery =& SC_Query_Ex::getSingletonInstance();
+		$objProduct = new SC_Product_Ex();
+		$objQuery->begin();
+
+		foreach($_POST as $name => $value){
+			if(preg_match("/^deliv_date_id_(\d+)/", $name, $matchs)){
+				$objProduct->changeDelivDateId($matchs[1], $value, $objQuery);
+			}
+		}
+
+		$objQuery->commit();
+	}
+	/*## 商品マスタ一覧で発送日目安管理 ADD END ##*/
+
     /**
      * クエリを構築する.
      *

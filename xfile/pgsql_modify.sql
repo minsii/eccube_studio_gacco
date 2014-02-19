@@ -310,3 +310,7 @@ CREATE TABLE dtb_portfolio_category (
     h1 text,
     CONSTRAINT dtb_portfolio_category_pkey PRIMARY KEY (portfolio_category_id)
 );
+
+/*######################■商品マスタ一覧で発送日目安管理■######################*/
+INSERT INTO mtb_constants (id ,name ,rank ,remarks) VALUES ('USE_PRODUCT_MASTER_EDIT_DELIV_DATE',  'true',  (SELECT MAX(rank)+1 FROM mtb_constants),  '商品マスタ一覧で発送日目安管理フラグ|true:使用');
+

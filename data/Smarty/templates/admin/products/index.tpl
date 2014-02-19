@@ -231,7 +231,7 @@ function lfnDispChange(){
                 <th rowspan="2">在庫
                 <!--{*## 商品マスタ一覧で在庫変更 ADD BEGIN ##*}-->
                 <!--{if $smarty.const.USE_PRODUCT_MASTER_STOCK_EDIT == 1}-->
-                <a class="btn-tool" href="#" onclick="fnModeSubmit('change_all_stock','',''); return false;">まとめて変更</a>
+                <br /><a class="btn-tool" href="#" onclick="fnModeSubmit('change_all_stock','',''); return false;">まとめて変更</a>
                 <!--{/if}-->
                 <!--{*## 商品マスタ一覧で在庫変更 ADD END ##*}-->
                 </th>
@@ -248,6 +248,13 @@ function lfnDispChange(){
                 <!--{*## 追加規格 ADD END ##*}-->
                 <th rowspan="2">削除</th>
                 <th rowspan="2">複製</th>
+                <!--{*## 商品マスタ一覧で発送日目安管理 ADD BEGIN ##*}-->
+                <!--{if $smarty.const.USE_PRODUCT_MASTER_EDIT_DELIV_DATE == 1}-->
+                <th rowspan="2">発送日目安<br />
+                <a class="btn-tool" href="#" onclick="fnModeSubmit('change_all_deliv_date','',''); return false;">まとめて変更</a>
+                </th>
+                <!--{/if}-->
+                <!--{*## 商品マスタ一覧で発送日目安安管理 ADD END ##*}-->
             </tr>
             <tr>
                 <th nowrap><a href="#" onClick="lfnDispChange(); return false;">カテゴリ ⇔ URL</a></th>
@@ -347,6 +354,22 @@ function lfnDispChange(){
                     <!--{*## 追加規格 ADD END ##*}-->
                     <td class="menu" rowspan="2"><span class="icon_delete"><a href="<!--{$smarty.const.ROOT_URLPATH}-->" onclick="fnSetFormValue('category_id', '<!--{$arrProducts[cnt].category_id}-->'); fnModeSubmit('delete', 'product_id', <!--{$arrProducts[cnt].product_id}-->); return false;">削除</a></span></td>
                     <td class="menu" rowspan="2"><span class="icon_copy"><a href="<!--{$smarty.const.ROOT_URLPATH}-->" onclick="fnChangeAction('./product.php'); fnModeSubmit('copy', 'product_id', <!--{$arrProducts[cnt].product_id}-->); return false;" >複製</a></span></td>
+                    
+                    <!--{*## 商品マスタ一覧で発送日目安管理 ADD BEGIN ##*}-->
+                    
+                    <!--{if $smarty.const.USE_PRODUCT_MASTER_EDIT_DELIV_DATE == 1}-->
+                    <!--{assign var=deliv_date_key value="deliv_date_id_`$arrProducts[cnt].product_id`"}-->
+                    <td class="menu" rowspan="2">
+                      <!--{if $arrProducts[cnt].classcategory_id1_min == 0 && $arrProducts[cnt].classcategory_id2_min == 0 }-->
+                      <!--{assign var=deliv_date_key value="deliv_date_id_`$arrProducts[cnt].product_id`"}-->
+                      <select name="<!--{$deliv_date_key}-->" style="<!--{$arrErr[$deliv_date_key]|sfGetErrorColor}-->">
+                          <option value="">選択してください</option>
+                          <!--{html_options options=$arrDELIVERYDATE selected=$arrProducts[cnt].deliv_date_id}-->
+                      </select>
+                      <!--{/if}-->
+                    </td>
+                    <!--{/if}-->
+                    <!--{*## 商品マスタ一覧で発送日目安安管理 ADD END ##*}-->
                 </tr>
                 <tr style="background:<!--{$arrPRODUCTSTATUS_COLOR[$status]}-->;">
                     <td>

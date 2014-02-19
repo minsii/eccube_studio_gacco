@@ -180,6 +180,16 @@ class SC_Product_Ex extends SC_Product {
     }
     /*## 商品マスタ一覧で在庫変更 ADD END ##*/
     
+    /*## 商品マスタ一覧で発送日目安管理 ADD BEGIN ##*/
+    function changeDelivDateId($product_id, $deliv_date_id=0, &$objQuery){
+    	if($objQuery == null) $objQuery =& SC_Query_Ex::getSingletonInstance();
+    	 
+    	$sqlval['deliv_date_id'] = $deliv_date_id;
+    	$sqlval['update_date'] = 'CURRENT_TIMESTAMP';
+    	$objQuery->update("dtb_products", $sqlval, "product_id=? AND del_flg = 0", array($product_id));
+    }
+    /*## 商品マスタ一覧で発送日目安管理 ADD END ##*/
+    
     /**
      * SC_Queryインスタンスに設定された検索条件をもとに商品一覧の配列を取得する.
      *

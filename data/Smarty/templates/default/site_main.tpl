@@ -53,7 +53,8 @@
     <!--{* ▲HEADER *}-->
 
     <div id="container" class="clearfix">
-
+	<!--{include file='./breadcrumb.tpl'}-->
+	  
         <!--{* ▼TOP COLUMN*}-->
         <!--{if $arrPageLayout.TopNavi|@count > 0}-->
             <div id="topcolumn">
@@ -174,7 +175,8 @@
             </div>
         <!--{/if}-->
         <!--{* ▲BOTTOM COLUMN*}-->
-
+		
+	<!--{include file='./bottom_navi.tpl'}-->
     </div>
 
     <!--{* ▼FOOTER *}-->

@@ -37,7 +37,7 @@ select {
 
 /* ヘッダーバックグラウンド */
 #wrap_all{
-	background: url("../img/common/head_bg.gif") left top repeat-x;
+	/*background: url("../img/common/head_bg.gif") left top repeat-x;*/
 }
 
 /* フロート回り込み解除

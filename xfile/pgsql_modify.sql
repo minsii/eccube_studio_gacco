@@ -314,3 +314,9 @@ CREATE TABLE dtb_portfolio_category (
 /*######################■商品マスタ一覧で発送日目安管理■######################*/
 INSERT INTO mtb_constants (id ,name ,rank ,remarks) VALUES ('USE_PRODUCT_MASTER_EDIT_DELIV_DATE',  'true',  (SELECT MAX(rank)+1 FROM mtb_constants),  '商品マスタ一覧で発送日目安管理フラグ|true:使用');
 
+/*######################■商品規格単位で発送日目安管理■######################*/
+INSERT INTO mtb_constants (id ,name ,rank ,remarks) VALUES ('USE_DELIV_DATE_PER_PRODUCT_CLASS',  'true',  (SELECT MAX(rank)+1 FROM mtb_constants),  '商品規格単位で発送日目安管理フラグ|true:使用');
+ALTER TABLE dtb_products_class ADD COLUMN deliv_date_id integer;
+
+UPDATE dtb_products SET deliv_date_id=null;
+ALTER TABLE dtb_products DROP COLUMN deliv_date_id;

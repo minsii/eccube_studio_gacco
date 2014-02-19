@@ -64,8 +64,17 @@
                 <th><!--{$smarty.const.NORMAL_PRICE_TITLE}-->(円)</th>
                 <th><!--{$smarty.const.SALE_PRICE_TITLE}-->(円)</th>
                 <th>商品種別</th>
+                <!--{*# 商品規格単位で発送日目安管理 ADD BEGIN #*}-->
+                <!--{if $smarty.const.USE_DELIV_DATE_PER_PRODUCT_CLASS === true}-->
+                <th>発送日目安</th>
+                <!--{/if}-->
+                <!--{*# 商品規格単位で発送日目安管理 ADD END #*}-->
+                <!--{*# ダウンロード商品使用フラグ追加 MDF BEGIN #*}-->
+                <!--{if $smarty.const.USE_DOWNLOAD_PRODUCT === true}-->
                 <th>ダウンロードファイル名</th>
                 <th>ダウンロード商品用ファイルアップロード</th>
+                <!--{/if}-->
+                <!--{*# ダウンロード商品使用フラグ追加 MDF END #*}-->
             </tr>
             <!--{section name=cnt loop=$arrForm.total.value}-->
                 <!--{assign var=index value=$smarty.section.cnt.index}-->
@@ -97,10 +106,23 @@
                                 <!--{$arrProductType[$product_type_id]|h}-->
                             <!--{/foreach}-->
                         </td>
+                
+                        <!--{*# 商品規格単位で発送日目安管理 ADD BEGIN #*}-->
+                        <!--{if $smarty.const.USE_DELIV_DATE_PER_PRODUCT_CLASS === true}-->
+                        <!--{assign var=key value="deliv_date_id"}-->
+                        <!--{assign var=deliv_date_id value=$arrForm[$key].value[$index]}-->
+                        <td class="right"><!--{$arrDELIVERYDATE[$deliv_date_id]|h}--></td>
+                        <!--{/if}-->
+                        <!--{*# 商品規格単位で発送日目安管理 ADD END #*}-->
+                
+                        <!--{*# ダウンロード商品使用フラグ追加 MDF BEGIN #*}-->
+                        <!--{if $smarty.const.USE_DOWNLOAD_PRODUCT === true}-->
                         <!--{assign var=key value="down_filename"}-->
                         <td class="right"><!--{$arrForm[$key].value[$index]}--></td>
                         <!--{assign var=key value="down_realfilename"}-->
                         <td class="right"><!--{$arrForm[$key].value[$index]}--></td>
+                        <!--{/if}-->
+                        <!--{*# ダウンロード商品使用フラグ追加 MDF END #*}-->
                     </tr>
                 <!--{/if}-->
             <!--{/section}-->

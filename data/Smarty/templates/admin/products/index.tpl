@@ -214,14 +214,16 @@ function lfnDispChange(){
             <colgroup width="8%">
             <colgroup width="8%">
             <colgroup width="8%">
-            <colgroup width="25%">
+            <colgroup width="20%">
             <colgroup width="8%">
             <colgroup width="8%">
             <colgroup width="5%">
             <colgroup width="5%">
             <colgroup width="5%">
-            <colgroup width="5%">
-            <colgroup width="5%">
+            <colgroup width="4%">
+            <colgroup width="3%">
+            <colgroup width="3%">
+            <colgroup width="10%">
             <tr>
                 <th rowspan="2">商品ID</th>
                 <th rowspan="2">商品画像</th>

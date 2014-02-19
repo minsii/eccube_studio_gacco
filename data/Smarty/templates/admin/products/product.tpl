@@ -257,6 +257,9 @@ function selectAll(target) {
         </tr>
         <!--{/if}-->
         <!--{*# 配送ランク ADD END #*}-->
+        
+        <!--{*# 商品規格単位で発送日目安管理 MDF BEGIN #*}-->
+        <!--{if $smarty.const.USE_DELIV_DATE_PER_PRODUCT_CLASS == false || $arrForm.has_product_class == false}-->
         <tr>
             <th>発送日目安</th>
             <td>
@@ -267,6 +270,9 @@ function selectAll(target) {
                 </select>
             </td>
         </tr>
+        <!--{/if}-->
+        <!--{*# 商品規格単位で発送日目安管理 MDF END #*}-->
+        
         <tr>
             <th>販売制限数</th>
             <td>

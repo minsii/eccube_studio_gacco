@@ -97,6 +97,13 @@
                 }
             });
 
+            <!--{*# 商品規格単位で発送日目安管理 ADD BEGIN #*}-->
+            <!--{if $smarty.const.USE_DELIV_DATE_PER_PRODUCT_CLASS === true}-->
+            var deliv_date_id = $('#deliv_date_id_0').val();
+            $('select[id^=deliv_date_id_]').val(deliv_date_id);
+            <!--{/if}-->
+            <!--{*# 商品規格単位で発送日目安管理 ADD END #*}-->
+            
             var down_filename = $('#down_filename_0').val();
             $('input[id^=down_filename_]').val(down_filename);
         });
@@ -190,8 +197,17 @@
         <col width="10%" />
         <col width="10%" />
         <col width="10%" />
+        <!--{*# 商品規格単位で発送日目安管理 ADD BEGIN #*}-->
+        <!--{if $smarty.const.USE_DELIV_DATE_PER_PRODUCT_CLASS === true}-->
+        <col width="16%" />
+        <!--{/if}-->
+        <!--{*# 商品規格単位で発送日目安管理 ADD END #*}-->
+        <!--{*# ダウンロード商品使用フラグ追加 MDF BEGIN #*}-->
+        <!--{if $smarty.const.USE_DOWNLOAD_PRODUCT === true}-->
         <col width="8%" />
         <col width="8%" />
+        <!--{/if}-->
+        <!--{*# ダウンロード商品使用フラグ追加 MDF END #*}-->
         <tr>
             <th><input type="checkbox" onclick="fnAllCheck(this, 'input[name^=check]')" id="allCheck" /> <label for="allCheck"><br>登録</label></th>
             <th>規格1<br>(<!--{$arrClass[$class_id1]|default:"未選択"|h}-->)</th>
@@ -201,8 +217,17 @@
             <th><!--{$smarty.const.NORMAL_PRICE_TITLE}-->(円)</th>
             <th><!--{$smarty.const.SALE_PRICE_TITLE}-->(円)<span class="attention">*</span></th>
             <th>商品種別<span class="attention">*</span></th>
+            <!--{*# 商品規格単位で発送日目安管理 ADD BEGIN #*}-->
+            <!--{if $smarty.const.USE_DELIV_DATE_PER_PRODUCT_CLASS === true}-->
+            <th>発送日目安</th>
+            <!--{/if}-->
+            <!--{*# 商品規格単位で発送日目安管理 ADD END #*}-->
+            <!--{*# ダウンロード商品使用フラグ追加 MDF BEGIN #*}-->
+            <!--{if $smarty.const.USE_DOWNLOAD_PRODUCT === true}-->
             <th>ダウンロード<br>ファイル名<span class="red"><br>上限<!--{$smarty.const.STEXT_LEN}-->文字</span></th>
             <th>ダウンロード商品用<br>ファイル</th>
+            <!--{/if}-->
+            <!--{*# ダウンロード商品使用フラグ追加 MDF END #*}-->
         </tr>
         <!--{section name=cnt loop=$arrForm.total.value}-->
             <!--{assign var=index value=$smarty.section.cnt.index}-->
@@ -279,6 +304,24 @@
                         <input type="radio" name="<!--{$key}-->[<!--{$index}-->]" value="<!--{$productTypeKey}-->" <!--{if $arrForm[$key].value[$index] == $productTypeKey}-->checked="checked"<!--{/if}--> <!--{if $arrErr[$key][$index] != ""}--><!--{sfSetErrorStyle}--><!--{/if}--> id="<!--{$key}-->_<!--{$index}-->_<!--{$smarty.foreach.productType.index}-->"><label for="<!--{$key}-->_<!--{$index}-->_<!--{$smarty.foreach.productType.index}-->"<!--{if $arrErr[$key][$index] != ""}--><!--{sfSetErrorStyle}--><!--{/if}--> ><!--{$productType}--></label><!--{if !$smarty.foreach.productType.last}--><br /><!--{/if}-->
                     <!--{/foreach}-->
                 </td>
+                
+                <!--{*# 商品規格単位で発送日目安管理 ADD BEGIN #*}-->
+                <!--{if $smarty.const.USE_DELIV_DATE_PER_PRODUCT_CLASS === true}-->
+                <td class="center">
+                    <!--{assign var=key value="deliv_date_id"}-->
+                    <!--{if $arrErr[$key][$index]}-->
+                        <span class="attention"><!--{$arrErr[$key][$index]}--></span>
+                    <!--{/if}-->
+                    <select name="<!--{$key}-->[<!--{$index}-->]" style="<!--{$arrErr[$key][$index]|sfGetErrorColor}-->" id="<!--{$key}-->_<!--{$index}-->">
+                        <option value="">選択してください</option>
+                        <!--{html_options options=$arrDELIVERYDATE selected=$arrForm[$key].value[$index]}-->
+                    </select>
+                </td>
+                <!--{/if}-->
+                <!--{*# 商品規格単位で発送日目安管理 ADD END #*}-->
+                
+                <!--{*# ダウンロード商品使用フラグ追加 MDF BEGIN #*}-->
+                <!--{if $smarty.const.USE_DOWNLOAD_PRODUCT === true}-->
                 <td class="center">
                     <!--{assign var=key value="down_filename}-->
                     <!--{if $arrErr[$key][$index]}-->
@@ -300,6 +343,8 @@
                     <a class="btn-normal" href="javascript:;" name="btn" onclick="fnFormModeSubmit('form1', 'file_upload', 'upload_index', '<!--{$index}-->'); return false;">アップロード</a>
                     <!--{/if}-->
                 </td>
+                <!--{/if}-->
+                <!--{*# ダウンロード商品使用フラグ追加 MDF END #*}-->
             </tr>
         <!--{/section}-->
     </table>

@@ -119,7 +119,18 @@ class LC_Page_Admin_Products_Product_Ex extends LC_Page_Admin_Products_Product {
         }
         $objFormParam->addParam('商品送料', 'deliv_fee', PRICE_LEN, 'n', array('NUM_CHECK', 'SPTAB_CHECK', 'MAX_LENGTH_CHECK'));
         $objFormParam->addParam('ポイント付与率', 'point_rate', PERCENTAGE_LEN, 'n', array('EXIST_CHECK', 'NUM_CHECK', 'SPTAB_CHECK', 'MAX_LENGTH_CHECK'));
-        $objFormParam->addParam('発送日目安', 'deliv_date_id', INT_LEN, 'n', array('NUM_CHECK'));
+        
+        /*## 商品規格単位で発送日目安管理 MDF BEGIN ##*/
+        if(USE_DELIV_DATE_PER_PRODUCT_CLASS === true){
+        	if (!$arrPost['has_product_class']) {
+        		$objFormParam->addParam('発送日目安', 'deliv_date_id', INT_LEN, 'n', array('NUM_CHECK'));
+        	}
+        }
+        else{
+        	$objFormParam->addParam('発送日目安', 'deliv_date_id', INT_LEN, 'n', array('NUM_CHECK'));
+        }
+        /*## 商品規格単位で発送日目安管理 MDF END ##*/
+        
         $objFormParam->addParam('販売制限数', 'sale_limit', AMOUNT_LEN, 'n', array('SPTAB_CHECK', 'ZERO_CHECK', 'NUM_CHECK', 'MAX_LENGTH_CHECK'));
         $objFormParam->addParam('メーカー', 'maker_id', INT_LEN, 'n', array('NUM_CHECK'));
         $objFormParam->addParam('メーカーURL', 'comment1', URL_LEN, 'a', array('SPTAB_CHECK', 'URL_CHECK', 'MAX_LENGTH_CHECK'));
@@ -217,7 +228,11 @@ class LC_Page_Admin_Products_Product_Ex extends LC_Page_Admin_Products_Product {
         $sqlval['comment5'] = $arrList['comment5'];
         $sqlval['comment6'] = $arrList['comment6'];
         $sqlval['main_list_comment'] = $arrList['main_list_comment'];
-        $sqlval['deliv_date_id'] = $arrList['deliv_date_id'];
+        /*## 商品規格単位で発送日目安管理 MDF BEGIN ##*/
+        if(USE_DELIV_DATE_PER_PRODUCT_CLASS == false){
+        	$sqlval['deliv_date_id'] = $arrList['deliv_date_id'];
+        }
+        /*## 商品規格単位で発送日目安管理 MDF END ##*/
         $sqlval['maker_id'] = $arrList['maker_id'];
         $sqlval['note'] = $arrList['note'];
         $sqlval['update_date'] = 'CURRENT_TIMESTAMP';
@@ -410,7 +425,17 @@ class LC_Page_Admin_Products_Product_Ex extends LC_Page_Admin_Products_Product {
      */
     function lfGetProductData_FromDB($product_id) {
     	$arrProduct = parent::lfGetProductData_FromDB($product_id);
-    	
+    	 
+    	/*## 商品規格単位で発送日目安管理 ADD BEGIN ##*/
+    	if(USE_DELIV_DATE_PER_PRODUCT_CLASS === true){
+    		// 規格単位で登録した発送日目安で上書き
+    		$objQuery =& SC_Query_Ex::getSingletonInstance();
+    		$where = 'product_id = ?';
+    		$objQuery->setLimit('1');
+    		$arrProduct["deliv_date_id"] = $objQuery->get("deliv_date_id", "dtb_products_class", $where, array($product_id));
+    	}
+    	/*## 商品規格単位で発送日目安管理 ADD END ##*/
+
     	/*## 商品支払方法指定 ADD BEGIN ##*/
         if(USE_PRODUCT_PAYMENT === true){
         	$objProduct = new SC_Product_Ex();
@@ -472,6 +497,29 @@ class LC_Page_Admin_Products_Product_Ex extends LC_Page_Admin_Products_Product {
         
         $arrErr = array_merge((array)$arrErr, (array)$objErr->arrErr);
         return $arrErr;
+    }
+    
+    /**
+     * 規格を設定していない商品を商品規格テーブルに登録
+     *
+     * @param array $arrList
+     * @return void
+     */
+    function lfInsertDummyProductClass($arrList) {
+    	parent::lfInsertDummyProductClass($arrList);
+    	 
+    	/*## 商品規格単位で発送日目安管理 ADD BEGIN ##*/
+    	if(USE_DELIV_DATE_PER_PRODUCT_CLASS === true){
+    		$objQuery =& SC_Query_Ex::getSingletonInstance();
+    		
+    		$sqlval["deliv_date_id"] = $arrList["deliv_date_id"];
+    		$sqlval['update_date'] = 'CURRENT_TIMESTAMP';
+
+    		// UPDATEの実行
+    		$objQuery->update('dtb_products_class', $sqlval, 'product_id = ? AND classcategory_id1=0 AND classcategory_id2=0',
+    		array($arrList['product_id']));
+    	}
+    	/*## 商品規格単位で発送日目安管理 ADD END ##*/
     }
 }
 ?>

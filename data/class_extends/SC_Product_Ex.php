@@ -180,13 +180,24 @@ class SC_Product_Ex extends SC_Product {
     }
     /*## 商品マスタ一覧で在庫変更 ADD END ##*/
     
-    /*## 商品マスタ一覧で発送日目安管理 ADD BEGIN ##*/
+    /*## 商品マスタ一覧で発送日目安管理 ADD BEGIN ##*/		
     function changeDelivDateId($product_id, $deliv_date_id=0, &$objQuery){
     	if($objQuery == null) $objQuery =& SC_Query_Ex::getSingletonInstance();
     	 
     	$sqlval['deliv_date_id'] = $deliv_date_id;
     	$sqlval['update_date'] = 'CURRENT_TIMESTAMP';
-    	$objQuery->update("dtb_products", $sqlval, "product_id=? AND del_flg = 0", array($product_id));
+    	
+    	/*## 商品規格単位で発送日目安管理 MDF BEGIN ##*/
+    	// この関数は商品マスタ画面だけ呼ぶ。
+    	// 即ち、設定可能な商品はすべて規格なしである。
+    	if(USE_DELIV_DATE_PER_PRODUCT_CLASS === true){
+    		$objQuery->update("dtb_products_class", $sqlval, "product_id=? AND classcategory_id1=? AND classcategory_id2=?", 
+    							array($product_id, 0, 0));
+    	}
+    	else{
+    		$objQuery->update("dtb_products", $sqlval, "product_id=? AND del_flg = 0", array($product_id));
+    	}
+    	/*## 商品規格単位で発送日目安管理 MDF END ##*/
     }
     /*## 商品マスタ一覧で発送日目安管理 ADD END ##*/
     
@@ -226,6 +237,12 @@ class SC_Product_Ex extends SC_Product {
             ,update_date
             ,point_rate
 __EOS__;
+
+		/*## 商品規格単位で発送日目安管理 ADD BEGIN ##*/
+		if(USE_DELIV_DATE_PER_PRODUCT_CLASS === true){
+			$col .= ',deliv_date_id_min, deliv_date_id_max';
+		}
+		/*## 商品規格単位で発送日目安管理 ADD END ##*/
 
         /*## 商品非課税指定 ADD BEGIN ##*/
         if(USE_TAXFREE_PRODUCT === true){
@@ -314,6 +331,11 @@ __EOS__;
                     ,T4.class_count
                     ,dtb_maker.name AS maker_name
 __EOS__;
+		/*## 商品規格単位で発送日目安管理 ADD BEGIN ##*/
+		if(USE_DELIV_DATE_PER_PRODUCT_CLASS === true){
+			$col = str_replace("dtb_products.deliv_date_id", "T4.deliv_date_id_min, T4.deliv_date_id_max, T4.deliv_date_id", $col);
+		}
+        /*## 商品規格単位で発送日目安管理 ADD END ##*/
         $from = <<< __EOS__
                 FROM dtb_products
                     JOIN (
@@ -340,7 +362,20 @@ __EOS__;
                         ON dtb_products.maker_id = dtb_maker.maker_id
             ) AS alldtl
 __EOS__;
-        
+		
+		/*## 商品規格単位で発送日目安管理 ADD BEGIN ##*/
+		if(USE_DELIV_DATE_PER_PRODUCT_CLASS === true){
+			$from_prdt_cls = <<< __EOS__
+							,
+                            MIN(deliv_date_id) AS deliv_date_id_min,
+                            MAX(deliv_date_id) AS deliv_date_id_max,
+                            MAX(deliv_date_id) AS deliv_date_id
+                        FROM dtb_products_class
+__EOS__;
+			$from = str_replace("FROM dtb_products_class", $from_prdt_cls, $from);
+		}
+        /*## 商品規格単位で発送日目安管理 ADD END ##*/
+		
         /*## 商品非課税指定 ADD BEGIN ##*/
         if(USE_TAXFREE_PRODUCT === true){
         	$col .= ",dtb_products.taxfree";
@@ -349,6 +384,120 @@ __EOS__;
 
         $sql = $col . $from;
         
+        return $sql;
+    }
+    
+    /**
+     * SC_Query インスタンスに設定された検索条件を使用して商品規格を取得する.
+     *
+     * @param SC_Query $objQuery SC_Queryインスタンス
+     * @param array $params 検索パラメーターの配列
+     * @return array 商品規格の配列
+     */
+    function getProductsClassByQuery(&$objQuery, $params) {
+        // 末端の規格を取得
+        $col = <<< __EOS__
+            T1.product_id,
+            T1.stock,
+            T1.stock_unlimited,
+            T1.sale_limit,
+            T1.price01,
+            T1.price02,
+            T1.point_rate,
+            T1.product_code,
+            T1.product_class_id,
+            T1.del_flg,
+            T1.product_type_id,
+            T1.down_filename,
+            T1.down_realfilename,
+            T3.name AS classcategory_name1,
+            T3.rank AS rank1,
+            T4.name AS class_name1,
+            T4.class_id AS class_id1,
+            T1.classcategory_id1,
+            T1.classcategory_id2,
+            dtb_classcategory2.name AS classcategory_name2,
+            dtb_classcategory2.rank AS rank2,
+            dtb_class2.name AS class_name2,
+            dtb_class2.class_id AS class_id2
+__EOS__;
+
+		/*## 商品規格単位で発送日目安管理 ADD BEGIN ##*/
+		if(USE_DELIV_DATE_PER_PRODUCT_CLASS === true){
+			$col .= ",T1.deliv_date_id";
+		}
+        /*## 商品規格単位で発送日目安管理 ADD END ##*/
+
+        $table = <<< __EOS__
+            dtb_products_class T1
+            LEFT JOIN dtb_classcategory T3
+                ON T1.classcategory_id1 = T3.classcategory_id
+            LEFT JOIN dtb_class T4
+                ON T3.class_id = T4.class_id
+            LEFT JOIN dtb_classcategory dtb_classcategory2
+                ON T1.classcategory_id2 = dtb_classcategory2.classcategory_id
+            LEFT JOIN dtb_class dtb_class2
+                ON dtb_classcategory2.class_id = dtb_class2.class_id
+__EOS__;
+
+        $objQuery->setOrder('T3.rank DESC, dtb_classcategory2.rank DESC'); // XXX
+        $arrRet = $objQuery->select($col, $table, '', $params);
+
+        return $arrRet;
+    }
+    
+    /**
+     * 商品規格詳細の SQL を取得する.
+     *
+     * MEMO: 2.4系 vw_product_classに相当(?)するイメージ
+     *
+     * @param string $where 商品詳細の WHERE 句
+     * @return string 商品規格詳細の SQL
+     */
+    function prdclsSQL($where = '') {
+    	$where_clause = '';
+    	if (!SC_Utils_Ex::isBlank($where)) {
+    		$where_clause = ' WHERE ' . $where;
+    	}
+    	$sql = <<< __EOS__
+        (
+            SELECT dtb_products.*,
+                dtb_products_class.product_class_id,
+                dtb_products_class.product_type_id,
+                dtb_products_class.product_code,
+                dtb_products_class.stock,
+                dtb_products_class.stock_unlimited,
+                dtb_products_class.sale_limit,
+                dtb_products_class.price01,
+                dtb_products_class.price02,
+                dtb_products_class.deliv_fee,
+                dtb_products_class.point_rate,
+                dtb_products_class.down_filename,
+                dtb_products_class.down_realfilename,
+                dtb_products_class.classcategory_id1 AS classcategory_id, /* 削除 */
+                dtb_products_class.classcategory_id1,
+                dtb_products_class.classcategory_id2 AS parent_classcategory_id, /* 削除 */
+                dtb_products_class.classcategory_id2,
+                Tcc1.class_id as class_id,
+                Tcc1.name as classcategory_name,
+                Tcc2.class_id as parent_class_id,
+                Tcc2.name as parent_classcategory_name
+            FROM dtb_products
+                LEFT JOIN dtb_products_class
+                    ON dtb_products.product_id = dtb_products_class.product_id
+                LEFT JOIN dtb_classcategory as Tcc1
+                    ON dtb_products_class.classcategory_id1 = Tcc1.classcategory_id
+                LEFT JOIN dtb_classcategory as Tcc2
+                    ON dtb_products_class.classcategory_id2 = Tcc2.classcategory_id
+                    $where_clause
+        ) as prdcls
+__EOS__;
+            /*## 商品規格単位で発送日目安管理 ADD BEGIN ##*/
+            if(USE_DELIV_DATE_PER_PRODUCT_CLASS === true){
+            	$sql = str_replace("dtb_products_class.product_code,",
+					"dtb_products_class.product_code, dtb_products_class.deliv_date_id,", $sql);
+            }
+            /*## 商品規格単位で発送日目安管理 ADD END ##*/
         return $sql;
     }
 }

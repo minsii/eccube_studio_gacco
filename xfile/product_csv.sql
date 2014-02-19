@@ -1,8 +1,8 @@
 DELETE FROM dtb_csv WHERE csv_id=1;
 INSERT INTO dtb_csv VALUES( (SELECT MAX(no)+1 FROM dtb_csv) , '1' , 'product_id' , '商品ID' , '1' , '3' , '1' , 'NOW()' , 'NOW()' , 'n' , 'INT_LEN' , 'NUM_CHECK,MAX_LENGTH_CHECK' );
 INSERT INTO dtb_csv VALUES( (SELECT MAX(no)+1 FROM dtb_csv) , '1' , 'product_class_id' , '商品規格ID' , '2' , '3' , '1' , 'NOW()' , 'NOW()' , 'n' , 'INT_LEN' , 'NUM_CHECK,MAX_LENGTH_CHECK' );
-INSERT INTO dtb_csv VALUES( (SELECT MAX(no)+1 FROM dtb_csv) , '1' , 'parent_classcategory_id' , '親規格分類ID' , '3' , '2' , '1' , 'NOW()' , 'NOW()' , 'n' , 'INT_LEN' , 'NUM_CHECK,MAX_LENGTH_CHECK' );
-INSERT INTO dtb_csv VALUES( (SELECT MAX(no)+1 FROM dtb_csv) , '1' , 'classcategory_id' , '規格分類ID' , '4' , '2' , '1' , 'NOW()' , 'NOW()' , 'n' , 'INT_LEN' , 'NUM_CHECK,MAX_LENGTH_CHECK' );
+INSERT INTO dtb_csv VALUES( (SELECT MAX(no)+1 FROM dtb_csv) , '1' , 'classcategory_id1' , '親規格分類ID' , '3' , '3' , '1' , 'NOW()' , 'NOW()' , 'n' , 'INT_LEN' , 'NUM_CHECK,MAX_LENGTH_CHECK' );
+INSERT INTO dtb_csv VALUES( (SELECT MAX(no)+1 FROM dtb_csv) , '1' , 'classcategory_id2' , '規格分類ID' , '4' , '3' , '1' , 'NOW()' , 'NOW()' , 'n' , 'INT_LEN' , 'NUM_CHECK,MAX_LENGTH_CHECK' );
 INSERT INTO dtb_csv VALUES( (SELECT MAX(no)+1 FROM dtb_csv) , '1' , 'parent_classcategory_name' , '親規格分類名' , '5' , '2' , '1' , 'NOW()' , 'NOW()' , 'KVa' , 'STEXT_LEN' , 'SPTAB_CHECK,MAX_LENGTH_CHECK' );
 INSERT INTO dtb_csv VALUES( (SELECT MAX(no)+1 FROM dtb_csv) , '1' , 'classcategory_name' , '規格分類名' , '6' , '2' , '1' , 'NOW()' , 'NOW()' , 'KVa' , 'STEXT_LEN' , 'SPTAB_CHECK,MAX_LENGTH_CHECK' );
 INSERT INTO dtb_csv VALUES( (SELECT MAX(no)+1 FROM dtb_csv) , '1' , '(SELECT ARRAY_TO_STRING(ARRAY(SELECT extra_class_id FROM dtb_products_extra_class WHERE dtb_products_extra_class.product_id = prdcls.product_id ORDER BY dtb_products_extra_class.product_extra_class_id), '','')) as extra_class_id' , '追加規格ID' , '7' , '1' , '1' , 'NOW()' , 'NOW()' , 'n' , 'STEXT_LEN' , 'SPTAB_CHECK,MAX_LENGTH_CHECK' );

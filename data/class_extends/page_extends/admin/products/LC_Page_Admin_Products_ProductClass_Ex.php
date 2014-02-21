@@ -86,6 +86,8 @@ class LC_Page_Admin_Products_ProductClass_Ex extends LC_Page_Admin_Products_Prod
 			$objFormParam->addParam('発送日目安', 'deliv_date_id', INT_LEN, 'n', array('MAX_LENGTH_CHECK', 'NUM_CHECK'));
 		}
         /*## 商品規格単位で発送日目安管理 ADD END ##*/
+		
+		$objFormParam->addParam('受注', 'custom_made', INT_LEN, 'n', array('MAX_LENGTH_CHECK', 'NUM_CHECK'));
     }
     
  	/**
@@ -113,6 +115,8 @@ class LC_Page_Admin_Products_ProductClass_Ex extends LC_Page_Admin_Products_Prod
 
         for ($i = 0; $i < $total; $i++) {
             $del_flg = SC_Utils_Ex::isBlank($arrList['check'][$i]) ? 1 : 0;
+            if($del_flg) continue;
+            
             $price02 = SC_Utils_Ex::isBlank($arrList['price02'][$i]) ? 0 : $arrList['price02'][$i];
             // dtb_products_class 登録/更新用
             $registerKeys = array(
@@ -126,6 +130,10 @@ class LC_Page_Admin_Products_ProductClass_Ex extends LC_Page_Admin_Products_Prod
             }
             /*## 商品規格単位で発送日目安管理 ADD END ##*/
 
+            if(!empty($arrList["custom_made"][$i])){
+            	$registerKeys[] = "custom_made";
+            }
+            
             $arrPC = array();
             foreach ($registerKeys as $key) {
                 $arrPC[$key] = $arrList[$key][$i];
@@ -210,6 +218,8 @@ class LC_Page_Admin_Products_ProductClass_Ex extends LC_Page_Admin_Products_Prod
 			$arrKeys[] = 'deliv_date_id';
 		}
         /*## 商品規格単位で発送日目安管理 ADD END ##*/
+		
+		$arrKeys[] = "custom_made";
 		
         $arrFormValues = $objFormParam->getSwapArray($arrKeys);
         // フォームの規格1, 規格2をキーにした配列を生成

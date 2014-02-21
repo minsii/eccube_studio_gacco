@@ -428,6 +428,9 @@ __EOS__;
 		}
         /*## 商品規格単位で発送日目安管理 ADD END ##*/
 
+		//受注フラグ
+		$col .= ",T1.custom_made";
+
         $table = <<< __EOS__
             dtb_products_class T1
             LEFT JOIN dtb_classcategory T3
@@ -498,6 +501,11 @@ __EOS__;
 					"dtb_products_class.product_code, dtb_products_class.deliv_date_id,", $sql);
             }
             /*## 商品規格単位で発送日目安管理 ADD END ##*/
+            
+            // 受注フラグ
+            $sql = str_replace("dtb_products_class.stock_unlimited,",
+					"dtb_products_class.stock_unlimited, dtb_products_class.custom_made,", $sql);
+            
         return $sql;
     }
 }

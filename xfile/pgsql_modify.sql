@@ -320,3 +320,6 @@ ALTER TABLE dtb_products_class ADD COLUMN deliv_date_id integer;
 
 UPDATE dtb_products SET deliv_date_id=null;
 ALTER TABLE dtb_products DROP COLUMN deliv_date_id;
+
+/*######################■商品カスタマイズ■######################*/
+ALTER TABLE dtb_products_class ADD COLUMN custom_made smallint NOT NULL DEFAULT 0;

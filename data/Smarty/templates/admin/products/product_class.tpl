@@ -190,10 +190,10 @@
 
     <table class="list">
         <col width="5%" />
-        <col width="15%" />
-        <col width="15%" />
+        <col width="13%" />
+        <col width="13%" />
         <col width="9%" />
-        <col width="10%" />
+        <col width="14%" />
         <col width="10%" />
         <col width="10%" />
         <col width="10%" />
@@ -280,6 +280,13 @@
                         <span class="attention"><!--{$arrErr[$key][$index]}--></span>
                     <!--{/if}-->
                     <input type="checkbox" name="<!--{$key}-->[<!--{$index}-->]" value="1" <!--{if $arrForm[$key].value[$index] == "1"}-->checked="checked"<!--{/if}--> id="chk_<!--{$key}-->_<!--{$index}-->" /><label for="chk_<!--{$key}-->_<!--{$index}-->">無制限</label>
+                    
+                    <!--{assign var=key value="custom_made"}-->
+                    <!--{if $arrErr[$key][$index]}-->
+                        <span class="attention"><!--{$arrErr[$key][$index]}--></span>
+                    <!--{/if}-->
+                    <input type="checkbox" name="<!--{$key}-->[<!--{$index}-->]" value="1" <!--{if $arrForm[$key].value[$index] == "1"}-->checked="checked"<!--{/if}--> id="chk_<!--{$key}-->_<!--{$index}-->" /><label for="chk_<!--{$key}-->_<!--{$index}-->">受注</label>
+                    
                 </td>
                 <td class="center">
                     <!--{assign var=key value="price01"}-->

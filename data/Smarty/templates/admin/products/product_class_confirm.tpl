@@ -95,6 +95,9 @@
                             <!--{else}-->
                                 <!--{$arrForm[$key1].value[$index]|h}-->
                             <!--{/if}-->
+                            
+                            <!--{assign var=key3 value="custom_made"}-->
+                            <!--{if $arrForm[$key3].value[$index] == 1}-->【受注】<!--{/if}-->
                         </td>
                         <!--{assign var=key value="price01"}-->
                         <td class="right"><!--{$arrForm[$key].value[$index]|h}--></td>

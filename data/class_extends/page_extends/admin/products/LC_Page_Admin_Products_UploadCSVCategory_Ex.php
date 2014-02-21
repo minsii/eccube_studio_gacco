@@ -133,10 +133,7 @@ class LC_Page_Admin_Products_UploadCSVCategory_Ex extends LC_Page_Admin_Products
 		}
 
 		/*## カテゴリUPLOAD項目カスタム ADD BEGIN ##*/
-		if(isset($arrList["category_recommend_product_id"])){
-			$arrRecommendProductId = explode(',', $arrList['category_recommend_product_id']);
-			$this->lfRegistRecommend($category_id, $arrRecommendProductId, $objQuery);
-		}
+		$this->lfRegistRecommend($category_id, $arrList, $objQuery);
 		/*## カテゴリUPLOAD項目カスタム ADD END ##*/ 
 
 		return $category_id;
@@ -148,37 +145,35 @@ class LC_Page_Admin_Products_UploadCSVCategory_Ex extends LC_Page_Admin_Products
 	 *
 	 * @param $category_id
 	 */
-	function lfRegistRecommend($category_id, $arrRecommendProductId, &$objQuery = null){
-
+	function lfRegistRecommend($category_id, $arrList, &$objQuery = null){
 		if(!empty($category_id)){
 			if(empty($objQuery)){
 				$objQuery =& SC_Query_Ex::getSingletonInstance();
 				$commit_flg = 1;
 			}
 			try{
-				if($commit_flg)
-					$objQuery->begin();
+				if($commit_flg) $objQuery->begin();
+					
+				$objQuery->delete("dtb_category_recommend", "category_id = ?", array($category_id));
 					
 				$sqlval = array();
 				$sqlval["category_id"] = $category_id;
-
-				$objQuery->delete("dtb_category_recommend", "category_id = ?", array($category_id));
-
-				$i = 1;
-				foreach($arrRecommendProductId as $pid){
-					if(!empty($pid)){
-						$sqlval["product_id"] = $pid;
-						$sqlval["rank"] = $i++;
+					
+				for ($i = 1; $i <= CATEGORY_RECOMMEND_PRODUCT_MAX; $i++) {
+					$keyname = 'category_recommend_product_id' . $i;
+					$comment_key = 'category_recommend_product_comment' . $i;
+					if (!empty($arrList[$keyname])) {
+						$sqlval["product_id"] = $arrList[$keyname];
+						$sqlval["comment"] = $arrList[$comment_key];
+						$sqlval["rank"] = $i;
 						$objQuery->insert("dtb_category_recommend", $sqlval);
 					}
 				}
 
-				if($commit_flg)
-					$objQuery->commit();
+				if($commit_flg) $objQuery->commit();
 
 			}catch(Exception $e){
-				if($commit_flg)
-					$objQuery->rollback();
+				if($commit_flg) $objQuery->rollback();
 				throw $e;
 			}
 		}

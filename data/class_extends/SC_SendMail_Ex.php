@@ -54,7 +54,12 @@ class SC_SendMail_Ex extends SC_SendMail {
 
 	// 宛先の設定
 	function setTo($to, $to_name = '') {
-		$this->org_to = '"'. $to_name. '"'. "<$to>";
+		if(strlen($to_name) > 0){
+			$this->org_to = '"'. $to_name. '"'. "<$to>";
+		}
+		else{
+			$this->org_to = $to;
+		}
 		parent::setTo($to, $to_name);
 	}
 	

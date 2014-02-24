@@ -64,4 +64,54 @@ class LC_Page_Admin_Basis_Ex extends LC_Page_Admin_Basis {
     function destroy() {
         parent::destroy();
     }
+    
+    
+    // 基本情報用のカラムを取り出す。
+    function lfGetCol() {
+        $arrCol = parent::lfGetCol();
+        
+    	/*## メール転送設定 ADD BEGIN ##*/
+    	if(USE_ORDER_MAIL_FWD === true){
+    		$arrCol[] = "email01_fw";
+    	}
+    	if(USE_CONTACT_MAIL_FWD === true){
+    		$arrCol[] = "email02_fw";
+    	}
+    	/*## メール転送設定 ADD END ##*/
+    	
+        return $arrCol;
+    }
+    
+    function lfInitParam(&$objFormParam, $post) {
+		parent::lfInitParam($objFormParam, $post);
+		
+    	/*## メール転送設定 ADD BEGIN ##*/
+    	if(USE_ORDER_MAIL_FWD === true){
+    		$objFormParam->addParam('商品注文受付(転送)メールアドレス', 'email01_fw', null, 'a', array());
+    	}
+    	if(USE_CONTACT_MAIL_FWD === true){
+    		$objFormParam->addParam('問い合わせ受付(転送)メールアドレス', 'email02_fw', null, 'a', array());
+    	}
+    	/*## メール転送設定 ADD END ##*/
+    }
+    
+
+    // 入力エラーチェック
+    function lfCheckError(&$objFormParam) {
+        $arrErr = parent::lfCheckError($objFormParam);
+        
+        $post = $objFormParam->getHashArray();
+        $objErr = new SC_CheckError_Ex($post);
+
+        /*## メール転送設定 ADD BEGIN ##*/
+        if(USE_ORDER_MAIL_FWD === true && !empty($post["email01_fw"])){
+        	$objErr->doFunc(array('商品注文受付(転送)メールアドレス', 'email01_fw', ',', 'EXIST_CHECK', 'EMAIL_CHECK', 'EMAIL_CHAR_CHECK'), array('MULTIPLE_SUB_CHECK'));
+        }
+        if(USE_CONTACT_MAIL_FWD === true && !empty($post["email02_fw"])){
+        	$objErr->doFunc(array('問い合わせ受付(転送)メールアドレス', 'email02_fw', ',' ,'EXIST_CHECK', 'EMAIL_CHECK', 'EMAIL_CHAR_CHECK'), array('MULTIPLE_SUB_CHECK'));
+        }
+        /*## メール転送設定 ADD END ##*/
+
+        return array_merge((array)$arrErr, (array)$objErr->arrErr);
+    }
 }

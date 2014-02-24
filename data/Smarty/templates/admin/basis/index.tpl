@@ -220,6 +220,19 @@ $(function() {
                 <input type="text" name="email01" value="<!--{$arrForm.email01|h}-->" size="60" class="box60" style="<!--{if $arrErr.email01 != ""}-->background-color: <!--{$smarty.const.ERR_COLOR}-->;<!--{/if}-->" />
             </td>
         </tr>
+        <!--{*## メール転送 ADD BEGIN ## *}-->
+        <!--{if $smarty.const.USE_ORDER_MAIL_FWD === true}-->
+        <tr>
+            <th>商品注文受付(転送)<br />メールアドレス</th>
+            <td>
+                <!--{assign var=key value="email01_fw"}-->
+                <span class="attention"><!--{$arrErr[$key]}--></span>
+                <input type="text" name="<!--{$key}-->" value="<!--{$arrForm[$key]|h}-->" size="60" class="box60" style="<!--{if $arrErr[$key] != ""}-->background-color: <!--{$smarty.const.ERR_COLOR}-->;<!--{/if}-->"/>
+                <br /><span class="attention">「メールアドレス1, メールアドレス2...」のフォーマットで入力してください</span>
+            </td>
+        </tr>
+        <!--{/if}-->
+        <!--{*## メール転送 ADD END ## *}-->
         <tr>
             <th>問い合わせ受付<br />メールアドレス<span class="attention"> *</span></th>
             <td>
@@ -227,6 +240,20 @@ $(function() {
                 <input type="text" name="email02" value="<!--{$arrForm.email02|h}-->" size="60" class="box60" style="<!--{if $arrErr.email02 != ""}-->background-color: <!--{$smarty.const.ERR_COLOR}-->;<!--{/if}-->"/>
             </td>
         </tr>
+        <!--{*## メール転送 ADD BEGIN ## *}-->
+        <!--{if $smarty.const.USE_CONTACT_MAIL_FWD === true}-->
+        <tr>
+            <th>問い合わせ受付(転送)<br />メールアドレス</th>
+            <td>
+                <!--{assign var=key value="email02_fw"}-->
+                <span class="attention"><!--{$arrErr[$key]}--></span>
+                <input type="text" name="<!--{$key}-->" value="<!--{$arrForm[$key]|h}-->" size="60" class="box60" style="<!--{if $arrErr[$key] != ""}-->background-color: <!--{$smarty.const.ERR_COLOR}-->;<!--{/if}-->"/>
+                <br /><span class="attention">「メールアドレス1, メールアドレス2...」のフォーマットで入力してください</span>
+            </td>
+        </tr>
+        <!--{/if}-->
+        <!--{*## メール転送 ADD END ## *}-->
+        
         <tr>
             <th>メール送信元<br />メールアドレス<span class="attention"> *</span></th>
             <td>

@@ -330,3 +330,9 @@ ALTER TABLE dtb_products ADD COLUMN service text;
 ALTER TABLE dtb_products ADD COLUMN packing text;
 ALTER TABLE dtb_products ADD COLUMN attention text;
 
+/*######################■メール転送■######################*/
+INSERT INTO mtb_constants (id ,name ,rank ,remarks) VALUES ('USE_ORDER_MAIL_FWD',  'true',  (SELECT MAX(rank)+1 FROM mtb_constants),  '注文メール自動転送フラグ|true:使用');
+INSERT INTO mtb_constants (id ,name ,rank ,remarks) VALUES ('USE_CONTACT_MAIL_FWD',  'true',  (SELECT MAX(rank)+1 FROM mtb_constants),  '問い合わせメール自動転送フラグ|true:使用');
+ALTER TABLE dtb_baseinfo ADD COLUMN email01_fw text;
+ALTER TABLE dtb_baseinfo ADD COLUMN email02_fw text;
+

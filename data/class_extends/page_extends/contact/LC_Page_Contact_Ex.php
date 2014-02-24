@@ -184,7 +184,20 @@ class LC_Page_Contact_Ex extends LC_Page_Contact {
             $CONF['email02'],                               // reply_to
             $CONF['email02']                                // bcc
         );
-        parent::lfSendMail($objPage);
+        
+        /*## メール転送設定 ADD BEGIN ##*/
+        if(USE_CONTACT_MAIL_FWD === true && !empty($CONF["email02_fw"])){
+        	$helperMail->sfSendTemplateMail(
+        	$CONF["email02_fw"],            // to
+        	"",    // to_name
+        	5,                                              // template_id
+        	$objPage,                                       // objPage
+        	$CONF['email03'],                               // from_address
+        	$CONF['shop_name'],                             // from_name
+        	$CONF['email02']                               // reply_to
+        	);
+        }
+        /*## メール転送設定 ADD END ##*/
         
         /*## 問い合わせ履歴管理 ADD BEGIN ##*/
         if(USE_CONTACT_HISTORY === true){

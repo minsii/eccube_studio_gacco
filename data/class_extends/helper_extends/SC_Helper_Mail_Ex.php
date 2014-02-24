@@ -36,7 +36,7 @@ require_once CLASS_REALDIR . 'helper/SC_Helper_Mail.php';
 class SC_Helper_Mail_Ex extends SC_Helper_Mail {
 
 	/* 受注完了メール送信 */
-	function sfSendOrderMail($order_id, $template_id, $subject = "", $header = "", $footer = "", $send = true, $mime_flg = false) {
+	function sfSendOrderMail($order_id, $template_id, $subject = "", $header = "", $footer = "", $send = true, $mime_flg = false, $fwd_flg = false) {
 
 		$arrTplVar = new stdClass();
 		$arrInfo = SC_Helper_DB_Ex::sfGetBasisData();
@@ -155,6 +155,16 @@ class SC_Helper_Mail_Ex extends SC_Helper_Mail {
                 $this->sfSaveMailHistory($order_id, $template_id, $tosubject, $body);
             }
         }
+        
+    	/*## メール転送設定 ADD BEGIN ##*/
+        if(USE_ORDER_MAIL_FWD === true){
+        	if($fwd_flg && !empty($arrInfo["email01_fw"])){
+        		$objSendMail_fw = new SC_SendMail_Ex();
+        		$objSendMail_fw->setItem($arrInfo["email01_fw"], $tosubject, $body, $from, $arrInfo['shop_name'], $from, $error);
+        		$objSendMail_fw->sendMail();
+        	}
+        }
+    	/*## メール転送設定 ADD END ##*/
 
 		return $objSendMail;
 	}

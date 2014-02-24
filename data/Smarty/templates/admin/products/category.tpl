@@ -160,11 +160,9 @@ function lfDeleteRecommend(key){
                     <!--{assign var=recommend_no value="`$smarty.section.cnt.iteration`"}-->
                     <!--{assign var=key value="recommend_id`$smarty.section.cnt.iteration`"}-->
                     <!--{assign var=anckey value="recommend_no`$smarty.section.cnt.iteration`"}-->
-                    <!--{*
                     <td align="center" width="10">
                       (<!--{$smarty.section.cnt.iteration}-->)
                     </td>
-                    *}-->
                     <td width="65">
                       <!--{if $arrRecommend[$recommend_no].main_list_image != ""}--><!--{assign var=image_path value="`$smarty.const.IMAGE_SAVE_URLPATH``$arrRecommend[$recommend_no].main_list_image`"}-->
                       <img src="<!--{$image_path|escape}-->" alt="<!--{$arrRecommend[$recommend_no].name|escape}-->" width="65" height="65">

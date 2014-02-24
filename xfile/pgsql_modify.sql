@@ -323,3 +323,10 @@ ALTER TABLE dtb_products DROP COLUMN deliv_date_id;
 
 /*######################■商品カスタマイズ■######################*/
 ALTER TABLE dtb_products_class ADD COLUMN custom_made smallint NOT NULL DEFAULT 0;
+ALTER TABLE dtb_products ADD COLUMN size text;
+ALTER TABLE dtb_products ADD COLUMN weight text;
+ALTER TABLE dtb_products ADD COLUMN material text;
+ALTER TABLE dtb_products ADD COLUMN service text;
+ALTER TABLE dtb_products ADD COLUMN packing text;
+ALTER TABLE dtb_products ADD COLUMN attention text;
+

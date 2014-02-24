@@ -191,6 +191,19 @@ class LC_Page_Admin_Products_Product_Ex extends LC_Page_Admin_Products_Product {
 			$objFormParam->addParam("配送方法", "deliv_id", INT_LEN, 'n', array("NUM_CHECK", "MAX_LENGTH_CHECK"));
 		}
 		/*## 商品配送方法指定 ADD END ##*/
+		
+		$objFormParam->addParam('大きさ', 'size', MTEXT_LEN, 'KVa', array('SPTAB_CHECK', 'MAX_LENGTH_CHECK'));
+		$objFormParam->addParam('重さ', 'weight', MTEXT_LEN, 'KVa', array('SPTAB_CHECK', 'MAX_LENGTH_CHECK'));
+		$objFormParam->addParam('使用素材', 'material', MTEXT_LEN, 'KVa', array('SPTAB_CHECK', 'MAX_LENGTH_CHECK'));
+		$objFormParam->addParam('各種サービス', 'service', MTEXT_LEN, 'KVa', array('SPTAB_CHECK', 'MAX_LENGTH_CHECK'));
+		$objFormParam->addParam('梱包仕様', 'packing', MTEXT_LEN, 'KVa', array('SPTAB_CHECK', 'MAX_LENGTH_CHECK'));
+		$objFormParam->addParam('商品の注意', 'attention', MTEXT_LEN, 'KVa', array('SPTAB_CHECK', 'MAX_LENGTH_CHECK'));
+		
+		$objFormParam->addParam('詳細メインコメント2', 'comment2', LLTEXT_LEN, 'KVa', array('SPTAB_CHECK', 'MAX_LENGTH_CHECK'));
+		$objFormParam->addParam('詳細メインコメント3', 'comment4', LLTEXT_LEN, 'KVa', array('SPTAB_CHECK', 'MAX_LENGTH_CHECK'));
+		$objFormParam->addParam('詳細メインコメント4', 'comment5', LLTEXT_LEN, 'KVa', array('SPTAB_CHECK', 'MAX_LENGTH_CHECK'));
+		$objFormParam->addParam('詳細メインコメント5', 'comment6', LLTEXT_LEN, 'KVa', array('SPTAB_CHECK', 'MAX_LENGTH_CHECK'));
+		
         $objFormParam->setParam($arrPost);
         $objFormParam->convParam();
     }
@@ -266,6 +279,13 @@ class LC_Page_Admin_Products_Product_Ex extends LC_Page_Admin_Products_Product {
         	$sqlval['deliv_rank'] = $arrList['deliv_rank'];
         }
         /*## 配送ランク ADD END ##*/
+
+        $sqlval['size'] = $arrList['size'];
+        $sqlval['weight'] = $arrList['weight'];
+        $sqlval['material'] = $arrList['material'];
+        $sqlval['service'] = $arrList['service'];
+        $sqlval['packing'] = $arrList['packing'];
+        $sqlval['attention'] = $arrList['attention'];
         
         $objQuery->begin();
 

@@ -55,6 +55,46 @@ function selectAll(target) {
     $('#' + target).children().attr({selected: true});
 }
 
+function fckeditorCreate(){ 
+    var oFCKeditor1 = new FCKeditor() ;
+    oFCKeditor1.BasePath    = '<!--{$TPL_URLPATH}-->js/fckeditor/' ;
+    oFCKeditor1.Height='320';
+    oFCKeditor1.InstanceName = 'main_comment';
+    oFCKeditor1.ToolbarSet = 'ECCUBEcat';
+    oFCKeditor1.ReplaceTextarea() ;
+
+    var oFCKeditor2 = new FCKeditor() ;
+    oFCKeditor2.BasePath    = '<!--{$TPL_URLPATH}-->js/fckeditor/' ;
+    oFCKeditor2.Height='320';
+    oFCKeditor2.InstanceName = 'comment2';
+    oFCKeditor2.ToolbarSet = 'ECCUBEcat';
+    oFCKeditor2.ReplaceTextarea() ;
+    
+    var oFCKeditor3 = new FCKeditor() ;
+    oFCKeditor3.BasePath    = '<!--{$TPL_URLPATH}-->js/fckeditor/' ;
+    oFCKeditor3.Height='320';
+    oFCKeditor3.InstanceName = 'comment4';
+    oFCKeditor3.ToolbarSet = 'ECCUBEcat';
+    oFCKeditor3.ReplaceTextarea() ;
+    
+    var oFCKeditor4 = new FCKeditor() ;
+    oFCKeditor4.BasePath    = '<!--{$TPL_URLPATH}-->js/fckeditor/' ;
+    oFCKeditor4.Height='320';
+    oFCKeditor4.InstanceName = 'comment5';
+    oFCKeditor4.ToolbarSet = 'ECCUBEcat';
+    oFCKeditor4.ReplaceTextarea() ;
+    
+    var oFCKeditor5 = new FCKeditor() ;
+    oFCKeditor5.BasePath    = '<!--{$TPL_URLPATH}-->js/fckeditor/' ;
+    oFCKeditor5.Height='320';
+    oFCKeditor5.InstanceName = 'comment6';
+    oFCKeditor5.ToolbarSet = 'ECCUBEcat';
+    oFCKeditor5.ReplaceTextarea() ;
+}
+
+$(function() {
+    fckeditorCreate();
+});
 </script>
 
 <form name="form1" id="form1" method="post" action="?" enctype="multipart/form-data">
@@ -282,6 +322,61 @@ function selectAll(target) {
             </td>
         </tr>
         <tr>
+            <th>大きさ</th>
+            <td>
+                <!--{assign var=key value="size"}-->
+                <span class="attention"><!--{$arrErr[$key]}--></span>
+                <textarea name="<!--{$key}-->" maxlength="<!--{$smarty.const.MTEXT_LEN}-->" style="<!--{if $arrErr[$key] != ""}-->background-color: <!--{$smarty.const.ERR_COLOR}-->;<!--{/if}-->" cols="60" rows="4" class="box60"><!--{"\n"}--><!--{$arrForm[$key]|h}--></textarea><br />
+                <span class="attention"> (上限<!--{$smarty.const.MTEXT_LEN}-->文字)</span>
+            </td>
+        </tr>
+        <tr>
+            <th>重さ</th>
+            <td>
+                <!--{assign var=key value="weight"}-->
+                <span class="attention"><!--{$arrErr[$key]}--></span>
+                <textarea name="<!--{$key}-->" maxlength="<!--{$smarty.const.MTEXT_LEN}-->" style="<!--{if $arrErr[$key] != ""}-->background-color: <!--{$smarty.const.ERR_COLOR}-->;<!--{/if}-->" cols="60" rows="4" class="box60"><!--{"\n"}--><!--{$arrForm[$key]|h}--></textarea><br />
+                <span class="attention"> (上限<!--{$smarty.const.MTEXT_LEN}-->文字)</span>
+            </td>
+        </tr>
+        <tr>
+            <th>使用素材</th>
+            <td>
+                <!--{assign var=key value="material"}-->
+                <span class="attention"><!--{$arrErr[$key]}--></span>
+                <textarea name="<!--{$key}-->" maxlength="<!--{$smarty.const.MTEXT_LEN}-->" style="<!--{if $arrErr[$key] != ""}-->background-color: <!--{$smarty.const.ERR_COLOR}-->;<!--{/if}-->" cols="60" rows="4" class="box60"><!--{"\n"}--><!--{$arrForm[$key]|h}--></textarea><br />
+                <span class="attention"> (上限<!--{$smarty.const.MTEXT_LEN}-->文字)</span>
+            </td>
+        </tr>
+        <tr>
+            <th>各種サービス</th>
+            <td>
+                <!--{assign var=key value="service"}-->
+                <span class="attention"><!--{$arrErr[$key]}--></span>
+                <textarea name="<!--{$key}-->" maxlength="<!--{$smarty.const.MTEXT_LEN}-->" style="<!--{if $arrErr[$key] != ""}-->background-color: <!--{$smarty.const.ERR_COLOR}-->;<!--{/if}-->" cols="60" rows="4" class="box60"><!--{"\n"}--><!--{$arrForm[$key]|h}--></textarea><br />
+                <span class="attention"> (上限<!--{$smarty.const.MTEXT_LEN}-->文字)</span>
+            </td>
+        </tr>
+        <tr>
+            <th>梱包仕様</th>
+            <td>
+                <!--{assign var=key value="packing"}-->
+                <span class="attention"><!--{$arrErr[$key]}--></span>
+                <textarea name="<!--{$key}-->" maxlength="<!--{$smarty.const.MTEXT_LEN}-->" style="<!--{if $arrErr[$key] != ""}-->background-color: <!--{$smarty.const.ERR_COLOR}-->;<!--{/if}-->" cols="60" rows="4" class="box60"><!--{"\n"}--><!--{$arrForm[$key]|h}--></textarea><br />
+                <span class="attention"> (上限<!--{$smarty.const.MTEXT_LEN}-->文字)</span>
+            </td>
+        </tr>
+        <tr>
+            <th>商品の注意</th>
+            <td>
+                <!--{assign var=key value="attention"}-->
+                <span class="attention"><!--{$arrErr[$key]}--></span>
+                <textarea name="<!--{$key}-->" maxlength="<!--{$smarty.const.MTEXT_LEN}-->" style="<!--{if $arrErr[$key] != ""}-->background-color: <!--{$smarty.const.ERR_COLOR}-->;<!--{/if}-->" cols="60" rows="4" class="box60"><!--{"\n"}--><!--{$arrForm[$key]|h}--></textarea><br />
+                <span class="attention"> (上限<!--{$smarty.const.MTEXT_LEN}-->文字)</span>
+            </td>
+        </tr>
+<!--{*
+        <tr>
             <th>メーカー</th>
             <td>
                 <span class="attention"><!--{$arrErr.maker_id}--></span>
@@ -299,6 +394,7 @@ function selectAll(target) {
                 <span class="attention"> (上限<!--{$smarty.const.URL_LEN}-->文字)</span>
             </td>
         </tr>
+*}-->
         <tr>
             <th>検索ワード<br />※複数の場合は、カンマ( , )区切りで入力して下さい</th>
             <td>
@@ -356,10 +452,46 @@ function selectAll(target) {
             </td>
         </tr>
         <tr>
-            <th>詳細-メインコメント<span class="attention">(タグ許可)*</span></th>
+            <th>詳細-メインコメント1<span class="attention">(タグ許可)*</span></th>
             <td>
                 <span class="attention"><!--{$arrErr.main_comment}--></span>
-                <textarea name="main_comment" maxlength="<!--{$smarty.const.LLTEXT_LEN}-->" style="<!--{if $arrErr.main_comment != ""}-->background-color: <!--{$smarty.const.ERR_COLOR}-->;<!--{/if}-->" cols="60" rows="8" class="area60"><!--{"\n"}--><!--{$arrForm.main_comment|h}--></textarea><br />
+                <textarea name="main_comment" maxlength="<!--{$smarty.const.LLTEXT_LEN}-->" style="<!--{if $arrErr.main_comment != ""}-->background-color: <!--{$smarty.const.ERR_COLOR}-->;<!--{/if}-->" cols="60" rows="8" class="area60" id="main_comment"><!--{"\n"}--><!--{$arrForm.main_comment|h}--></textarea><br />
+                <span class="attention"> (上限<!--{$smarty.const.LLTEXT_LEN}-->文字)</span>
+            </td>
+        </tr>
+        <tr>
+            <th>詳細-メインコメント2<span class="attention">(タグ許可)</span></th>
+            <td>
+                <!--{assign var=key value="comment2"}-->
+                <span class="attention"><!--{$arrErr[$key]}--></span>
+                <textarea name="<!--{$key}-->" maxlength="<!--{$smarty.const.LLTEXT_LEN}-->" style="<!--{if $arrErr[$key] != ""}-->background-color: <!--{$smarty.const.ERR_COLOR}-->;<!--{/if}-->" cols="60" rows="8" class="area60" id="<!--{$key}-->"><!--{"\n"}--><!--{$arrForm[$key]|h}--></textarea><br />
+                <span class="attention"> (上限<!--{$smarty.const.LLTEXT_LEN}-->文字)</span>
+            </td>
+        </tr>
+        <tr>
+            <th>詳細-メインコメント3<span class="attention">(タグ許可)</span></th>
+            <td>
+                <!--{assign var=key value="comment4"}-->
+                <span class="attention"><!--{$arrErr[$key]}--></span>
+                <textarea name="<!--{$key}-->" maxlength="<!--{$smarty.const.LLTEXT_LEN}-->" style="<!--{if $arrErr[$key] != ""}-->background-color: <!--{$smarty.const.ERR_COLOR}-->;<!--{/if}-->" cols="60" rows="8" class="area60" id="<!--{$key}-->"><!--{"\n"}--><!--{$arrForm[$key]|h}--></textarea><br />
+                <span class="attention"> (上限<!--{$smarty.const.LLTEXT_LEN}-->文字)</span>
+            </td>
+        </tr>
+        <tr>
+            <th>詳細-メインコメント4<span class="attention">(タグ許可)</span></th>
+            <td>
+                <!--{assign var=key value="comment5"}-->
+                <span class="attention"><!--{$arrErr[$key]}--></span>
+                <textarea name="<!--{$key}-->" maxlength="<!--{$smarty.const.LLTEXT_LEN}-->" style="<!--{if $arrErr[$key] != ""}-->background-color: <!--{$smarty.const.ERR_COLOR}-->;<!--{/if}-->" cols="60" rows="8" class="area60" id="<!--{$key}-->"><!--{"\n"}--><!--{$arrForm[$key]|h}--></textarea><br />
+                <span class="attention"> (上限<!--{$smarty.const.LLTEXT_LEN}-->文字)</span>
+            </td>
+        </tr>
+        <tr>
+            <th>詳細-メインコメント5<span class="attention">(タグ許可)</span></th>
+            <td>
+                <!--{assign var=key value="comment6"}-->
+                <span class="attention"><!--{$arrErr[$key]}--></span>
+                <textarea name="<!--{$key}-->" maxlength="<!--{$smarty.const.LLTEXT_LEN}-->" style="<!--{if $arrErr[$key] != ""}-->background-color: <!--{$smarty.const.ERR_COLOR}-->;<!--{/if}-->" cols="60" rows="8" class="area60" id="<!--{$key}-->"><!--{"\n"}--><!--{$arrForm[$key]|h}--></textarea><br />
                 <span class="attention"> (上限<!--{$smarty.const.LLTEXT_LEN}-->文字)</span>
             </td>
         </tr>

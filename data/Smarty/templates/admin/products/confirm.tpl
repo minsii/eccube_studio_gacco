@@ -226,6 +226,31 @@
             </td>
         </tr>
         <tr>
+            <th>大きさ</th>
+            <td><!--{$arrForm.size|nl2br_html}--></td>
+        </tr>
+        <tr>
+            <th>重さ</th>
+            <td><!--{$arrForm.weight|nl2br_html}--></td>
+        </tr>
+        <tr>
+            <th>使用素材</th>
+            <td><!--{$arrForm.material|nl2br_html}--></td>
+        </tr>
+        <tr>
+            <th>各種サービス</th>
+            <td><!--{$arrForm.service|nl2br_html}--></td>
+        </tr>
+        <tr>
+            <th>梱包仕様</th>
+            <td><!--{$arrForm.packing|nl2br_html}--></td>
+        </tr>
+        <tr>
+            <th>商品の注意</th>
+            <td><!--{$arrForm.attention|nl2br_html}--></td>
+        </tr>
+<!--{*
+        <tr>
             <th>メーカー</th>
             <td>
                 <!--{$arrMaker[$arrForm.maker_id]|h}-->
@@ -237,6 +262,7 @@
                 <!--{$arrForm.comment1|h}-->
             </td>
         </tr>
+*}-->
         <tr>
             <th>検索ワード</th>
             <td>
@@ -284,9 +310,33 @@
             </td>
         </tr>
         <tr>
-            <th>詳細-メインコメント</th>
+            <th>詳細-メインコメント1</th>
             <td>
                 <!--{$arrForm.main_comment|nl2br_html}-->
+            </td>
+        </tr>
+        <tr>
+            <th>詳細-メインコメント2</th>
+            <td>
+                <!--{$arrForm.comment2|nl2br_html}-->
+            </td>
+        </tr>
+        <tr>
+            <th>詳細-メインコメント3</th>
+            <td>
+                <!--{$arrForm.comment4|nl2br_html}-->
+            </td>
+        </tr>
+        <tr>
+            <th>詳細-メインコメント4</th>
+            <td>
+                <!--{$arrForm.comment5|nl2br_html}-->
+            </td>
+        </tr>
+        <tr>
+            <th>詳細-メインコメント5</th>
+            <td>
+                <!--{$arrForm.comment6|nl2br_html}-->
             </td>
         </tr>
         <tr>

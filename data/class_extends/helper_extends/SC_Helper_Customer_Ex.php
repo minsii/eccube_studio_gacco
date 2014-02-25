@@ -86,6 +86,20 @@ class SC_Helper_Customer_Ex extends SC_Helper_Customer {
         	$objFormParam->addParam("FAX番号3", 'fax03', TEL_ITEM_LEN, 'n', array("SPTAB_CHECK", "NUM_CHECK", "MAX_LENGTH_CHECK"));
         }
     	/*## 顧客お届け先FAX ADD END ##*/                
-    }    
+    }   
+
+     /**
+     * 会員登録共通
+     *
+     * @param SC_FormParam $objFormParam SC_FormParam インスタンス
+     * @param boolean $isAdmin true:管理者画面 false:会員向け
+     * @param boolean $is_mypage マイページの場合 true
+     * @return void
+     */
+    function sfCustomerRegisterParam(&$objFormParam, $isAdmin = false, $is_mypage = false) {
+    	parent::sfCustomerRegisterParam($objFormParam, $isAdmin, $is_mypage);
+    	
+    	$objFormParam->addParam('足のサイズ', 'footsize', INT_LEN, 'n', array('NUM_CHECK', 'MAX_LENGTH_CHECK'));
+    }
 }
 ?>

@@ -198,6 +198,16 @@
                 </td>
             </tr>
             <tr>
+                <th>足のサイズ</th>
+                <td>
+                    <span class="attention"><!--{$arrErr.footsize}--></span>
+                    <select name="footsize" <!--{if $arrErr.footsize!= ""}--><!--{sfSetErrorStyle}--><!--{/if}--> >
+                    <option value="" selected="selected">選択してください</option>
+                    <!--{html_options options=$arrFOOT_SIZE selected=$arrForm.footsize}-->
+                    </select>
+                </td>
+            </tr>
+            <tr>
                 <th>ご職業</th>
                 <td>
                     <span class="attention"><!--{$arrErr.job}--></span>

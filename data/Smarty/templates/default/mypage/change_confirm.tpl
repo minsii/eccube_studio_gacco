@@ -103,6 +103,10 @@
                 <td><!--{$arrSex[$arrForm.sex]}--></td>
             </tr>
             <tr>
+                <th>足のサイズ</th>
+                <td><!--{$arrFOOT_SIZE[$arrForm.footsize]|default:"未登録"|h}--></td>
+            </tr>
+            <tr>
                 <th>職業</th>
                 <td><!--{$arrJob[$arrForm.job]|default:"未登録"|h}--></td>
             </tr>

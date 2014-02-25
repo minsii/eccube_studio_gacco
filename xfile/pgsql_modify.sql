@@ -336,3 +336,29 @@ INSERT INTO mtb_constants (id ,name ,rank ,remarks) VALUES ('USE_CONTACT_MAIL_FW
 ALTER TABLE dtb_baseinfo ADD COLUMN email01_fw text;
 ALTER TABLE dtb_baseinfo ADD COLUMN email02_fw text;
 
+/*######################■会員情報カスタマイズ■######################*/
+CREATE TABLE mtb_footsize (
+  id smallint NOT NULL,
+  "name" text,
+  rank smallint NOT NULL DEFAULT 0,
+  CONSTRAINT mtb_footsize_pkey PRIMARY KEY (id)
+);
+INSERT INTO mtb_footsize(id, name, rank) VALUES(1, '21', 0);
+INSERT INTO mtb_footsize(id, name, rank) VALUES((SELECT MAX(id)+1 FROM mtb_footsize), '21.5', (SELECT MAX(rank)+1 FROM mtb_footsize));
+INSERT INTO mtb_footsize(id, name, rank) VALUES((SELECT MAX(id)+1 FROM mtb_footsize), '22', (SELECT MAX(rank)+1 FROM mtb_footsize));
+INSERT INTO mtb_footsize(id, name, rank) VALUES((SELECT MAX(id)+1 FROM mtb_footsize), '22.5', (SELECT MAX(rank)+1 FROM mtb_footsize));
+INSERT INTO mtb_footsize(id, name, rank) VALUES((SELECT MAX(id)+1 FROM mtb_footsize), '23', (SELECT MAX(rank)+1 FROM mtb_footsize));
+INSERT INTO mtb_footsize(id, name, rank) VALUES((SELECT MAX(id)+1 FROM mtb_footsize), '23.5', (SELECT MAX(rank)+1 FROM mtb_footsize));
+INSERT INTO mtb_footsize(id, name, rank) VALUES((SELECT MAX(id)+1 FROM mtb_footsize), '24', (SELECT MAX(rank)+1 FROM mtb_footsize));
+INSERT INTO mtb_footsize(id, name, rank) VALUES((SELECT MAX(id)+1 FROM mtb_footsize), '24.5', (SELECT MAX(rank)+1 FROM mtb_footsize));
+INSERT INTO mtb_footsize(id, name, rank) VALUES((SELECT MAX(id)+1 FROM mtb_footsize), '25', (SELECT MAX(rank)+1 FROM mtb_footsize));
+INSERT INTO mtb_footsize(id, name, rank) VALUES((SELECT MAX(id)+1 FROM mtb_footsize), '25.5', (SELECT MAX(rank)+1 FROM mtb_footsize));
+INSERT INTO mtb_footsize(id, name, rank) VALUES((SELECT MAX(id)+1 FROM mtb_footsize), '26', (SELECT MAX(rank)+1 FROM mtb_footsize));
+INSERT INTO mtb_footsize(id, name, rank) VALUES((SELECT MAX(id)+1 FROM mtb_footsize), '26.5', (SELECT MAX(rank)+1 FROM mtb_footsize));
+INSERT INTO mtb_footsize(id, name, rank) VALUES((SELECT MAX(id)+1 FROM mtb_footsize), '27', (SELECT MAX(rank)+1 FROM mtb_footsize));
+INSERT INTO mtb_footsize(id, name, rank) VALUES((SELECT MAX(id)+1 FROM mtb_footsize), '27.5', (SELECT MAX(rank)+1 FROM mtb_footsize));
+INSERT INTO mtb_footsize(id, name, rank) VALUES((SELECT MAX(id)+1 FROM mtb_footsize), '28', (SELECT MAX(rank)+1 FROM mtb_footsize));
+INSERT INTO mtb_footsize(id, name, rank) VALUES((SELECT MAX(id)+1 FROM mtb_footsize), '28.5', (SELECT MAX(rank)+1 FROM mtb_footsize));
+INSERT INTO mtb_footsize(id, name, rank) VALUES((SELECT MAX(id)+1 FROM mtb_footsize), '29', (SELECT MAX(rank)+1 FROM mtb_footsize));
+
+ALTER TABLE dtb_customer ADD COLUMN footsize integer;

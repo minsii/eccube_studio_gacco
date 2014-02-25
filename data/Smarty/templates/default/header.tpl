@@ -24,14 +24,14 @@
 
 <!--▼HEADER-->
 <div id="header" style="display:none;">
- <h1><a href="/~three-dimension-jp/"><em><!--{$arrSiteInfo.shop_name|escape}-->/<!--{$tpl_title|escape}--></em></a></h1>
+ <h1><a href="<!--{$smarty.const.ROOT_URLPATH}-->"><em><!--{$arrSiteInfo.shop_name|escape}-->/<!--{$tpl_title|escape}--></em></a></h1>
  <div class="g_menu">
   <ul>
-   <li><a href="<!--{$smarty.const.TOP_URLPATH}-->">TOP</a>｜</li>
-   <li><a href="/~three-dimension-jp/entry/kiyaku.php">会員登録</a>｜</li>
-   <li><a href="/~three-dimension-jp/mypage/login.php">ログイン</a>｜</li>
-   <li><a href="/~three-dimension-jp/cart/index.php">カートをみる</a>｜</li>
-   <li><a href="/~three-dimension-jp/contact/index.php ">お問い合せ</a></li>
+   <li><a href="<!--{$smarty.const.ROOT_URLPATH}-->">TOP</a>｜</li>
+   <li><a href="<!--{$smarty.const.ROOT_URLPATH}-->entry/kiyaku.php">会員登録</a>｜</li>
+   <li><a href="<!--{$smarty.const.ROOT_URLPATH}-->mypage/login.php">ログイン</a>｜</li>
+   <li><a href="<!--{$smarty.const.ROOT_URLPATH}-->cart/index.php">カートをみる</a>｜</li>
+   <li><a href="<!--{$smarty.const.ROOT_URLPATH}-->contact/index.php ">お問い合せ</a></li>
   </ul>
  </div>
 </div>
@@ -40,23 +40,23 @@
     <header class="page_header">
       <div class="pure-g-r ">
         <div class="pure-u-1-2 text-left">
-          <h1 class="logo"> <a href="http://49.212.158.227/"><img src="<!--{$TPL_URLPATH}-->img/page/common/logo.png" /></a> </h1>
+          <h1 class="logo"> <a href="<!--{$smarty.const.ROOT_URLPATH}-->"><img src="<!--{$TPL_URLPATH}-->img/page/common/logo.png" /></a> </h1>
         </div>
         <div class="pure-u-1-2 text-left">
           <div class="panel-body">
             <div class="pure-u-1 pure-g-r">
-              <div class="pure-u-1-4"><a href="TOP_URLPATH"><img src="<!--{$TPL_URLPATH}-->img/page/common/btn_madeinjapan.png" /></a></div>
-              <div class="pure-u-1-4"><a href="http://49.212.158.227/entry/kiyaku.php"><img src="<!--{$TPL_URLPATH}-->img/page/common/btn_sozai.png" /></a></div>
-              <div class="pure-u-1-4"><a href="http://49.212.158.227/mypage/login.php"><img src="<!--{$TPL_URLPATH}-->img/page/common/btn_ashikata.png" /></a></div>
-              <div class="pure-u-1-4"><a href="http://49.212.158.227/cart/index.php"><img src="<!--{$TPL_URLPATH}-->img/page/common/btn_company.png" /></a></div>
+              <div class="pure-u-1-4"><a href="<!--{$smarty.const.ROOT_URLPATH}-->"><img src="<!--{$TPL_URLPATH}-->img/page/common/btn_madeinjapan.png" /></a></div>
+              <div class="pure-u-1-4"><a href="<!--{$smarty.const.ROOT_URLPATH}-->entry/kiyaku.php"><img src="<!--{$TPL_URLPATH}-->img/page/common/btn_sozai.png" /></a></div>
+              <div class="pure-u-1-4"><a href="<!--{$smarty.const.ROOT_URLPATH}-->mypage/login.php"><img src="<!--{$TPL_URLPATH}-->img/page/common/btn_ashikata.png" /></a></div>
+              <div class="pure-u-1-4"><a href="<!--{$smarty.const.ROOT_URLPATH}-->cart/index.php"><img src="<!--{$TPL_URLPATH}-->img/page/common/btn_company.png" /></a></div>
             </div>
           </div>
           <div class="panel-body">
             <div class="pure-u-1 pure-g-r">
-              <div class="pure-u-1-4"><a href="TOP_URLPATH"><img src="<!--{$TPL_URLPATH}-->img/page/common/btn_otoiawase.png" /></a></div>
-              <div class="pure-u-1-4"><a href="http://49.212.158.227/entry/kiyaku.php"><img src="<!--{$TPL_URLPATH}-->img/page/common/btn_cart.png" /></a></div>
-              <div class="pure-u-1-4"><a href="http://49.212.158.227/mypage/login.php"><img src="<!--{$TPL_URLPATH}-->img/page/common/btn_mypage.png" /></a></div>
-              <div class="pure-u-1-4"><a href="http://49.212.158.227/cart/index.php"><img src="<!--{$TPL_URLPATH}-->img/page/common/btn_login.png" /></a></div>
+              <div class="pure-u-1-4"><a href="<!--{$smarty.const.ROOT_URLPATH}-->contact/index.php"><img src="<!--{$TPL_URLPATH}-->img/page/common/btn_otoiawase.png" /></a></div>
+              <div class="pure-u-1-4"><a href="<!--{$smarty.const.ROOT_URLPATH}-->cart/index.php"><img src="<!--{$TPL_URLPATH}-->img/page/common/btn_cart.png" /></a></div>
+              <div class="pure-u-1-4"><a href="<!--{$smarty.const.ROOT_URLPATH}-->mypage"><img src="<!--{$TPL_URLPATH}-->img/page/common/btn_mypage.png" /></a></div>
+              <div class="pure-u-1-4"><a href="<!--{$smarty.const.ROOT_URLPATH}-->mypage/login.php"><img src="<!--{$TPL_URLPATH}-->img/page/common/btn_login.png" /></a></div>
             </div>
           </div>
         </div>

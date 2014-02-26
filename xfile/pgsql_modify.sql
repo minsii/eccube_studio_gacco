@@ -362,3 +362,13 @@ INSERT INTO mtb_footsize(id, name, rank) VALUES((SELECT MAX(id)+1 FROM mtb_foots
 INSERT INTO mtb_footsize(id, name, rank) VALUES((SELECT MAX(id)+1 FROM mtb_footsize), '29', (SELECT MAX(rank)+1 FROM mtb_footsize));
 
 ALTER TABLE dtb_customer ADD COLUMN footsize integer;
+
+/*######################■注文情報カスタマイズ■######################*/
+ALTER TABLE dtb_order ADD COLUMN semi_custom smallint DEFAULT 0;
+ALTER TABLE dtb_order_temp ADD COLUMN semi_custom smallint DEFAULT 0;
+ALTER TABLE dtb_order ADD COLUMN custom_note text;
+ALTER TABLE dtb_order_temp ADD COLUMN custom_note text;
+ALTER TABLE dtb_order ADD COLUMN message_card text;
+ALTER TABLE dtb_order_temp ADD COLUMN message_card text;
+
+INSERT INTO mtb_constants (id ,name ,rank ,remarks) VALUES ('SEMI_CUSTOM_PAYMENT_IDS',  '"1,2,3"',  (SELECT MAX(rank)+1 FROM mtb_constants),  'セミオーダーが使用できる支払方法ID');

@@ -107,7 +107,12 @@ class LC_Page_Admin_Order_Edit_Ex extends LC_Page_Admin_Order_Edit {
 		$objFormParam->convParam();
 		$order_id = $objFormParam->getValue('order_id');
 		$arrValuesBefore = array();
-
+		
+		// DB受注情報に上書きするため、空項目を追加する
+		if(!isset($_POST["semi_custom"])){
+			$_POST["semi_custom"] = "";
+		}
+				
 		// DBから受注情報を読み込む
 		if (!SC_Utils_Ex::isBlank($order_id)) {
 			$this->setOrderToFormParam($objFormParam, $order_id);
@@ -317,6 +322,10 @@ class LC_Page_Admin_Order_Edit_Ex extends LC_Page_Admin_Order_Edit {
 			$objFormParam->addParam("非課税", "taxfree");
 		}
 		/*## 商品非課税 ADD END ##*/
+		
+		$objFormParam->addParam("セミオーダー", "semi_custom", INT_LEN, 'n', array("MAX_LENGTH_CHECK", "NUM_CHECK"));
+     	$objFormParam->addParam('メッセージカードの内容', 'message_card', LTEXT_LEN, 'KVa', array('SPTAB_CHECK', 'MAX_LENGTH_CHECK'));
+     	$objFormParam->addParam('オーダー内容', 'custom_note', LTEXT_LEN, 'KVa', array('SPTAB_CHECK', 'MAX_LENGTH_CHECK'));
 	}
 
     function lfCheckError(&$objFormParam) {
@@ -505,7 +514,7 @@ class LC_Page_Admin_Order_Edit_Ex extends LC_Page_Admin_Order_Edit {
 				$arrUpdateKeys[] = 'taxfree';
 			}
 			/*## 商品非課税 ADD END ##*/
-		
+			
 			foreach ($arrUpdateKeys as $key) {
 				$arrValues = $objFormParam->getValue($key);
 				if (isset($changed_no)) {
@@ -599,7 +608,7 @@ class LC_Page_Admin_Order_Edit_Ex extends LC_Page_Admin_Order_Edit {
 			$arrValues["use_select"] = $this->arrUseSelect[$arrValues["use_select_id"]];
 		}
 		/*## 写真希望・用途選択 ADD END	 ##*/
-		
+
         // 受注テーブルの更新
         $order_id = $objPurchase->registerOrder($order_id, $arrValues);
 

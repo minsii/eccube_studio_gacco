@@ -52,7 +52,7 @@
     <!--{/if}-->
     <!--{* ▲HEADER *}-->
 
-    <div id="container" class="clearfix">
+    <div id="container" class="clearfix pure-g-r">
 	<!--{include file='./breadcrumb.tpl'}-->
 	  
         <!--{* ▼TOP COLUMN*}-->
@@ -104,7 +104,7 @@
             <!--{elseif $tpl_column_num == 1}-->
                 id="one_maincolumn"
             <!--{/if}-->
-            class="main_column"
+             class="main_column pure-u-4-6 pure-g-r"
         >
             <!--{* ▼メイン上部 *}-->
             <!--{if $arrPageLayout.MainHead|@count > 0}-->
@@ -142,7 +142,7 @@
 
         <!--{* ▼RIGHT COLUMN *}-->
         <!--{if $arrPageLayout.RightNavi|@count > 0}-->
-            <div id="rightcolumn" class="side_column">
+            <div id="rightcolumn" class="side_column pure-u-2-6">
                 <!--{* ▼右ナビ *}-->
                 <!--{foreach key=RightNaviKey item=RightNaviItem from=$arrPageLayout.RightNavi}-->
                     <!-- ▼<!--{$RightNaviItem.bloc_name}--> -->

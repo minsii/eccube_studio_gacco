@@ -46,12 +46,15 @@ class LC_Page_Admin_Customer_Edit_Ex extends LC_Page_Admin_Customer_Edit {
     function init() {
         parent::init();
         
+        $masterData = new SC_DB_MasterData_Ex();
+        
         /*## 顧客管理画面に記念日一覧表示 ADD BEGIN ##*/
         if(USE_ANNIVERSARY === true){
-        	$masterData = new SC_DB_MasterData_Ex();
         	$this->arrEvent = $masterData->getMasterData("mtb_anniversary_event");
         }
         /*## 顧客管理画面に記念日一覧表示 ADD END ##*/
+        
+        $this->arrFOOT_SIZE = $masterData->getMasterData('mtb_footsize');
     }
 
     /**

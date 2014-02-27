@@ -122,6 +122,10 @@ function func_return(){
                 <td><!--{$arrSex[$arrForm.sex]|h}--></td>
             </tr>
             <tr>
+                <th>足のサイズ</th>
+                <td><!--{$arrFOOT_SIZE[$arrForm.footsize]|h}--></td>
+            </tr>
+            <tr>
                 <th>ご職業</th>
                 <td><!--{$arrJob[$arrForm.job]|default:"未登録"|h}--></td>
             </tr>

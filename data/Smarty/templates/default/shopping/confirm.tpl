@@ -393,7 +393,20 @@ $(document).ready(function() {
             </tr>
             <!--{/if}-->
             <!--{*## 写真希望・用途選択 ADD END ##*}-->
-            
+            <tr>
+                <th scope="row">セミオーダー希望</th>
+                <td><!--{if $arrForm.semi_custom}-->希望する<!--{else}-->希望しない<!--{/if}--></td>
+            </tr>
+            <tr>
+                <th scope="row">メッセージカード内容</th>
+                <td><!--{$arrForm.message_card|h|nl2br}--></td>
+            </tr>
+            <!--{if $arrForm.semi_custom}-->
+            <tr>
+                <th scope="row">オーダー内容</th>
+                <td><!--{$arrForm.custom_note|h|nl2br}--></td>
+            </tr>
+            <!--{/if}-->
             <tr>
                 <th scope="row">その他お問い合わせ</th>
                 <td><!--{$arrForm.message|h|nl2br}--></td>

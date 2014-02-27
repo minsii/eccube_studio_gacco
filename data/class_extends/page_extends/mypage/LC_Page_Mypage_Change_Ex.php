@@ -45,6 +45,9 @@ class LC_Page_Mypage_Change_Ex extends LC_Page_Mypage_Change {
      */
     function init() {
         parent::init();
+        
+        $masterData = new SC_DB_MasterData_Ex();
+        $this->arrFOOT_SIZE = $masterData->getMasterData('mtb_footsize');
     }
 
     /**

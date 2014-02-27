@@ -28,11 +28,21 @@
         } else {
             showForm(false);
         }
+        // セミオーダー表示
+        displayCustomNote();
+        
         $('input[id^=deliv_]').click(function() {
             showForm(true);
             var data = {};
             data.mode = 'select_deliv';
             data.deliv_id = $(this).val();
+            // セミオーダー希望の場合、支払方法が制限される
+            if($("#semi_custom").is(":checked")){
+              data.semi_custom = $("#semi_custom").val();
+            }
+            else{
+              data.semi_custom = "";
+            }
             data['<!--{$smarty.const.TRANSACTION_ID_NAME}-->'] = '<!--{$transactionid}-->';
             $.ajax({
                 type : 'POST',
@@ -121,6 +131,15 @@
             }
         }
     });
+    
+    function displayCustomNote(){
+      if($("#semi_custom").is(":checked")){
+        $("#semi_custom_note_area").css("display", "");
+      }
+      else{
+        $("#semi_custom_note_area").css("display", "none");
+      }
+    }
 //]]></script>
 <div id="undercolumn">
     <div id="undercolumn_shopping">
@@ -134,6 +153,12 @@
         <input type="hidden" name="mode" value="confirm" />
         <input type="hidden" name="uniqid" value="<!--{$tpl_uniqid}-->" />
 
+        <div class="pay_area">
+            <h3>セミオーダー希望</h3>
+            <p>セミオーダーを希望される方はチェックしてください。</p>
+            <input type="checkbox" id="semi_custom" name="semi_custom" value="1" style="<!--{$arrErr.semi_custom|sfGetErrorColor}-->" <!--{1|sfGetChecked:$arrForm.semi_custom.value}--> onclick="document.form1.mode.value='custom';document.form1.submit();"/>
+        </div>
+        
         <!--{assign var=key value="deliv_id"}-->
         <!--{if $is_single_deliv}-->
             <input type="hidden" name="<!--{$key}-->" value="<!--{$arrForm[$key].value}-->" id="deliv_id" />
@@ -266,6 +291,28 @@
         <!--{/if}-->
         <!-- ▲ポイント使用 ここまで -->
 
+        <div class="pay_area02">
+            <h3>メッセージカード内容</h3>
+            <p>メッセージカードのないようをご記入ください。</p>
+            <div>
+                <!--{assign var=key value="message_card"}-->
+                <span class="attention"><!--{$arrErr[$key]}--></span>
+                <textarea name="<!--{$key}-->" style="<!--{$arrErr[$key]|sfGetErrorColor}-->" cols="70" rows="8" class="txtarea" wrap="hard"><!--{"\n"}--><!--{$arrForm[$key].value|h}--></textarea>
+                <p class="attention"> (<!--{$smarty.const.LTEXT_LEN}-->文字まで)</p>
+            </div>
+        </div>
+        
+        <div class="pay_area02" id="semi_custom_note_area" style="display:none;">
+            <h3>オーダー内容</h3>
+            <p>オーダー希望（筒幅、高さなど）の内容をご記入ください。</p>
+            <div>
+                <!--{assign var=key value="custom_note"}-->
+                <span class="attention"><!--{$arrErr[$key]}--></span>
+                <textarea name="<!--{$key}-->" style="<!--{$arrErr[$key]|sfGetErrorColor}-->" cols="70" rows="8" class="txtarea" wrap="hard"><!--{"\n"}--><!--{$arrForm[$key].value|h}--></textarea>
+                <p class="attention"> (<!--{$smarty.const.LTEXT_LEN}-->文字まで)</p>
+            </div>
+        </div>
+        
         <div class="pay_area02">
             <h3>その他お問い合わせ</h3>
             <p>その他お問い合わせ事項がございましたら、こちらにご入力ください。</p>

@@ -768,9 +768,47 @@
             <!--{html_options options=$arrUseSelect selected=$arrForm[$key].value}-->
           </select>
           </td>
-        </th>
+        </tr>
         <!--{/if}-->
         <!--{*## 写真希望・用途選択 ADD END ##*}-->
+
+        <!--{*## 店舗作成予定日 ADD BEGIN ##*}-->
+        <!--{if $smarty.const.USE_ORDER_MAKE_DATE === true}-->
+        <tr>
+          <th>店舗作成予定日</th>
+          <td>
+          <!--{assign var=key value="make_date"}-->
+          <span class="attention"><!--{$arrErr[$key]}--></span>
+          <input type="text" name="<!--{$key}-->" value="<!--{$arrForm[$key].value|date_format:'%Y/%m/%d'|h}-->" size="16" class="datepicker" />
+          </td>
+        </tr>
+        <!--{/if}-->
+        <!--{*## 店舗作成予定日 ADD END ##*}-->
+        
+        <tr>
+            <th>セミオーダー希望</th>
+            <td>
+            <!--{assign var=key value="semi_custom"}-->
+            <span class="attention"><!--{$arrErr[$key]}--></span>
+            <input type="checkbox" id="<!--{$key}-->" name="<!--{$key}-->" value="1" style="<!--{$arrErr[$key]|sfGetErrorColor}-->" <!--{if $arrForm[$key].value == 1}-->checked<!--{/if}-->/>
+            </td>
+        </th>
+        <tr>
+            <th>オーダー内容</th>
+            <td>
+                <!--{assign var=key value="custom_note"}-->
+                <span class="attention"><!--{$arrErr[$key]}--></span>
+                <textarea name="<!--{$key}-->" maxlength="<!--{$arrForm[$key].length}-->" cols="80" rows="6" class="area80" style="<!--{$arrErr[$key]|sfGetErrorColor}-->" ><!--{"\n"}--><!--{$arrForm[$key].value|h}--></textarea>
+            </td>
+        </tr>
+        <tr>
+            <th>メッセージカード内容</th>
+            <td>
+                <!--{assign var=key value="message_card"}-->
+                <span class="attention"><!--{$arrErr[$key]}--></span>
+                <textarea name="<!--{$key}-->" maxlength="<!--{$arrForm[$key].length}-->" cols="80" rows="6" class="area80" style="<!--{$arrErr[$key]|sfGetErrorColor}-->" ><!--{"\n"}--><!--{$arrForm[$key].value|h}--></textarea>
+            </td>
+        </tr>
         
         <tr>
             <th>メモ</th>

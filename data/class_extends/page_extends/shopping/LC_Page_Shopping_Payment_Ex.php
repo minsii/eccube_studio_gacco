@@ -152,9 +152,11 @@ class LC_Page_Shopping_Payment_Ex extends LC_Page_Shopping_Payment {
                     $arrSelectedDeliv = array('error' => true);
                     $this->tpl_mainpage = 'shopping/select_deliv.tpl'; // モバイル用
                 }
-
+        
                 if (SC_Display_Ex::detectDevice() != DEVICE_TYPE_MOBILE) {
-
+                	// セミオーダーが使える支払方法を取る
+                	$arrSelectedDeliv['arrPayment'] = $this->lfGetSemiCustomPayment($arrSelectedDeliv['arrPayment'], $objFormParam);
+                
                     echo SC_Utils_Ex::jsonEncode($arrSelectedDeliv);
                     SC_Response_Ex::actionExit();
                 } else {
@@ -214,7 +216,7 @@ class LC_Page_Shopping_Payment_Ex extends LC_Page_Shopping_Payment {
                 SC_Response_Ex::sendRedirect($url);
                 SC_Response_Ex::actionExit();
                 break;
-
+                            	
             default:
                 // FIXME 前のページから戻ってきた場合は別パラメーター(mode)で処理分岐する必要があるのかもしれない
                 $this->setFormParams($objFormParam, $arrOrderTemp, false, $this->arrShipping);
@@ -235,12 +237,20 @@ class LC_Page_Shopping_Payment_Ex extends LC_Page_Shopping_Payment {
                 break;
         }
 
+        // セミオーダー指定でページ更新の場合、セミオーダー値を設定する
+        if($this->getMode() == "custom"){
+        	$objFormParam->setValue('semi_custom', $_POST["semi_custom"]);
+        }
+            	
         // モバイル用 ポストバック処理
         if (SC_Display_Ex::detectDevice() == DEVICE_TYPE_MOBILE
             && SC_Utils_Ex::isBlank($this->arrErr)) {
             $this->tpl_mainpage = $this->getMobileMainpage($this->is_single_deliv, $this->getMode());
         }
 
+        // セミオーダーが使える支払方法を取る
+        $this->arrPayment = $this->lfGetSemiCustomPayment($this->arrPayment, $objFormParam);
+        
         $this->arrForm = $objFormParam->getFormParamList();
     }
     
@@ -284,4 +294,56 @@ class LC_Page_Shopping_Payment_Ex extends LC_Page_Shopping_Payment {
      	return $arrResults;
      }
     
+    /**
+     * パラメーター情報の初期化を行う.
+     *
+     * @param SC_FormParam $objFormParam SC_FormParam インスタンス
+     * @param boolean $deliv_only 必須チェックは deliv_id のみの場合 true
+     * @param array $arrShipping 配送先情報の配列
+     * @return void
+     */
+     function lfInitParam(&$objFormParam, $deliv_only, &$arrShipping) {
+     	parent::lfInitParam($objFormParam, $deliv_only, $arrShipping);
+
+     	$objFormParam->addParam('セミオーダー', 'semi_custom', INT_LEN, 'n', array('MAX_LENGTH_CHECK', 'NUM_CHECK'));
+     	$objFormParam->addParam('メッセージカードの内容', 'message_card', LTEXT_LEN, 'KVa', array('SPTAB_CHECK', 'MAX_LENGTH_CHECK'));
+     	$objFormParam->addParam('オーダー内容', 'custom_note', LTEXT_LEN, 'KVa', array('SPTAB_CHECK', 'MAX_LENGTH_CHECK'));
+     }
+     
+    /**
+     * 受注一時テーブルへ登録を行う.
+     *
+     * @param integer $uniqid 受注一時テーブルのユニークID
+     * @param array $arrForm フォームの入力値
+     * @param SC_Helper_Purchase $objPurchase SC_Helper_Purchase インスタンス
+     * @param array $arrPayment お支払い方法の配列
+     * @return void
+     */
+    function lfRegistData($uniqid, $arrForm, &$objPurchase, $arrPayment) {
+
+    	// セミオーダー非チェックの場合、オーダー内容をクリアする
+    	if(empty($arrForm["semi_custom"])){
+    		$arrForm['custom_note'] = "";
+    	}
+   		
+		parent::lfRegistData($uniqid, $arrForm, $objPurchase, $arrPayment);
+    }
+    
+    function lfGetSemiCustomPayment($arrPayment, $objFormParam){
+    	$arrCustomPayment = $arrPayment;
+    	$semi_custom = $objFormParam->getValue('semi_custom');
+    	 
+    	if($semi_custom && is_array($arrPayment)
+    		&& defined("SEMI_CUSTOM_PAYMENT_IDS") && strlen(SEMI_CUSTOM_PAYMENT_IDS) > 0 ){
+    		$arrCustomPaymentIds = split(",", SEMI_CUSTOM_PAYMENT_IDS);
+    		$arrCustomPayment = array();
+    		
+    		foreach($arrPayment as $p){
+    			if(in_array($p["payment_id"], $arrCustomPaymentIds)){
+    				$arrCustomPayment[] = $p;
+    			}
+    		}
+    	}
+    	return $arrCustomPayment;
+    }
 }

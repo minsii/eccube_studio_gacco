@@ -189,6 +189,19 @@
         </td>
     </tr>
     <tr>
+        <th>足のサイズ</th>
+        <td>
+            <!--{assign var=key value="footsize"}-->
+            <!--{if $arrErr[$key]}-->
+                <div class="attention"><!--{$arrErr[$key]}--></div>
+            <!--{/if}-->
+            <select name="<!--{$key}-->" style="<!--{$arrErr[$key]|sfGetErrorColor}-->">
+                <option value="" selected="selected">選択してください</option>
+                <!--{html_options options=$arrFOOT_SIZE selected=$arrForm[$key]|default:''}-->
+            </select>
+        </td>
+    </tr>
+    <tr>
         <th>職業</th>
         <td>
             <!--{assign var=key1 value="`$prefix`job"}-->

@@ -111,26 +111,54 @@
         </table>
         <!--{* ショップの状況ここまで *}-->
 
+        <!--{*## 店舗作成予定日 ADD BEGIN ##*}-->
+        <!--{if $smarty.const.USE_ORDER_MAKE_DATE === true}-->
+        <h2>本日の発送・配達商品一覧</h2>
+        <div <!--{if $make_order_num > 10}-->style="height:300px; overflow:auto; padding:5px;"<!--{/if}-->>
+          <table summary="本日の発送・配達商品一覧" id="home-order">
+              <tr>
+                  <th class="center">受注日</th>
+                  <th class="center">受注番号</th>
+                  <th class="center">顧客名</th>
+                  <th class="center">購入商品</th>
+                  <th class="center">購入金額(円)</th>
+              </tr>
+              <!--{section name=i loop=$arrMakeOrder}-->
+              <tr>
+                  <td><!--{$arrMakeOrder[i].create_date|date_format:'%Y/%m/%d %H:%M:%S'|h}--></td>
+                  <td><!--{$arrMakeOrder[i].order_id}--></td>
+                  <td><!--{$arrMakeOrder[i].name01|h}--> <!--{$arrNewOrder[i].name02|h}--></td>
+                  <td><!--{$arrMakeOrder[i].product_name|h}--></td>
+                  <td class="right"><!--{$arrMakeOrder[i].total|number_format}-->円</td>
+              </tr>
+              <!--{/section}-->
+          </table>
+        </div>
+        <!--{/if}-->
+        <!--{*## 店舗作成予定日 ADD END ##*}-->
+        
         <!--{* 新規受付一覧ここから *}-->
         <h2>新規受付一覧</h2>
-        <table summary="新規受付一覧" id="home-order">
-            <tr>
-                <th class="center">受注日</th>
-                <th class="center">お名前</th>
-                <th class="center">購入商品</th>
-                <th class="center">支払方法</th>
-                <th class="center">購入金額(円)</th>
-            </tr>
-            <!--{section name=i loop=$arrNewOrder}-->
-            <tr>
-                <td><!--{$arrNewOrder[i].create_date}--></td>
-                <td><!--{$arrNewOrder[i].name01|h}--> <!--{$arrNewOrder[i].name02|h}--></td>
-                <td><!--{$arrNewOrder[i].product_name|h}--></td>
-                <td><!--{$arrNewOrder[i].payment_method|h}--></td>
-                <td class="right"><!--{$arrNewOrder[i].total|number_format}-->円</td>
-            </tr>
-            <!--{/section}-->
-        </table>
+        <div <!--{if $new_order_num > 10}-->style="height:300px; overflow:auto; padding:5px;"<!--{/if}-->>
+          <table summary="新規受付一覧" id="home-order">
+              <tr>
+                  <th class="center">受注日</th>
+                  <th class="center">お名前</th>
+                  <th class="center">購入商品</th>
+                  <th class="center">支払方法</th>
+                  <th class="center">購入金額(円)</th>
+              </tr>
+              <!--{section name=i loop=$arrNewOrder}-->
+              <tr>
+                  <td><!--{$arrNewOrder[i].create_date}--></td>
+                  <td><!--{$arrNewOrder[i].name01|h}--> <!--{$arrNewOrder[i].name02|h}--></td>
+                  <td><!--{$arrNewOrder[i].product_name|h}--></td>
+                  <td><!--{$arrNewOrder[i].payment_method|h}--></td>
+                  <td class="right"><!--{$arrNewOrder[i].total|number_format}-->円</td>
+              </tr>
+              <!--{/section}-->
+          </table>
+        </div>
         <!--{* 新規受付一覧ここまで *}-->
 
         </form>

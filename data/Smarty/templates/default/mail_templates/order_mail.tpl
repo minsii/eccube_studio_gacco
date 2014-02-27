@@ -30,7 +30,16 @@
 ご注文番号：<!--{$arrOrder.order_id}-->
 お支払合計：￥ <!--{$arrOrder.payment_total|number_format|default:0}-->
 ご決済方法：<!--{$arrOrder.payment_method}-->
-メッセージ：<!--{$Message_tmp}-->
+<!--{if $arrOrder.semi_custom}-->
+セミオーダー希望：
+<!--{$arrOrder.custom_note}-->
+
+<!--{/if}-->
+メッセージカード内容：
+<!--{$arrOrder.message_card}-->
+
+その他お問い合わせ：
+<!--{$Message_tmp}-->
 
 <!--{if $arrOther.title.value}-->
 ************************************************

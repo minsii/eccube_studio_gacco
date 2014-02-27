@@ -108,7 +108,24 @@
         fm.action=action;
         fm.submit();
     }
-
+    
+    function fnSearchSort(sortkey){
+      var fm = document.form1;
+      // 同じのソートキーを再びチェックする場合、ソート順序を変える
+      if(sortkey == fm.sortkey.value){
+        if(fm.sort.value == 1){
+           fm.sort.value = 0;
+        }else{
+          fm.sort.value = 1;
+        }// 0:DESC, 1:ASC
+      // 別のソートキーをチェックする場合、ソート順序をリセットする
+      }else{
+        fm.sort.value = 0;
+      }
+      fm.sortkey.value=sortkey;
+      fm.mode.value="search";
+      fm.submit();
+    }
 
 //-->
 </script>
@@ -321,6 +338,8 @@
 <input type="hidden" name="<!--{$smarty.const.TRANSACTION_ID_NAME}-->" value="<!--{$transactionid}-->" />
 <input type="hidden" name="mode" value="search" />
 <input type="hidden" name="order_id" value="" />
+<input type="hidden" name="sortkey" value="<!--{$smarty.post.sortkey}-->" />
+<input type="hidden" name="sort" value="<!--{$smarty.post.sort}-->" />
 <!--{foreach key=key item=item from=$arrHidden}-->
     <!--{if is_array($item)}-->
         <!--{foreach item=c_item from=$item}-->
@@ -348,10 +367,15 @@
     <!--{* 検索結果表示テーブル *}-->
         <table class="list">
         <col width="10%" />
+        <!--{*## 店舗作成予定日 ADD BEGIN ##*}-->
+        <!--{if $smarty.const.USE_ORDER_MAKE_DATE === true}-->
         <col width="8%" />
-        <col width="15%" />
+        <!--{/if}-->
+        <!--{*## 店舗作成予定日 ADD END ##*}-->
         <col width="8%" />
-        <col width="10%" />
+        <col width="13%" />
+        <col width="8%" />
+        <col width="8%" />
         <col width="10%" />
         <col width="10%" />
         <col width="10%" />
@@ -364,8 +388,13 @@
             <!--{include file=$path}-->
         <!--{else}-->
         <tr>
-            <th>受注日</th>
-            <th>注文番号</th>
+            <th><a href="#" onclick="fnSearchSort('create_date');return false;">受注日</a></th>
+        <!--{*## 店舗作成予定日 ADD BEGIN ##*}-->
+        <!--{if $smarty.const.USE_ORDER_MAKE_DATE === true}-->
+            <th><a href="#" onclick="fnSearchSort('make_date');return false;">店舗制作日</a></th>
+        <!--{/if}-->
+        <!--{*## 店舗作成予定日 ADD END ##*}-->
+            <th><a href="#" onclick="fnSearchSort('order_id');return false;">注文番号</a></th>
             <th>お名前</th>
             <th>支払方法</th>
             <th>購入金額(円)</th>
@@ -381,6 +410,11 @@
         <!--{assign var=status value="`$arrResults[cnt].status`"}-->
         <tr style="background:<!--{$arrORDERSTATUS_COLOR[$status]}-->;">
             <td class="center"><!--{$arrResults[cnt].create_date|sfDispDBDate}--></td>
+        <!--{*## 店舗作成予定日 ADD BEGIN ##*}-->
+        <!--{if $smarty.const.USE_ORDER_MAKE_DATE === true}-->
+            <td class="center"><!--{$arrResults[cnt].make_date|date_format:'%Y/%m/%d'|h}--></td>
+        <!--{/if}-->
+        <!--{*## 店舗作成予定日 ADD END ##*}-->
             <td class="center"><!--{$arrResults[cnt].order_id}--></td>
             <td><!--{$arrResults[cnt].order_name01|h}--> <!--{$arrResults[cnt].order_name02|h}--></td>
             <!--{assign var=payment_id value="`$arrResults[cnt].payment_id`"}-->

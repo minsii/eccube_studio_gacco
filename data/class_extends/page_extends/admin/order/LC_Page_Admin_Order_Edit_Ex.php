@@ -326,19 +326,30 @@ class LC_Page_Admin_Order_Edit_Ex extends LC_Page_Admin_Order_Edit {
 		$objFormParam->addParam("セミオーダー", "semi_custom", INT_LEN, 'n', array("MAX_LENGTH_CHECK", "NUM_CHECK"));
      	$objFormParam->addParam('メッセージカードの内容', 'message_card', LTEXT_LEN, 'KVa', array('SPTAB_CHECK', 'MAX_LENGTH_CHECK'));
      	$objFormParam->addParam('オーダー内容', 'custom_note', LTEXT_LEN, 'KVa', array('SPTAB_CHECK', 'MAX_LENGTH_CHECK'));
+     	
+     	/*## 店舗作成予定日 ADD BEGIN ##*/
+     	if(USE_ORDER_MAKE_DATE === true){
+     		// YYYY/MM/DDのフォーマットなので、10桁
+     		$objFormParam->addParam('店舗作成予定日', 'make_date', 10, 'a', array('SPTAB_CHECK', 'MAX_LENGTH_CHECK'));
+     	}
+     	/*## 店舗作成予定日 ADD END ##*/
 	}
 
     function lfCheckError(&$objFormParam) {
         $objProduct = new SC_Product_Ex();
-
+        
         $arrErr = $objFormParam->checkError();
-
-        if (!SC_Utils_Ex::isBlank($objErr->arrErr)) {
+        $arrValues = $objFormParam->getHashArray();
+        
+        /*## 店舗作成予定日 ADD BEGIN ##*/
+        $objErr = new SC_CheckError_Ex($arrValues);
+        if (!SC_Utils_Ex::isBlank($arrErr)) {
             return $arrErr;
         }
-
-        $arrValues = $objFormParam->getHashArray();
-
+        $objErr->doFunc(array('店舗作成予定日', 'make_date'), array('DATE_STRING_CHECK'));
+        $arrErr["make_date"] = $objErr->arrErr["make_date"];
+        /*## 店舗作成予定日 ADD END ##*/
+        
         // 商品の種類数
         $max = count($arrValues['quantity']);
         $subtotal = 0;
@@ -608,7 +619,7 @@ class LC_Page_Admin_Order_Edit_Ex extends LC_Page_Admin_Order_Edit {
 			$arrValues["use_select"] = $this->arrUseSelect[$arrValues["use_select_id"]];
 		}
 		/*## 写真希望・用途選択 ADD END	 ##*/
-
+     	
         // 受注テーブルの更新
         $order_id = $objPurchase->registerOrder($order_id, $arrValues);
 

@@ -372,3 +372,8 @@ ALTER TABLE dtb_order ADD COLUMN message_card text;
 ALTER TABLE dtb_order_temp ADD COLUMN message_card text;
 
 INSERT INTO mtb_constants (id ,name ,rank ,remarks) VALUES ('SEMI_CUSTOM_PAYMENT_IDS',  '"1,2,3"',  (SELECT MAX(rank)+1 FROM mtb_constants),  'セミオーダーが使用できる支払方法ID');
+
+/*######################■店舗作成予定日■######################*/
+INSERT INTO mtb_constants (id ,name ,rank ,remarks) VALUES ('USE_ORDER_MAKE_DATE',  'true',  (SELECT MAX(rank)+1 FROM mtb_constants),  '店舗作成予定日使用フラグ|true:使用');
+ALTER TABLE dtb_order ADD COLUMN make_date timestamp without time zone;
+

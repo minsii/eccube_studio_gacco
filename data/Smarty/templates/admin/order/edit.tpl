@@ -768,10 +768,23 @@
             <!--{html_options options=$arrUseSelect selected=$arrForm[$key].value}-->
           </select>
           </td>
-        </th>
+        </tr>
         <!--{/if}-->
         <!--{*## 写真希望・用途選択 ADD END ##*}-->
 
+        <!--{*## 店舗作成予定日 ADD BEGIN ##*}-->
+        <!--{if $smarty.const.USE_ORDER_MAKE_DATE === true}-->
+        <tr>
+          <th>店舗作成予定日</th>
+          <td>
+          <!--{assign var=key value="make_date"}-->
+          <span class="attention"><!--{$arrErr[$key]}--></span>
+          <input type="text" name="<!--{$key}-->" value="<!--{$arrForm[$key].value|date_format:'%Y/%m/%d'|h}-->" size="16" class="datepicker" />
+          </td>
+        </tr>
+        <!--{/if}-->
+        <!--{*## 店舗作成予定日 ADD END ##*}-->
+        
         <tr>
             <th>セミオーダー希望</th>
             <td>

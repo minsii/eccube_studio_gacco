@@ -47,6 +47,12 @@
 <script type="text/javascript" src="<!--{$smarty.const.ROOT_URLPATH}-->js/css.js"></script>
 <script type="text/javascript" src="<!--{$TPL_URLPATH}-->js/file_manager.js"></script>
 <script type="text/javascript" src="<!--{$TPL_URLPATH}-->js/fckeditor/fckeditor.js"></script>
+
+<script type="text/javascript" src="<!--{$TPL_URLPATH}-->js/jquery.ui.1.8.24.core.min.js"></script>
+<script type="text/javascript" src="<!--{$TPL_URLPATH}-->js/jquery.ui.1.8.24.datepicker.min.js"></script>
+<script type="text/javascript" src="<!--{$TPL_URLPATH}-->js/jquery.ui.1.8.24.datepicker-ja.js"></script>
+<link rel="stylesheet" href="<!--{$TPL_URLPATH}-->css/jquery-ui-1.10.4.datapicker.min.css" type="text/css" media="all" />
+
 <title><!--{$smarty.const.ADMIN_TITLE}--></title>
 <link rel="shortcut icon" href="<!--{$TPL_URLPATH}-->img/common/favicon.ico" />
 <link rel="icon" type="image/vnd.microsoft.icon" href="<!--{$TPL_URLPATH}-->img/common/favicon.ico" />
@@ -54,6 +60,7 @@
     <!--{$tpl_javascript}-->
     $(function(){
         <!--{$tpl_onload}-->
+        $( ".datepicker" ).datepicker( $.datepicker.regional[ "jp" ] );
     });
 //]]></script>
 <!--{* ▼Head COLUMN*}-->

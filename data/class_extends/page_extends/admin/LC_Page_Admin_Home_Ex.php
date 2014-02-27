@@ -64,4 +64,65 @@ class LC_Page_Admin_Home_Ex extends LC_Page_Admin_Home {
     function destroy() {
         parent::destroy();
     }
+    
+    function action(){
+    	parent::action();
+    	
+    	/*## 店舗作成予定日 ADD BEGIN ##*/
+    	if(USE_ORDER_MAKE_DATE === true){
+    		$this->arrMakeOrder = $this->lfGetMakeOrder();
+    		$this->make_order_num = count($this->arrMakeOrder);
+    	}
+    	/*## 店舗作成予定日 ADD END ##*/
+    	
+    	$this->new_order_num = count($this->arrNewOrder);
+    }
+    
+    /*## 店舗作成予定日 ADD BEGIN ##*/
+    /**
+     * 本日制作受注一覧の取得
+     *
+     */
+    function lfGetMakeOrder() {
+        $objQuery =& SC_Query_Ex::getSingletonInstance();
+
+        $sql = <<< __EOS__
+            SELECT
+                ord.order_id,
+                ord.customer_id,
+                ord.order_name01 AS name01,
+                ord.order_name02 AS name02,
+                ord.total,
+                ord.create_date,
+                (SELECT
+                    det.product_name
+                FROM
+                    dtb_order_detail AS det
+                WHERE
+                    ord.order_id = det.order_id
+                ORDER BY det.order_detail_id
+                LIMIT 1
+                ) AS product_name
+            FROM (
+                SELECT
+                    order_id,
+                    customer_id,
+                    order_name01,
+                    order_name02,
+                    total,
+                    create_date,
+                    make_date
+                FROM
+                    dtb_order AS ord
+                WHERE
+                    del_flg = 0 AND make_date = ?
+                ORDER BY
+                    create_date DESC LIMIT 10 OFFSET 0
+            ) AS ord
+__EOS__;
+        $arrOrder = $objQuery->getAll($sql, array(date("Y-m-d")));
+
+        return $arrOrder;
+    }
+    /*## 店舗作成予定日 ADD END ##*/
 }

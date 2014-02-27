@@ -67,4 +67,31 @@ class SC_CheckError_Ex extends SC_CheckError {
 		// 値を回復
 		$this->arrParam[$value[1]] = $str;
 	}
+	
+	/**
+	 * 下記フォーマットの日付文字列チェック
+	 * YYYY/MM/DD
+	 * YYYY-MM-DD
+	 * 
+	 * @param $value
+	 */
+	function DATE_STRING_CHECK($value){
+		if (isset($this->arrErr[$value[1]]) || empty($value[1])) {
+			return;
+		}
+		
+		$err = false;
+		
+		list($y, $m, $d) = preg_split('/[\/]/', $this->arrParam[$value[1]]);
+		if(empty($y) || empty($m) || empty($d)){
+			$err = true;
+		}
+		else if(!checkdate($m, $d, $y)){
+			$err = true;
+		}
+		
+		if($err){
+			$this->arrErr[$value[1]] = '※ ' . $value[0] . 'を正しく入力してください。<br />';
+		}
+	}
 }

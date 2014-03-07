@@ -141,7 +141,7 @@ class LC_Page_Contact_Ex extends LC_Page_Contact {
      * @return void
      */
     function lfInitParam(&$objFormParam) {
-    	parent::lfInitParam(&$objFormParam);
+    	parent::lfInitParam($objFormParam);
     	
     	/*## 商品問い合わせ ADD BEGIN ##*/
     	if(constant("USE_PRODUCT_CONTACT") === true){

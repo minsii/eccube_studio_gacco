@@ -31,12 +31,12 @@
           <div>
             <h3>▶ お支払方法について</h3>
             <div>
-              <h4>●タイトル</h4>
-              <p>ああああああああ</p>
-              <h4>●タイトル</h4>
-              <p>ああああああああ</p>
-              <h4>●タイトル</h4>
-              <p>ああああああああ</p>
+              <h4>●銀行振込前払い</h4>
+              <p>受付メールにて口座番号等お知らせ致します。お振り込み確認後に商品を発送致します。お振り込み手数料はお客様にてご負担下さい。</p>
+              <h4>●代金引換</h4>
+              <p>代金と引き替えに商品をお受け取り下さい。代引き手数料として600円ご負担下さい。ご了承のほど、宜しくお願い致します。</p>
+              <h4>●郵便振替</h4>
+              <p>受付メールにて番号等お知らせ致します。お振り込み確認後に商品を発送致します。お振り込み手数料はお客様にてご負担下さい。</p>
             </div>
           </div>
         </div>
@@ -44,7 +44,19 @@
           <div>
             <h3>▶ 送料について</h3>
             <div>
-              <p>ああああああああ</p>
+              <h5>○配送料は全国一律600円</h5>
+              <p>（離島・一部地域は別途送料がかかります。）</p>
+              <h5>○￥25.000 以上お買いあげで、全国配送無料</h5>
+              <h5>○配送業者　佐川急便</h5>
+              <h5>○時間指定可能です。</h5>
+              <p>
+以下の時間からお選びください。<br />
+<br />
+1：指定なし<br />
+2：午前9時～12時頃<br />	
+3：午後13時～16時頃<br />
+4：夕方17時～19時頃<br />
+5：夜間19時～21時頃 </p>
             </div>
           </div>
         </div>
@@ -52,11 +64,11 @@
           <div>
             <h3>▶ 返品について</h3>
             <div>
-              <p>ああああああああ</p>
+              <p>返品・交換につきましては商品到着後7日以内にお願いいたします。1週間以上経過してからの返品・交換につきましてはお受け出来ません。必ず到着時に商品の破損が無いかご確認下さい。</p>
             </div>
             <h3>▶ 納期について</h3>
             <div>
-              <p>ああああああああ</p>
+              <p>商品の発送は在庫のある物に関してはご入金確認後通常3～6日程度で発送致します。</p>
             </div>
           </div>
         </div>
@@ -64,7 +76,7 @@
       <div class="box_site_map pure-u-1">
         <div class="pure-u-1 pure-g-r text-left">
           <div class="pure-u-1-6">
-            <h3><span>▶</span> 返品について</h3>
+            <h3><span>▶</span> ホーム</h3>
             <ul>
               <li><a href="#">● 返品について</a></li>
               <li><a href="#">● 返品について</a></li>
@@ -72,7 +84,7 @@
             </ul>
           </div>
           <div class="pure-u-1-6">
-            <h3><span>▶</span> 返品について</h3>
+            <h3><span>▶</span> Ｍａｎ’ｓ</h3>
             <ul>
               <li><a href="#">● 返品について</a></li>
               <li><a href="#">● 返品について</a></li>
@@ -80,7 +92,7 @@
             </ul>
           </div>
           <div class="pure-u-1-6">
-            <h3><span>▶</span> 返品について</h3>
+            <h3><span>▶</span> Ｌａｄｙ’ｓ</h3>
             <ul>
               <li><a href="#">● 返品について</a></li>
               <li><a href="#">● 返品について</a></li>
@@ -88,27 +100,39 @@
             </ul>
           </div>
           <div class="pure-u-1-6">
-            <h3><span>▶</span> 返品について</h3>
+            <h3><span>▶</span> Ｃｏｍｃｅｐｔ</h3>
             <ul>
-              <li><a href="#">● 返品について</a></li>
-              <li><a href="#">● 返品について</a></li>
-              <li><a href="#">● 返品について</a></li>
+              <li><a href="#">・日本の靴メーカーです</a></li>
+              <li><a href="#">・和風ウェスタン</a></li>
+              <li><a href="#">・一生履けるあなたの靴</a></li>
+              <li><a href="#">・隠れウェスタンスタイル</a></li>
             </ul>
           </div>
           <div class="pure-u-1-6">
-            <h3><span>▶</span> 返品について</h3>
+            <h3><span>▶</span> 知ってほしいこと</h3>
             <ul>
-              <li><a href="#">● 返品について</a></li>
-              <li><a href="#">● 返品について</a></li>
-              <li><a href="#">● 返品について</a></li>
+              <li><a href="#">・革のこと</a></li>
+              <li><a href="#">・刺繍のこと</a></li>
+              <li><a href="#">・足型のこと</a></li>
+              <li><a href="#">・製法のこと</a></li>
+              <li><a href="#">・修理のこと</a></li>
+              <li><a href="#">・お手入れのこと</a></li>
+              <li><a href="#">・サイズのこと</a></li>
+              <li><a href="#">・納期のこと</a></li>
+              <li><a href="#">・セミオーダーのこと</a></li>
             </ul>
           </div>
           <div class="pure-u-1-6">
-            <h3><span>▶</span> 返品について</h3>
+            <h3><span>▶</span> その他</h3>
             <ul>
-              <li><a href="#">● 返品について</a></li>
-              <li><a href="#">● 返品について</a></li>
-              <li><a href="#">● 返品について</a></li>
+              <li><a href="#">・OEM のご案内</a></li>
+              <li><a href="#">・サービス</a></li>
+              <li><a href="#">・お客様の声</a></li>
+              <li><a href="#">・よくある質問</a></li>
+              <li><a href="#">・FAX 注文フォーム</a></li>
+              <li><a href="#">・お問い合わせフォーム</a></li>
+              <li><a href="#">・会社概要</a></li>
+              <li><a href="#">・特商法の表記</a></li>
             </ul>
           </div>
         </div>
@@ -143,9 +167,84 @@
           </table>
         </div>
       </div>
-      <div>
+      <div class="box_shop_calendar">
         <h3><img src="<!--{$TPL_URLPATH}-->img/page/sidebar/boxcalendar/title.png" /></h3>
-        <div></div>
+            <!-- ▼カレンダー --> 
+            <!--▼カレンダーここから-->
+            <div class="body">
+              <table>
+                <caption>
+                2014年3月
+                </caption>
+                <thead>
+                  <tr>
+                    <th><span>月</span></th>
+                    <th><span>火</span></th>
+                    <th><span>水</span></th>
+                    <th><span>木</span></th>
+                    <th><span>金</span></th>
+                    <th class="sat"><span>土</span></th>
+                    <th class="sun"><span>日</span></th>
+                  </tr>
+                </thead>
+                <tr>
+                  <td><span>&nbsp;</span></td>
+                  <td><span>&nbsp;</span></td>
+                  <td><span>&nbsp;</span></td>
+                  <td><span>&nbsp;</span></td>
+                  <td><span>&nbsp;</span></td>
+                  <td><span>&nbsp;</span></td>
+                  <td><span>1</span></td>
+                </tr>
+                <tr>
+                  <td class="off"><span>2</span></td>
+                  <td><span>3</span></td>
+                  <td><span>4</span></td>
+                  <td><span>5</span></td>
+                  <td><span>6</span></td>
+                  <td><span>7</span></td>
+                  <td><span>8</span></td>
+                </tr>
+                <tr>
+                  <td class="off"><span>9</span></td>
+                  <td><span>10</span></td>
+                  <td><span>11</span></td>
+                  <td><span>12</span></td>
+                  <td><span>13</span></td>
+                  <td><span>14</span></td>
+                  <td><span>15</span></td>
+                </tr>
+                <tr>
+                  <td class="off"><span>16</span></td>
+                  <td><span>17</span></td>
+                  <td><span>18</span></td>
+                  <td><span>19</span></td>
+                  <td><span>20</span></td>
+                  <td class="off"><span>21</span></td>
+                  <td><span>22</span></td>
+                </tr>
+                <tr>
+                  <td class="off"><span>23</span></td>
+                  <td><span>24</span></td>
+                  <td><span>25</span></td>
+                  <td><span>26</span></td>
+                  <td><span>27</span></td>
+                  <td><span>28</span></td>
+                  <td><span>29</span></td>
+                </tr>
+                <tr>
+                  <td class="off"><span>30</span></td>
+                  <td><span>31</span></td>
+                  <td><span>&nbsp;</span></td>
+                  <td><span>&nbsp;</span></td>
+                  <td><span>&nbsp;</span></td>
+                  <td><span>&nbsp;</span></td>
+                  <td><span>&nbsp;</span></td>
+                </tr>
+              </table>
+            </div>
+            <!--▲カレンダーここまで--> 
+            <!-- ▲カレンダー --> 
       </div>
       <div class="boxaccessmap">
         <h3><img src="<!--{$TPL_URLPATH}-->img/page/sidebar/boxaccessmap/title.png" /></h3>

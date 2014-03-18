@@ -40,9 +40,7 @@
 					
 
 		<!-- ▼バナー -->
-		<br />
-        <div>
-          <div class="panel">
+        <div style="padding:7px 0px">
             <div class="pure-g-r">
               <div class="pure-u-1-4">
                 <div class=" l-box"><a href=""><img src="<!--{$TPL_URLPATH}-->img/page/top/bnr_01.png" width="232" height="39"></a></div>
@@ -57,41 +55,52 @@
                 <div class=" l-box"><a href=""><img src="<!--{$TPL_URLPATH}-->img/page/top/bnr_04.png" width="232" height="39"></a></div>
               </div>
             </div>
-          </div>
         </div>
 		
 		
 		<!-- ▼バナー -->
-        <div>
           <div class="pure-g">
 			<!-- ▼バナー　左列 -->
             <div class="pure-u-1-2">
               <div class="box_topbnr_01 pure-g-r">
-                <div class="list-group"> <a href="#" class="list-group-item pure-u-1-2">
+                <div class="list-group"> 
+                  <div class=" pure-u-1-2">
+                  <a href="#" class="list-group-item">
                   <div class="media"> <span class="icon_top"><img src="<!--{$TPL_URLPATH}-->img/page/top/icon_left_top_01.png" width="60" height="60" /></span> <img src="<!--{$TPL_URLPATH}-->img/page/top/img_01.png" alt="..." width="197" height="161" class="media-object">
                     <div class="media-body">
-                      <h4 class="media-heading lead text-center">Media heading</h4>
+                      <h4 class="media-heading lead text-center">日本の靴メーカーです</h4>
                     </div>
                     <span class="pull-right"><img src="<!--{$TPL_URLPATH}-->img/page/top/icon_right_down.png" /></span> </div>
-                  </a> <a href="#" class="list-group-item pure-u-1-2">
+                  </a> 
+                  </div>
+                  <div class=" pure-u-1-2">
+                  <a href="#" class="list-group-item">
                   <div class="media"> <span class="icon_top"><img src="<!--{$TPL_URLPATH}-->img/page/top/icon_left_top_02.png" width="60" height="60" /></span> <img src="<!--{$TPL_URLPATH}-->img/page/top/img_02.png" alt="..." width="197" height="161" class="media-object">
                     <div class="media-body">
-                      <h4 class="media-heading lead text-center">Media heading</h4>
+                      <h4 class="media-heading lead text-center">一生履けるあなたの靴</h4>
                     </div>
                     <span class="pull-right"><img src="<!--{$TPL_URLPATH}-->img/page/top/icon_right_down.png" /></span> </div>
-                  </a> <a href="#" class="list-group-item pure-u-1-2">
+                  </a> 
+                  </div>
+                  <div class=" pure-u-1-2">
+                  <a href="#" class="list-group-item">
                   <div class="media"> <span class="icon_top"><img src="<!--{$TPL_URLPATH}-->img/page/top/icon_left_top_03.png" width="60" height="60" /></span> <img src="<!--{$TPL_URLPATH}-->img/page/top/img_03.png" alt="..." width="197" height="161" class="media-object">
                     <div class="media-body">
-                      <h4 class="media-heading lead">Media heading</h4>
+                      <h4 class="media-heading lead">和風ウェスタン</h4>
                     </div>
                     <span class="pull-right"><img src="<!--{$TPL_URLPATH}-->img/page/top/icon_right_down.png" /></span> </div>
-                  </a> <a href="#" class="list-group-item pure-u-1-2">
+                  </a> 
+                  </div>
+                  <div class=" pure-u-1-2">
+                  <a href="#" class="list-group-item">
                   <div class="media"> <span class="icon_top"><img src="<!--{$TPL_URLPATH}-->img/page/top/icon_left_top_04.png" width="60" height="60" /></span> <img src="<!--{$TPL_URLPATH}-->img/page/top/img_04.png" alt="..." width="197" height="161" class="media-object">
                     <div class="media-body">
-                      <h4 class="media-heading lead">Media heading</h4>
+                      <h4 class="media-heading lead">隠れウェスタンスタイル</h4>
                     </div>
                     <span class="pull-right"><img src="<!--{$TPL_URLPATH}-->img/page/top/icon_right_down.png" /></span> </div>
-                  </a> </div>
+                  </a>
+                  </div>
+                  </div>
               </div>
             </div>
 			
@@ -106,64 +115,63 @@
                   <div class="pure-u-1-2"> <a href="#" class="list-group-item">
                     <div class="media"> <img src="<!--{$TPL_URLPATH}-->img/page/top/img_07.png" alt="..." width="68" height="68" class="media-object pull-left">
                       <div class="media-body">
-                        <h4 class="media-heading"><strong>Media heading</strong></h4>
-                        あああ </div>
+                        <h4 class="media-heading"><strong>ショートウェスタン</strong></h4>
+                        <p>テキストテキストテキスト</p> </div>
                     </div>
                     </a> </div>
                   <div class="pure-u-1-2"> <a href="#" class="list-group-item">
                     <div class="media"> <img src="<!--{$TPL_URLPATH}-->img/page/top/img_07.png" alt="..." width="68" height="68" class="media-object pull-left">
                       <div class="media-body">
-                        <h4 class="media-heading"><strong>Media heading</strong></h4>
-                        あああ </div>
+                        <h4 class="media-heading"><strong>ショートウェスタン</strong></h4>
+                        <p>テキストテキストテキスト</p> </div>
                     </div>
                     </a> </div>
                   <div class="pure-u-1-2"> <a href="#" class="list-group-item">
                     <div class="media"> <img src="<!--{$TPL_URLPATH}-->img/page/top/img_07.png" alt="..." width="68" height="68" class="media-object pull-left">
                       <div class="media-body">
-                        <h4 class="media-heading"><strong>Media heading</strong></h4>
-                        あああ </div>
+                        <h4 class="media-heading"><strong>ショートウェスタン</strong></h4>
+                        <p>テキストテキストテキスト</p> </div>
                     </div>
                     </a> </div>
                   <div class="pure-u-1-2"> <a href="#" class="list-group-item">
                     <div class="media"> <img src="<!--{$TPL_URLPATH}-->img/page/top/img_07.png" alt="..." width="68" height="68" class="media-object pull-left">
                       <div class="media-body">
-                        <h4 class="media-heading"><strong>Media heading</strong></h4>
-                        あああ </div>
+                        <h4 class="media-heading"><strong>ショートウェスタン</strong></h4>
+                        <p>テキストテキストテキスト</p> </div>
                     </div>
                     </a> </div>
                   <div class="pure-u-1-2"> <a href="#" class="list-group-item">
                     <div class="media"> <img src="<!--{$TPL_URLPATH}-->img/page/top/img_07.png" alt="..." width="68" height="68" class="media-object pull-left">
                       <div class="media-body">
-                        <h4 class="media-heading"><strong>Media heading</strong></h4>
-                        あああ </div>
+                        <h4 class="media-heading"><strong>ショートウェスタン</strong></h4>
+                        <p>テキストテキストテキスト</p> </div>
                     </div>
                     </a> </div>
                   <div class="pure-u-1-2"> <a href="#" class="list-group-item">
                     <div class="media"> <img src="<!--{$TPL_URLPATH}-->img/page/top/img_07.png" alt="..." width="68" height="68" class="media-object pull-left">
                       <div class="media-body">
-                        <h4 class="media-heading"><strong>Media heading</strong></h4>
-                        あああ </div>
+                        <h4 class="media-heading"><strong>ショートウェスタン</strong></h4>
+                        <p>テキストテキストテキスト</p> </div>
                     </div>
                     </a> </div>
                   <div class="pure-u-1-2"> <a href="#" class="list-group-item">
                     <div class="media"> <img src="<!--{$TPL_URLPATH}-->img/page/top/img_07.png" alt="..." width="68" height="68" class="media-object pull-left">
                       <div class="media-body">
-                        <h4 class="media-heading"><strong>Media heading</strong></h4>
-                        あああ </div>
+                        <h4 class="media-heading"><strong>ショートウェスタン</strong></h4>
+                        <p>テキストテキストテキスト</p> </div>
                     </div>
                     </a> </div>
                   <div class="pure-u-1-2"> <a href="#" class="list-group-item">
                     <div class="media"> <img src="<!--{$TPL_URLPATH}-->img/page/top/img_07.png" alt="..." width="68" height="68" class="media-object pull-left">
                       <div class="media-body">
-                        <h4 class="media-heading"><strong>Media heading</strong></h4>
-                        あああ </div>
+                        <h4 class="media-heading"><strong>ショートウェスタン</strong></h4>
+                        <p>テキストテキストテキスト</p> </div>
                     </div>
                     </a> </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 		
 		<!-- ▼特集 -->
         <div>
@@ -186,22 +194,25 @@
                     <div class="pure-u-1"> <a href="#" class="list-group-item">
                       <div class="media"> <img src="<!--{$TPL_URLPATH}-->img/page/top/img_07.png" alt="..." width="68" height="68" class="media-object pull-left">
                         <div class="media-body">
-                          <h4 class="media-heading"><strong>Media heading</strong></h4>
-                          あああ </div>
+                          <h4 class="media-heading"><strong>2013.11.11 あああああああああ</strong></h4>
+                          <p>ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ </p>
+                      </div>
                       </div>
                       </a> </div>
                     <div class="pure-u-1"> <a href="#" class="list-group-item">
                       <div class="media"> <img src="<!--{$TPL_URLPATH}-->img/page/top/img_07.png" alt="..." width="68" height="68" class="media-object pull-left">
                         <div class="media-body">
-                          <h4 class="media-heading"><strong>Media heading</strong></h4>
-                          あああ </div>
+                          <h4 class="media-heading"><strong>2013.11.11 あああああああああ</strong></h4>
+                          <p>ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ </p>
+                      </div>
                       </div>
                       </a> </div>
                     <div class="pure-u-1"> <a href="#" class="list-group-item">
                       <div class="media"> <img src="<!--{$TPL_URLPATH}-->img/page/top/img_07.png" alt="..." width="68" height="68" class="media-object pull-left">
                         <div class="media-body">
-                          <h4 class="media-heading"><strong>Media heading</strong></h4>
-                          あああ </div>
+                          <h4 class="media-heading"><strong>2013.11.11 あああああああああ</strong></h4>
+                          <p>ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ </p>
+                      </div>
                       </div>
                       </a> </div>
                   </div>
@@ -215,15 +226,15 @@
                 <!-- 知って欲しいこと -->
                 <h3 class="title"><img src="<!--{$TPL_URLPATH}-->img/page/top/icon_h3.png" /> 知って欲しいこと</h3>
                 <div class="pure-g-r">
-                  <div class="pure-u-1-3"><a href="#" class="thumbnail"><img src="<!--{$TPL_URLPATH}-->img/page/top/img_info_01.png" width="124" height="124" border="0"></a></div>
-                  <div class="pure-u-1-3"><a href="#" class="thumbnail"><img src="<!--{$TPL_URLPATH}-->img/page/top/img_info_01.png" width="124" height="124" border="0"></a></div>
-                  <div class="pure-u-1-3"><a href="#" class="thumbnail"><img src="<!--{$TPL_URLPATH}-->img/page/top/img_info_01.png" width="124" height="124" border="0"></a></div>
-                  <div class="pure-u-1-3"><a href="#" class="thumbnail"><img src="<!--{$TPL_URLPATH}-->img/page/top/img_info_01.png" width="124" height="124" border="0"></a></div>
-                  <div class="pure-u-1-3"><a href="#" class="thumbnail"><img src="<!--{$TPL_URLPATH}-->img/page/top/img_info_01.png" width="124" height="124" border="0"></a></div>
-                  <div class="pure-u-1-3"><a href="#" class="thumbnail"><img src="<!--{$TPL_URLPATH}-->img/page/top/img_info_01.png" width="124" height="124" border="0"></a></div>
-                  <div class="pure-u-1-3"><a href="#" class="thumbnail"><img src="<!--{$TPL_URLPATH}-->img/page/top/img_info_01.png" width="124" height="124" border="0"></a></div>
-                  <div class="pure-u-1-3"><a href="#" class="thumbnail"><img src="<!--{$TPL_URLPATH}-->img/page/top/img_info_01.png" width="124" height="124" border="0"></a></div>
-                  <div class="pure-u-1-3"><a href="#" class="thumbnail"><img src="<!--{$TPL_URLPATH}-->img/page/top/img_info_01.png" width="124" height="124" border="0"></a></div>
+                  <div class="pure-u-1-3"><a href="#" class="thumbnail"><img src="<!--{$TPL_URLPATH}-->img/page/top/img_info_01.png" width="124" height="124" border="0"><span class="buttom_right_icon"><img src="../user_data/packages/default/img/page/top/icon_right_down_02.png" width="13" height="13" /></span></a></div>
+                  <div class="pure-u-1-3"><a href="#" class="thumbnail"><img src="<!--{$TPL_URLPATH}-->img/page/top/img_info_02.png" width="124" height="124" border="0"><span class="buttom_right_icon"><img src="../user_data/packages/default/img/page/top/icon_right_down_02.png" width="13" height="13" /></span></a></div>
+                  <div class="pure-u-1-3"><a href="#" class="thumbnail"><img src="<!--{$TPL_URLPATH}-->img/page/top/img_info_03.png" width="124" height="124" border="0"><span class="buttom_right_icon"><img src="../user_data/packages/default/img/page/top/icon_right_down_02.png" width="13" height="13" /></span></a></div>
+                  <div class="pure-u-1-3"><a href="#" class="thumbnail"><img src="<!--{$TPL_URLPATH}-->img/page/top/img_info_04.png" width="124" height="124" border="0"><span class="buttom_right_icon"><img src="../user_data/packages/default/img/page/top/icon_right_down_02.png" width="13" height="13" /></span></a></div>
+                  <div class="pure-u-1-3"><a href="#" class="thumbnail"><img src="<!--{$TPL_URLPATH}-->img/page/top/img_info_05.png" width="124" height="124" border="0"><span class="buttom_right_icon"><img src="../user_data/packages/default/img/page/top/icon_right_down_02.png" width="13" height="13" /></span></a></div>
+                  <div class="pure-u-1-3"><a href="#" class="thumbnail"><img src="<!--{$TPL_URLPATH}-->img/page/top/img_info_06.png" width="124" height="124" border="0"><span class="buttom_right_icon"><img src="../user_data/packages/default/img/page/top/icon_right_down_02.png" width="13" height="13" /></span></a></div>
+                  <div class="pure-u-1-3"><a href="#" class="thumbnail"><img src="<!--{$TPL_URLPATH}-->img/page/top/img_info_07.png" width="124" height="124" border="0"><span class="buttom_right_icon"><img src="../user_data/packages/default/img/page/top/icon_right_down_02.png" width="13" height="13" /></span></a></div>
+                  <div class="pure-u-1-3"><a href="#" class="thumbnail"><img src="<!--{$TPL_URLPATH}-->img/page/top/img_info_08.png" width="124" height="124" border="0"><span class="buttom_right_icon"><img src="../user_data/packages/default/img/page/top/icon_right_down_02.png" width="13" height="13" /></span></a></div>
+                  <div class="pure-u-1-3"><a href="#" class="thumbnail"><img src="<!--{$TPL_URLPATH}-->img/page/top/img_info_09.png" width="124" height="124" border="0"><span class="buttom_right_icon"><img src="../user_data/packages/default/img/page/top/icon_right_down_02.png" width="13" height="13" /></span></a></div>
                 </div>
               </div>
             </div>

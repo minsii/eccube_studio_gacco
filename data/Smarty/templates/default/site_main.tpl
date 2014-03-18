@@ -52,7 +52,7 @@
     <!--{/if}-->
     <!--{* ▲HEADER *}-->
 
-    <div id="container" class="clearfix pure-g-r">
+    <div id="container" class="clearfix">
 	<!--{include file='./breadcrumb.tpl'}-->
 	  
         <!--{* ▼TOP COLUMN*}-->
@@ -104,7 +104,7 @@
             <!--{elseif $tpl_column_num == 1}-->
                 id="one_maincolumn"
             <!--{/if}-->
-             class="main_column pure-u-4-6 pure-g-r"
+             class="main_column"
         >
             <!--{* ▼メイン上部 *}-->
             <!--{if $arrPageLayout.MainHead|@count > 0}-->

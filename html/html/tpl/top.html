@@ -84,18 +84,25 @@
     </header>
     <!--▲HEADER-->
     
-    <div id="container" class="clearfix">
-      <ol class="breadcrumb">
+    <div id="container" class="clearfix pure-g-r">
+      <ol class="breadcrumb  pure-u-1">
         <li><a href="#">Home</a></li>
         <li><a href="#">Library</a></li>
         <li class="active">Data</li>
       </ol>
       <div
-                                                id="one_maincolumn"
-                                         class="main_column"
+                                                id="two_maincolumn_left"
+                                         class="main_column pure-u-4-6 pure-g-r"
         > 
         
-        <!-- ▼メイン -->
+        <!-- ▼メイン --> 
+        <!--
+<div id="main_image">
+    <a href="/products/detail.php?product_id=1" onmouseover="chgImg('/user_data/packages/default/img/banner/bnr_top_main_on.jpg','bnr_top_main');" onmouseout="chgImg('/user_data/packages/default/img/banner/bnr_top_main.jpg','bnr_top_main');">
+        <img src="/user_data/packages/default/img/banner/bnr_top_main.jpg" alt="詳細はこちら" id="bnr_top_main" name="bnr_top_main" />
+    </a>
+</div>
+-->
         
         <div class="main_image cycle-slideshow"
 				data-cycle-fx=scrollHorz data-cycle-timeout=0> 
@@ -108,7 +115,9 @@
 					src="/user_data/packages/default/img/page/top/main_img01.png" width="950" height="381"> </div>
         
         <!-- ▼バナー --> 
-        <div style="padding:7px 0px">
+        <br />
+        <div>
+          <div class="panel">
             <div class="pure-g-r">
               <div class="pure-u-1-4">
                 <div class=" l-box"><a href=""><img src="/user_data/packages/default/img/page/top/bnr_01.png" width="232" height="39"></a></div>
@@ -123,51 +132,40 @@
                 <div class=" l-box"><a href=""><img src="/user_data/packages/default/img/page/top/bnr_04.png" width="232" height="39"></a></div>
               </div>
             </div>
+          </div>
         </div>
         
         <!-- ▼バナー -->
+        <div>
           <div class="pure-g"> 
             <!-- ▼バナー　左列 -->
             <div class="pure-u-1-2">
               <div class="box_topbnr_01 pure-g-r">
-                <div class="list-group"> 
-                	<div class=" pure-u-1-2">
-                  <a href="#" class="list-group-item">
+                <div class="list-group"> <a href="#" class="list-group-item pure-u-1-2">
                   <div class="media"> <span class="icon_top"><img src="/user_data/packages/default/img/page/top/icon_left_top_01.png" width="60" height="60" /></span> <img src="/user_data/packages/default/img/page/top/img_01.png" alt="..." width="197" height="161" class="media-object">
                     <div class="media-body">
-                      <h4 class="media-heading">日本の靴メーカーです</h4>
+                      <h4 class="media-heading lead text-center">Media heading</h4>
                     </div>
                     <span class="pull-right"><img src="/user_data/packages/default/img/page/top/icon_right_down.png" /></span> </div>
-                  </a> 
-                  </div>
-                	<div class=" pure-u-1-2">
-                  <a href="#" class="list-group-item pure-u-1-2">
+                  </a> <a href="#" class="list-group-item pure-u-1-2">
                   <div class="media"> <span class="icon_top"><img src="/user_data/packages/default/img/page/top/icon_left_top_02.png" width="60" height="60" /></span> <img src="/user_data/packages/default/img/page/top/img_02.png" alt="..." width="197" height="161" class="media-object">
                     <div class="media-body">
-                      <h4 class="media-heading">一生履けるあなたの靴</h4>
+                      <h4 class="media-heading lead text-center">Media heading</h4>
                     </div>
                     <span class="pull-right"><img src="/user_data/packages/default/img/page/top/icon_right_down.png" /></span> </div>
-                  </a>
-                  </div>
-                	<div class=" pure-u-1-2">
-                   <a href="#" class="list-group-item pure-u-1-2">
+                  </a> <a href="#" class="list-group-item pure-u-1-2">
                   <div class="media"> <span class="icon_top"><img src="/user_data/packages/default/img/page/top/icon_left_top_03.png" width="60" height="60" /></span> <img src="/user_data/packages/default/img/page/top/img_03.png" alt="..." width="197" height="161" class="media-object">
                     <div class="media-body">
-                      <h4 class="media-heading">和風ウェスタン</h4>
+                      <h4 class="media-heading lead">Media heading</h4>
                     </div>
                     <span class="pull-right"><img src="/user_data/packages/default/img/page/top/icon_right_down.png" /></span> </div>
-                  </a>
-                  </div>
-                	<div class=" pure-u-1-2">
-                   <a href="#" class="list-group-item pure-u-1-2">
+                  </a> <a href="#" class="list-group-item pure-u-1-2">
                   <div class="media"> <span class="icon_top"><img src="/user_data/packages/default/img/page/top/icon_left_top_04.png" width="60" height="60" /></span> <img src="/user_data/packages/default/img/page/top/img_04.png" alt="..." width="197" height="161" class="media-object">
                     <div class="media-body">
-                      <h4 class="media-heading">隠れウェスタンスタイル</h4>
+                      <h4 class="media-heading lead">Media heading</h4>
                     </div>
                     <span class="pull-right"><img src="/user_data/packages/default/img/page/top/icon_right_down.png" /></span> </div>
-                  </a> 
-                  </div>
-                  </div>
+                  </a> </div>
               </div>
             </div>
             
@@ -182,63 +180,64 @@
                   <div class="pure-u-1-2"> <a href="#" class="list-group-item">
                     <div class="media"> <img src="/user_data/packages/default/img/page/top/img_07.png" alt="..." width="68" height="68" class="media-object pull-left">
                       <div class="media-body">
-                        <h4 class="media-heading"><strong>ショートウェスタン</strong></h4>
-                        <p>テキストテキストテキスト</p></div>
+                        <h4 class="media-heading"><strong>Media heading</strong></h4>
+                        あああ </div>
                     </div>
                     </a> </div>
                   <div class="pure-u-1-2"> <a href="#" class="list-group-item">
                     <div class="media"> <img src="/user_data/packages/default/img/page/top/img_07.png" alt="..." width="68" height="68" class="media-object pull-left">
                       <div class="media-body">
-                        <h4 class="media-heading"><strong>ショートウェスタン</strong></h4>
-                        <p>テキストテキストテキスト</p> </div>
+                        <h4 class="media-heading"><strong>Media heading</strong></h4>
+                        あああ </div>
                     </div>
                     </a> </div>
                   <div class="pure-u-1-2"> <a href="#" class="list-group-item">
                     <div class="media"> <img src="/user_data/packages/default/img/page/top/img_07.png" alt="..." width="68" height="68" class="media-object pull-left">
                       <div class="media-body">
-                        <h4 class="media-heading"><strong>ショートウェスタン</strong></h4>
-                        <p>テキストテキストテキスト</p> </div>
+                        <h4 class="media-heading"><strong>Media heading</strong></h4>
+                        あああ </div>
                     </div>
                     </a> </div>
                   <div class="pure-u-1-2"> <a href="#" class="list-group-item">
                     <div class="media"> <img src="/user_data/packages/default/img/page/top/img_07.png" alt="..." width="68" height="68" class="media-object pull-left">
                       <div class="media-body">
-                        <h4 class="media-heading"><strong>ショートウェスタン</strong></h4>
-                        <p>テキストテキストテキスト</p> </div>
+                        <h4 class="media-heading"><strong>Media heading</strong></h4>
+                        あああ </div>
                     </div>
                     </a> </div>
                   <div class="pure-u-1-2"> <a href="#" class="list-group-item">
                     <div class="media"> <img src="/user_data/packages/default/img/page/top/img_07.png" alt="..." width="68" height="68" class="media-object pull-left">
                       <div class="media-body">
-                        <h4 class="media-heading"><strong>ショートウェスタン</strong></h4>
-                        <p>テキストテキストテキスト</p> </div>
+                        <h4 class="media-heading"><strong>Media heading</strong></h4>
+                        あああ </div>
                     </div>
                     </a> </div>
                   <div class="pure-u-1-2"> <a href="#" class="list-group-item">
                     <div class="media"> <img src="/user_data/packages/default/img/page/top/img_07.png" alt="..." width="68" height="68" class="media-object pull-left">
                       <div class="media-body">
-                        <h4 class="media-heading"><strong>ショートウェスタン</strong></h4>
-                        <p>テキストテキストテキスト</p> </div>
+                        <h4 class="media-heading"><strong>Media heading</strong></h4>
+                        あああ </div>
                     </div>
                     </a> </div>
                   <div class="pure-u-1-2"> <a href="#" class="list-group-item">
                     <div class="media"> <img src="/user_data/packages/default/img/page/top/img_07.png" alt="..." width="68" height="68" class="media-object pull-left">
                       <div class="media-body">
-                        <h4 class="media-heading"><strong>ショートウェスタン</strong></h4>
-                        <p>テキストテキストテキスト</p> </div>
+                        <h4 class="media-heading"><strong>Media heading</strong></h4>
+                        あああ </div>
                     </div>
                     </a> </div>
                   <div class="pure-u-1-2"> <a href="#" class="list-group-item">
                     <div class="media"> <img src="/user_data/packages/default/img/page/top/img_07.png" alt="..." width="68" height="68" class="media-object pull-left">
                       <div class="media-body">
-                        <h4 class="media-heading"><strong>ショートウェスタン</strong></h4>
-                        <p>テキストテキストテキスト</p> </div>
+                        <h4 class="media-heading"><strong>Media heading</strong></h4>
+                        あああ </div>
                     </div>
                     </a> </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
         
         <!-- ▼特集 -->
         <div>
@@ -261,24 +260,22 @@
                     <div class="pure-u-1"> <a href="#" class="list-group-item">
                       <div class="media"> <img src="/user_data/packages/default/img/page/top/img_07.png" alt="..." width="68" height="68" class="media-object pull-left">
                         <div class="media-body">
-                          <h4 class="media-heading"><strong>2013.11.11 あああああああああ</strong></h4>
-                          <p>ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ </p>
-                        </div>
+                          <h4 class="media-heading"><strong>Media heading</strong></h4>
+                          あああ </div>
                       </div>
                       </a> </div>
                     <div class="pure-u-1"> <a href="#" class="list-group-item">
                       <div class="media"> <img src="/user_data/packages/default/img/page/top/img_07.png" alt="..." width="68" height="68" class="media-object pull-left">
                         <div class="media-body">
-                          <h4 class="media-heading"><strong>2013.11.11 あああああああああ</strong></h4>
-                          <p>あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ</p> </div>
+                          <h4 class="media-heading"><strong>Media heading</strong></h4>
+                          あああ </div>
                       </div>
                       </a> </div>
                     <div class="pure-u-1"> <a href="#" class="list-group-item">
                       <div class="media"> <img src="/user_data/packages/default/img/page/top/img_07.png" alt="..." width="68" height="68" class="media-object pull-left">
                         <div class="media-body">
-                          <h4 class="media-heading"><strong>2013.11.11 あああああああああ</strong></h4>
-                          <p>あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ </p>
-                        </div>
+                          <h4 class="media-heading"><strong>Media heading</strong></h4>
+                          あああ </div>
                       </div>
                       </a> </div>
                   </div>
@@ -292,15 +289,15 @@
                 <!-- 知って欲しいこと -->
                 <h3 class="title"><img src="/user_data/packages/default/img/page/top/icon_h3.png" /> 知って欲しいこと</h3>
                 <div class="pure-g-r">
-                  <div class="pure-u-1-3"><a href="#" class="thumbnail"><img src="/user_data/packages/default/img/page/top/img_info_01.png" width="124" height="124" border="0"><span class="buttom_right_icon"><img src="../user_data/packages/default/img/page/top/icon_right_down_02.png" width="13" height="13" /></span></a></div>
-                  <div class="pure-u-1-3"><a href="#" class="thumbnail"><img src="/user_data/packages/default/img/page/top/img_info_02.png" width="124" height="124" border="0"><span class="buttom_right_icon"><img src="../user_data/packages/default/img/page/top/icon_right_down_02.png" width="13" height="13" /></span></a></div>
-                  <div class="pure-u-1-3"><a href="#" class="thumbnail"><img src="/user_data/packages/default/img/page/top/img_info_03.png" width="124" height="124" border="0"><span class="buttom_right_icon"><img src="../user_data/packages/default/img/page/top/icon_right_down_02.png" width="13" height="13" /></span></a></div>
-                  <div class="pure-u-1-3"><a href="#" class="thumbnail"><img src="/user_data/packages/default/img/page/top/img_info_04.png" width="124" height="124" border="0"><span class="buttom_right_icon"><img src="../user_data/packages/default/img/page/top/icon_right_down_02.png" width="13" height="13" /></span></a></div>
-                  <div class="pure-u-1-3"><a href="#" class="thumbnail"><img src="/user_data/packages/default/img/page/top/img_info_05.png" width="124" height="124" border="0"><span class="buttom_right_icon"><img src="../user_data/packages/default/img/page/top/icon_right_down_02.png" width="13" height="13" /></span></a></div>
-                  <div class="pure-u-1-3"><a href="#" class="thumbnail"><img src="/user_data/packages/default/img/page/top/img_info_06.png" width="124" height="124" border="0"><span class="buttom_right_icon"><img src="../user_data/packages/default/img/page/top/icon_right_down_02.png" width="13" height="13" /></span></a></div>
-                  <div class="pure-u-1-3"><a href="#" class="thumbnail"><img src="/user_data/packages/default/img/page/top/img_info_07.png" width="124" height="124" border="0"><span class="buttom_right_icon"><img src="../user_data/packages/default/img/page/top/icon_right_down_02.png" width="13" height="13" /></span></a></div>
-                  <div class="pure-u-1-3"><a href="#" class="thumbnail"><img src="/user_data/packages/default/img/page/top/img_info_08.png" width="124" height="124" border="0"><span class="buttom_right_icon"><img src="../user_data/packages/default/img/page/top/icon_right_down_02.png" width="13" height="13" /></span></a></div>
-                  <div class="pure-u-1-3"><a href="#" class="thumbnail"><img src="/user_data/packages/default/img/page/top/img_info_09.png" width="124" height="124" border="0"><span class="buttom_right_icon"><img src="../user_data/packages/default/img/page/top/icon_right_down_02.png" width="13" height="13" /></span></a></div>
+                  <div class="pure-u-1-3"><a href="#" class="thumbnail"><img src="/user_data/packages/default/img/page/top/img_info_01.png" width="124" height="124" border="0"></a></div>
+                  <div class="pure-u-1-3"><a href="#" class="thumbnail"><img src="/user_data/packages/default/img/page/top/img_info_01.png" width="124" height="124" border="0"></a></div>
+                  <div class="pure-u-1-3"><a href="#" class="thumbnail"><img src="/user_data/packages/default/img/page/top/img_info_01.png" width="124" height="124" border="0"></a></div>
+                  <div class="pure-u-1-3"><a href="#" class="thumbnail"><img src="/user_data/packages/default/img/page/top/img_info_01.png" width="124" height="124" border="0"></a></div>
+                  <div class="pure-u-1-3"><a href="#" class="thumbnail"><img src="/user_data/packages/default/img/page/top/img_info_01.png" width="124" height="124" border="0"></a></div>
+                  <div class="pure-u-1-3"><a href="#" class="thumbnail"><img src="/user_data/packages/default/img/page/top/img_info_01.png" width="124" height="124" border="0"></a></div>
+                  <div class="pure-u-1-3"><a href="#" class="thumbnail"><img src="/user_data/packages/default/img/page/top/img_info_01.png" width="124" height="124" border="0"></a></div>
+                  <div class="pure-u-1-3"><a href="#" class="thumbnail"><img src="/user_data/packages/default/img/page/top/img_info_01.png" width="124" height="124" border="0"></a></div>
+                  <div class="pure-u-1-3"><a href="#" class="thumbnail"><img src="/user_data/packages/default/img/page/top/img_info_01.png" width="124" height="124" border="0"></a></div>
                 </div>
               </div>
             </div>
@@ -336,6 +333,150 @@
         </div>
         
         <!-- ▲おすすめ商品 --> 
+      </div>
+      <div id="rightcolumn" class="side_column pure-u-2-6"> 
+        <!-- ▼カレンダー --> 
+        <!--▼カレンダーここから-->
+        <div class="left_box">
+          <div class="left_inner">
+            <h2 class="left_ttl"><img src="/user_data/packages/default/img/side/left_ttl06.gif" width="206" height="42" alt="当店の営業日"></h2>
+            <div id="block-calendar" class="left_cont">
+              <table>
+                <caption>
+                2014年3月
+                </caption>
+                <thead>
+                  <tr>
+                    <th class="sun">日</th>
+                    <th>月</th>
+                    <th>火</th>
+                    <th>水</th>
+                    <th>木</th>
+                    <th>金</th>
+                    <th>土</th>
+                  </tr>
+                </thead>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <td class="off">2</td>
+                  <td>3</td>
+                  <td>4</td>
+                  <td>5</td>
+                  <td>6</td>
+                  <td>7</td>
+                  <td>8</td>
+                </tr>
+                <tr>
+                  <td class="off">9</td>
+                  <td>10</td>
+                  <td>11</td>
+                  <td>12</td>
+                  <td>13</td>
+                  <td>14</td>
+                  <td>15</td>
+                </tr>
+                <tr>
+                  <td class="off">16</td>
+                  <td>17</td>
+                  <td>18</td>
+                  <td>19</td>
+                  <td>20</td>
+                  <td class="off">21</td>
+                  <td>22</td>
+                </tr>
+                <tr>
+                  <td class="off">23</td>
+                  <td>24</td>
+                  <td>25</td>
+                  <td>26</td>
+                  <td>27</td>
+                  <td>28</td>
+                  <td>29</td>
+                </tr>
+                <tr>
+                  <td class="off">30</td>
+                  <td>31</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </table>
+              <table>
+                <caption>
+                2014年4月
+                </caption>
+                <thead>
+                  <tr>
+                    <th class="sun">日</th>
+                    <th>月</th>
+                    <th>火</th>
+                    <th>水</th>
+                    <th>木</th>
+                    <th>金</th>
+                    <th>土</th>
+                  </tr>
+                </thead>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td>1</td>
+                  <td>2</td>
+                  <td>3</td>
+                  <td>4</td>
+                  <td>5</td>
+                </tr>
+                <tr>
+                  <td class="off">6</td>
+                  <td>7</td>
+                  <td>8</td>
+                  <td>9</td>
+                  <td>10</td>
+                  <td>11</td>
+                  <td>12</td>
+                </tr>
+                <tr>
+                  <td class="off">13</td>
+                  <td>14</td>
+                  <td>15</td>
+                  <td>16</td>
+                  <td>17</td>
+                  <td>18</td>
+                  <td>19</td>
+                </tr>
+                <tr>
+                  <td class="off">20</td>
+                  <td>21</td>
+                  <td>22</td>
+                  <td>23</td>
+                  <td>24</td>
+                  <td>25</td>
+                  <td>26</td>
+                </tr>
+                <tr>
+                  <td class="off">27</td>
+                  <td>28</td>
+                  <td class="off">29</td>
+                  <td>30</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+        <!--▲カレンダーここまで--> 
+        <!-- ▲カレンダー --> 
       </div>
       <div class="bottom_navi pure-g-r">
         <div class="pure-u-1">
@@ -388,12 +529,12 @@
               <div>
                 <h3>▶ お支払方法について</h3>
                 <div>
-                  <h4>●銀行振込前払い</h4>
-                  <p>受付メールにて口座番号等お知らせ致します。お振り込み確認後に商品を発送致します。お振り込み手数料はお客様にてご負担下さい。</p>
-                  <h4>●代金引換</h4>
-                  <p>代金と引き替えに商品をお受け取り下さい。代引き手数料として600円ご負担下さい。ご了承のほど、宜しくお願い致します。</p>
-                  <h4>●郵便振替</h4>
-                  <p>受付メールにて番号等お知らせ致します。お振り込み確認後に商品を発送致します。お振り込み手数料はお客様にてご負担下さい。</p>
+                  <h4>●タイトル</h4>
+                  <p>ああああああああ</p>
+                  <h4>●タイトル</h4>
+                  <p>ああああああああ</p>
+                  <h4>●タイトル</h4>
+                  <p>ああああああああ</p>
                 </div>
               </div>
             </div>
@@ -401,19 +542,7 @@
               <div>
                 <h3>▶ 送料について</h3>
                 <div>
-                  <h5>○配送料は全国一律600円</h5>
-                  <p>（離島・一部地域は別途送料がかかります。）</p>
-                  <h5>○￥25.000 以上お買いあげで、全国配送無料</h5>
-                  <h5>○配送業者　佐川急便</h5>
-                  <h5>○時間指定可能です。</h5>
-                  <p>
-以下の時間からお選びください。<br />
-<br />
-1：指定なし<br />
-2：午前9時～12時頃<br />	
-3：午後13時～16時頃<br />
-4：夕方17時～19時頃<br />
-5：夜間19時～21時頃 </p>
+                  <p>ああああああああ</p>
                 </div>
               </div>
             </div>
@@ -421,11 +550,11 @@
               <div>
                 <h3>▶ 返品について</h3>
                 <div>
-                  <p>返品・交換につきましては商品到着後7日以内にお願いいたします。1週間以上経過してからの返品・交換につきましてはお受け出来ません。必ず到着時に商品の破損が無いかご確認下さい。</p>
+                  <p>ああああああああ</p>
                 </div>
                 <h3>▶ 納期について</h3>
                 <div>
-                  <p>商品の発送は在庫のある物に関してはご入金確認後通常3～6日程度で発送致します。</p>
+                  <p>ああああああああ</p>
                 </div>
               </div>
             </div>
@@ -433,7 +562,7 @@
           <div class="box_site_map pure-u-1">
             <div class="pure-u-1 pure-g-r text-left">
               <div class="pure-u-1-6">
-                <h3><span>▶</span> ホーム</h3>
+                <h3><span>▶</span> 返品について</h3>
                 <ul>
                   <li><a href="#">● 返品について</a></li>
                   <li><a href="#">● 返品について</a></li>
@@ -441,7 +570,7 @@
                 </ul>
               </div>
               <div class="pure-u-1-6">
-                <h3><span>▶</span> Ｍａｎ’ｓ</h3>
+                <h3><span>▶</span> 返品について</h3>
                 <ul>
                   <li><a href="#">● 返品について</a></li>
                   <li><a href="#">● 返品について</a></li>
@@ -449,7 +578,7 @@
                 </ul>
               </div>
               <div class="pure-u-1-6">
-                <h3><span>▶</span> Ｌａｄｙ’ｓ</h3>
+                <h3><span>▶</span> 返品について</h3>
                 <ul>
                   <li><a href="#">● 返品について</a></li>
                   <li><a href="#">● 返品について</a></li>
@@ -457,39 +586,27 @@
                 </ul>
               </div>
               <div class="pure-u-1-6">
-                <h3><span>▶</span> Ｃｏｍｃｅｐｔ</h3>
+                <h3><span>▶</span> 返品について</h3>
                 <ul>
-                  <li><a href="#">・日本の靴メーカーです</a></li>
-                  <li><a href="#">・和風ウェスタン</a></li>
-                  <li><a href="#">・一生履けるあなたの靴</a></li>
-                  <li><a href="#">・隠れウェスタンスタイル</a></li>
+                  <li><a href="#">● 返品について</a></li>
+                  <li><a href="#">● 返品について</a></li>
+                  <li><a href="#">● 返品について</a></li>
                 </ul>
               </div>
               <div class="pure-u-1-6">
-                <h3><span>▶</span> 知ってほしいこと</h3>
+                <h3><span>▶</span> 返品について</h3>
                 <ul>
-                  <li><a href="#">・革のこと</a></li>
-                  <li><a href="#">・刺繍のこと</a></li>
-                  <li><a href="#">・足型のこと</a></li>
-                  <li><a href="#">・製法のこと</a></li>
-                  <li><a href="#">・修理のこと</a></li>
-                  <li><a href="#">・お手入れのこと</a></li>
-                  <li><a href="#">・サイズのこと</a></li>
-                  <li><a href="#">・納期のこと</a></li>
-                  <li><a href="#">・セミオーダーのこと</a></li>
+                  <li><a href="#">● 返品について</a></li>
+                  <li><a href="#">● 返品について</a></li>
+                  <li><a href="#">● 返品について</a></li>
                 </ul>
               </div>
               <div class="pure-u-1-6">
-                <h3><span>▶</span> その他</h3>
+                <h3><span>▶</span> 返品について</h3>
                 <ul>
-                  <li><a href="#">・OEM のご案内</a></li>
-                  <li><a href="#">・サービス</a></li>
-                  <li><a href="#">・お客様の声</a></li>
-                  <li><a href="#">・よくある質問</a></li>
-                  <li><a href="#">・FAX 注文フォーム</a></li>
-                  <li><a href="#">・お問い合わせフォーム</a></li>
-                  <li><a href="#">・会社概要</a></li>
-                  <li><a href="#">・特商法の表記</a></li>
+                  <li><a href="#">● 返品について</a></li>
+                  <li><a href="#">● 返品について</a></li>
+                  <li><a href="#">● 返品について</a></li>
                 </ul>
               </div>
             </div>
@@ -524,84 +641,9 @@
               </table>
             </div>
           </div>
-          <div class="box_shop_calendar">
+          <div>
             <h3><img src="/user_data/packages/default/img/page/sidebar/boxcalendar/title.png" /></h3>
-            <!-- ▼カレンダー --> 
-            <!--▼カレンダーここから-->
-            <div class="body">
-              <table>
-                <caption>
-                2014年3月
-                </caption>
-                <thead>
-                  <tr>
-                    <th><span>月</span></th>
-                    <th><span>火</span></th>
-                    <th><span>水</span></th>
-                    <th><span>木</span></th>
-                    <th><span>金</span></th>
-                    <th class="sat"><span>土</span></th>
-                    <th class="sun"><span>日</span></th>
-                  </tr>
-                </thead>
-                <tr>
-                  <td><span>&nbsp;</span></td>
-                  <td><span>&nbsp;</span></td>
-                  <td><span>&nbsp;</span></td>
-                  <td><span>&nbsp;</span></td>
-                  <td><span>&nbsp;</span></td>
-                  <td><span>&nbsp;</span></td>
-                  <td><span>1</span></td>
-                </tr>
-                <tr>
-                  <td class="off"><span>2</span></td>
-                  <td><span>3</span></td>
-                  <td><span>4</span></td>
-                  <td><span>5</span></td>
-                  <td><span>6</span></td>
-                  <td><span>7</span></td>
-                  <td><span>8</span></td>
-                </tr>
-                <tr>
-                  <td class="off"><span>9</span></td>
-                  <td><span>10</span></td>
-                  <td><span>11</span></td>
-                  <td><span>12</span></td>
-                  <td><span>13</span></td>
-                  <td><span>14</span></td>
-                  <td><span>15</span></td>
-                </tr>
-                <tr>
-                  <td class="off"><span>16</span></td>
-                  <td><span>17</span></td>
-                  <td><span>18</span></td>
-                  <td><span>19</span></td>
-                  <td><span>20</span></td>
-                  <td class="off"><span>21</span></td>
-                  <td><span>22</span></td>
-                </tr>
-                <tr>
-                  <td class="off"><span>23</span></td>
-                  <td><span>24</span></td>
-                  <td><span>25</span></td>
-                  <td><span>26</span></td>
-                  <td><span>27</span></td>
-                  <td><span>28</span></td>
-                  <td><span>29</span></td>
-                </tr>
-                <tr>
-                  <td class="off"><span>30</span></td>
-                  <td><span>31</span></td>
-                  <td><span>&nbsp;</span></td>
-                  <td><span>&nbsp;</span></td>
-                  <td><span>&nbsp;</span></td>
-                  <td><span>&nbsp;</span></td>
-                  <td><span>&nbsp;</span></td>
-                </tr>
-              </table>
-            </div>
-            <!--▲カレンダーここまで--> 
-            <!-- ▲カレンダー --> 
+            <div></div>
           </div>
           <div class="boxaccessmap">
             <h3><img src="/user_data/packages/default/img/page/sidebar/boxaccessmap/title.png" /></h3>

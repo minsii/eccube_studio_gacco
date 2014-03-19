@@ -52,7 +52,7 @@
     <!--{/if}-->
     <!--{* ▲HEADER *}-->
 
-    <div id="container" class="clearfix">
+    <div id="container" class="clearfix pure-g-r">
 	<!--{include file='./breadcrumb.tpl'}-->
 	  
         <!--{* ▼TOP COLUMN*}-->

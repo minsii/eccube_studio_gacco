@@ -62,7 +62,7 @@
     }
 //]]></script>
 
-<div id="undercolumn">
+<div id="undercolumn" class="pure-u-1">
     <form name="form1" id="form1" method="get" action="?">
         <input type="hidden" name="<!--{$smarty.const.TRANSACTION_ID_NAME}-->" value="<!--{$transactionid}-->" />
         <input type="hidden" name="mode" value="<!--{$mode|h}-->" />
@@ -79,9 +79,134 @@
         <input type="hidden" name="rnd" value="<!--{$tpl_rnd|h}-->" />
     </form>
 
+      <!--★タイトル★-->
+      <div class="pure-u-1 lead"> <img src="<!--{$TPL_URLPATH}-->img/page/ichiran/main_img_01.png" width="695" height="309"> </div>
+      <!--一覧-->
+      <div class="pure-u-1 ">
     <!--★タイトル★-->
     <h2 class="title"><!--{$tpl_subtitle|h}--></h2>
-
+    
+        <!--ページネット-->
+        <div class="box_pagination pure-u-1 ">
+          <div class="pure-g-r"> <span class="pure-u-1-5">8件の商品がございます</span>
+            <div class="pure-u-3-5 text-center">
+              <div class="pure-menu pure-menu-open pure-menu-horizontal">
+                <ul class="">
+                  <li><a href="#"><< 前へ</a></li>
+                  <li><a class="page active" href="#">1</a></li>
+                  <li><a class="page" href="#">2</a></li>
+                  <li><a class="page" href="#">3</a></li>
+                  <li><a href="#">次へ >></a></li>
+                </ul>
+                <!--{$tpl_strnavi}-->
+              </div>
+            </div>
+            <span class="pure-u-1-5 pure-g-r">
+                <span class="pure-u-1-2 btn">
+                    <!--{if $orderby != 'price'}-->
+                        <a href="javascript:fnChangeOrderby('price');">価格順</a>
+                    <!--{else}-->
+                        価格順
+                    <!--{/if}-->
+                </span>  
+                <span class="pure-u-1-2 btn">
+                    <!--{if $orderby != "date"}-->
+                        <a href="javascript:fnChangeOrderby('date');">新着順</a>
+                    <!--{else}-->
+                        新着順
+                    <!--{/if}--> 
+                </span>
+             </span>
+           </div>
+        </div>
+    
+        <!--ウエスタンブーツ-->
+        <div class="box_product_list pure-u-1 row">
+        <div class=" thumbnails">
+        <!--{foreach from=$arrProducts item=arrProduct name=arrProducts}-->
+            <!--{assign var=id value=$arrProduct.product_id}-->
+            <!--{assign var=arrErr value=$arrProduct.arrErr}-->
+            <!--▼商品-->
+            <form name="product_form<!--{$id|h}-->" action="?" onsubmit="return false;">
+            <input type="hidden" name="<!--{$smarty.const.TRANSACTION_ID_NAME}-->" value="<!--{$transactionid}-->" />
+                <div class="col-xs-4">
+                  <div class="thumbnail">
+                    <div class="img"><a href="<!--{$smarty.const.P_DETAIL_URLPATH}--><!--{$arrProduct.product_id|u}-->"><img src="<!--{$smarty.const.IMAGE_SAVE_URLPATH}--><!--{$arrProduct.main_list_image|sfNoImageMainList|h}-->" alt="<!--{$arrProduct.name|h}-->." width="194" height="194" border="0" data-src="holder.js/300x200"></a></div>
+                    <!--▼商品ステータス-->
+                    <!--{if count($productStatus[$id]) > 0}-->
+                    <div class="icons pure-g-r">
+                        <!--{foreach from=$productStatus[$id] item=status}-->
+                            <div class="pure-u-1-2"><img src="<!--{$TPL_URLPATH}--><!--{$arrSTATUS_IMAGE[$status]}-->" alt="<!--{$arrSTATUS[$status]}-->" /></div>
+                        <!--{/foreach}-->
+                    </div>
+                    <!--{/if}-->
+                    <!--▲商品ステータス-->
+                    <div class="caption">
+                    <!--★商品名★-->
+                      <h3><a href="<!--{$smarty.const.P_DETAIL_URLPATH}--><!--{$arrProduct.product_id|u}-->"><!--{$arrProduct.name|h}--></a><br />
+                       <!--★価格★-->
+                        <!--{if $arrProduct.price02_min_inctax == $arrProduct.price02_max_inctax}-->
+                            ￥<!--{$arrProduct.price02_min_inctax|number_format}-->
+                        <!--{else}-->
+                            ￥<!--{$arrProduct.price02_min_inctax|number_format}-->～<!--{$arrProduct.price02_max_inctax|number_format}-->
+                        <!--{/if}-->(税込)</h3>
+                      <ul class="list-group">
+                        <li class="list-group-item"><span class="pure-u-1-3">高さ</span>タイトル</li>
+                        <li class="list-group-item"><span class="pure-u-1-3">筒幅</span>タイトルタイトル</li>
+                        <li class="list-group-item"><span class="pure-u-1-3">革</span>タイトルタイトル</li>
+                      </ul>
+                      <p><!--{$arrProduct.main_list_comment|h|nl2br}--></p>
+                    </div>
+                        <!--{if $tpl_stock_find[$id]}-->
+                    <a href="<!--{$smarty.const.P_DETAIL_URLPATH}--><!--{$arrProduct.product_id|u}-->"><img src="<!--{$TPL_URLPATH}-->img/page/ichiran/btn_detail.png" border="0" /></a> 
+                        <!--{else}-->
+                    <a href="<!--{$smarty.const.P_DETAIL_URLPATH}--><!--{$arrProduct.product_id|u}-->"><img src="<!--{$TPL_URLPATH}-->img/page/ichiran/btn_hinkire.png" width="218" height="30" border="0" /></a> 
+                        <!--{/if}-->
+                  </div>
+                </div>
+            </form>
+            <!--▲商品-->
+        <!--{foreachelse}-->
+            <!--{include file="frontparts/search_zero.tpl"}-->
+        <!--{/foreach}-->
+        </div>
+        
+        </div>
+        <!--ページネット-->
+        <div class="box_pagination pure-u-1 ">
+          <div class="pure-g-r"> <span class="pure-u-1-5">8件の商品がございます</span>
+            <div class="pure-u-3-5 text-center">
+              <div class="pure-menu pure-menu-open pure-menu-horizontal">
+                <ul class="">
+                  <li><a href="#"><< 前へ</a></li>
+                  <li><a class="page active" href="#">1</a></li>
+                  <li><a class="page" href="#">2</a></li>
+                  <li><a class="page" href="#">3</a></li>
+                  <li><a href="#">次へ >></a></li>
+                </ul>
+                <!--{$tpl_strnavi}-->
+              </div>
+            </div>
+            <span class="pure-u-1-5 pure-g-r">
+                <span class="pure-u-1-2 btn">
+                    <!--{if $orderby != 'price'}-->
+                        <a href="javascript:fnChangeOrderby('price');">価格順</a>
+                    <!--{else}-->
+                        価格順
+                    <!--{/if}-->
+                </span>  
+                <span class="pure-u-1-2 btn">
+                    <!--{if $orderby != "date"}-->
+                        <a href="javascript:fnChangeOrderby('date');">新着順</a>
+                    <!--{else}-->
+                        新着順
+                    <!--{/if}--> 
+                </span>
+             </span>
+          </div>
+        </div>
+    
+    </div>
     <!--▼検索条件-->
     <!--{if $tpl_subtitle == "検索結果"}-->
         <ul class="pagecond_area">
@@ -267,5 +392,21 @@
     <!--{foreachelse}-->
         <!--{include file="frontparts/search_zero.tpl"}-->
     <!--{/foreach}-->
+<script language="javascript">
+	function equalHeight(group) {
+		tallest = 0;
+		group.each(function() {
+		thisHeight = $(this).height();
+		if(thisHeight > tallest) {
+		tallest = thisHeight;
+		}
+		});
+		group.each(function() { $(this).height(tallest); });
+	}
+	
+	$(document).ready(function() {
+		//equalHeight($('.thumbnail'));
+	});
 
+</script>
 </div>

@@ -40,9 +40,259 @@
     });
 //]]></script>
 
-<div id="undercolumn">
+<div id="undercolumn" class=" pure-u-1">
     <form name="form1" id="form1" method="post" action="?">
     <input type="hidden" name="<!--{$smarty.const.TRANSACTION_ID_NAME}-->" value="<!--{$transactionid}-->" />
+    
+    
+    
+    
+    
+          <!--★タイトル★-->
+          <div class="pure-u-1 detail_main_img"> <img src="<!--{$TPL_URLPATH}-->img/page/detail/main_img_01.png" width="695" height="309">
+            <p>どんなタイプの装いにもとても合わせやすいベーシックなお色のウエスタンブーツ。<br />
+デニムはもちろん甘系のふんわりスカートにも相性良しで、何気ない、いつものスタイルがグッとオシャレになる使えるアイテムです。</p>
+          </div>
+          
+          <!--オイルレザーに本格的なウエスタン-->
+          <div class="pure-u-1 box_detail_product_point">
+            <h2 class="title1">オイルレザーに本格的なウエスタン刺繍を施したAll japan made のオリジナル</h2>
+            <div class="pure-g-r">
+              <div class="point_1">
+                <div class="pure-u-1">
+                  <h3><span>Point:1</span>日本人の足に合う様設計</h3>
+                </div>
+                <div class="pure-u-3-5">
+                  <div><img src="<!--{$TPL_URLPATH}-->img/page/detail/img_01.png" /></div>
+                  <p>使用している木型はインポートの本格的ウエスタンブーツ木型の特徴を生かしつつ日本人の足に合う様設計された物になっていますので足入れがよく、甲高・幅広の足の方にも好評頂いております。</p>
+                </div>
+                <div class="pure-u-2-5"> <img src="<!--{$TPL_URLPATH}-->img/page/detail/img_02.png" /> </div>
+              </div>
+              <div class="point_2 pure-u-1-2">
+                <h3><span>Point:2</span>日本人の足に合う様設計</h3>
+                <div class="">
+                  <div><img src="<!--{$TPL_URLPATH}-->img/page/detail/img_03.png" width="320" height="220" /></div>
+                  <p>つま先はナロウ・ポインテッドスタイルで、ヒールは5 センチのアンダースラングスタイル、履き口の深いスカラップと共に伝統的なカウボーイブーツのスタイルを継承しつつ、底材にスペイン製キャスター( 合成素材) を使用して日常履きとして履きやすく、リーズナブルに仕上げています。</p>
+                </div>
+              </div>
+              <div class="point_3 pure-u-1-2">
+                <h3><span>Point:3</span>日本人の足に合う様設計</h3>
+                <div class="">
+                  <div><img src="<!--{$TPL_URLPATH}-->img/page/detail/img_03.png" width="320" height="220" /></div>
+                  <p>ブーツの筒も程良い太さなのでパンツをブーツインするスタイルにも、スカートスタイルにも幅広く活躍していただけるスタンダードなブーツです。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!--使い込むほどに味が出るチョコのオイルレザー-->
+          
+          <div class="pure-u-1 box_detail_product_point2">
+            <h2 class="title1">使い込むほどに味が出るチョコのオイルレザー</h2>
+            <div class="pure-g-r">
+              <div class="pure-u-1">
+                <div><img src="<!--{$TPL_URLPATH}-->img/page/detail/img_04.png" /></div>
+                <p>チョコのオイルレザーを使用しております。<br />オイルレザー素材自体にムラ感があり、こするとツヤ感が出る味のある素材になっております。</p>
+              </div>
+              <div class="pure-u-1-3">
+                <div><img src="<!--{$TPL_URLPATH}-->img/page/detail/img_05.png" /></div>
+                <p>筒部分には金茶の5 本ウエスタン刺繍がされています。</p>
+              </div>
+              <div class="pure-u-1-3">
+                <div><img src="<!--{$TPL_URLPATH}-->img/page/detail/img_06.png" /></div>
+                <p>ソールの底面はオーナメント( 焼き印) が施されたツヤ感のあるベージュ。</p>
+              </div>
+              <div class="pure-u-1-3">
+                <div><img src="<!--{$TPL_URLPATH}-->img/page/detail/img_07.png" /></div>
+                <p>ヒールの側面は濃茶を使用しています。</p>
+              </div>
+            </div>
+          </div>
+          
+          <!--スタッフ職人の声-->
+          <div class="pure-u-1">
+            <h2 class="title1">スタッフ職人の声</h2>
+            <div class="panel-body pure-g-r">
+              <div class="pure-u-7-24"> <img class="" src="<!--{$TPL_URLPATH}-->img/page/leather/img_01.png" width="153" height="150"> </div>
+              <div class="pure-u-16-24">
+                <div><img src="<!--{$TPL_URLPATH}-->img/page/detail/img_08.png" /></div>
+                <p>インポート物の超本格的なウエスタンもいいですが、ソールが本革底でお手入れも大変だし値段も高い。そして、何よりも足に合わない!( 甲が薄く、幅が狭いのが多いですよね。) この木型は日本人の足に合う様設計された物になっているので本当に履きやすく、幅広・甲高な足にはそのままで、甲の薄い方には中敷きを入れて履かれるといいです。</p>
+<p>ウエスタンブーツって意外とどんなスタイルにも合わせやすく、デニムはもちろん甘系のふんわりスカートにも相性良しで、何気ない、いつものスタイルがグッとオシャレになる使えるアイテムです。</p>
+              </div>
+            </div>
+          </div>
+          
+          <!--サイズについて-->
+          <div class="box_sizu_info pure-u-1">
+            <h2 class="title1">サイズについて</h2>
+            <div class="pure-g-r">
+              <div class="pure-u-12-24"> <img class="" src="<!--{$TPL_URLPATH}-->img/page/detail/img_10.png" width="258" height="292"> </div>
+              <div class="pure-u-12-24 pure-g-r">
+                <div class="pure-u-1">
+                  <div class="size_detail">
+                    <h5>■幅の仕様変更</h5>
+                    <p>筒の大きさを変更するセミオーダーをお受けしております。
+筒の形状変更程度ですがセミオーダーとしてお受けさせていただきます。</p>
+                    <div class="text-right"><a href="#"><img src="<!--{$TPL_URLPATH}-->img/page/detail/btn_semiorder.png" border="0" /></a></div>
+                  </div>
+                  <div class="size_table pure-g-r">
+                    <h4 class="pure-u-1">サイズと在庫の見方</h4>
+                    <div class="pure-u-1">
+                      <table class="pure-u-1">
+                        <colgroup>
+                        <col width="25%" />
+                        <col width="25%" />
+                        <col width="50%" />
+                        </colgroup>
+                        <tr>
+                          <th colspan="2"><div class="text-center">サイズ</div></th>
+                          <th ><div class="text-center">在庫ズ</div></th>
+                        </tr>
+                        <tr>
+                          <td class="size"><div class="text-center">６</div></td>
+                          <td class="size"><div class="text-center">25/25</div></td>
+                          <td><div class="text-center">○</div></td>
+                        </tr>
+                      </table>
+                      <p> ○:発送目安に商品を発送します。<br />
+                        △:ご注文を受けてから２週間程度で発送します。 </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p class="pure-u-1">※筒幅の2 倍が内径になります。<br />例）筒幅が175mm の場合の内径は350mm になります。</p>
+            </div>
+          </div>
+          
+          <!--商品詳細-->
+          <div class="box_product_detail pure-u-1">
+            <h2>うえスタンブーツ</h2>
+            <div class="pure-g-r">
+              <div class="left_detail_info pure-u-1-2 pure-g-r">
+                <div class="pure-u-1"><a href="#"><img src="<!--{$TPL_URLPATH}-->img/page/detail/img_11.png" border="0" /></a></div>
+                <div class="pure-u-1-3"><a href="#"><img src="<!--{$TPL_URLPATH}-->img/page/detail/img_12.png" border="0" /></a></div>
+                <div class="pure-u-1-3"><a href="#"><img src="<!--{$TPL_URLPATH}-->img/page/detail/img_13.png" border="0" /></a></div>
+                <div class="pure-u-1-3"><a href="#"><img src="<!--{$TPL_URLPATH}-->img/page/detail/img_14.png" border="0" /></a></div>
+              </div>
+              <div class="right_detail_info pure-u-1-2">
+                <h4>サイズにつサイズにつサイズにつ</h4>
+                <div>商品コード：WG0099</div>
+                <p>販売価格：<span class="price_number">\21,840</span> (税込)<br />
+                  発送までの目安：ご注文から○日<br />
+                  サイズにつサイズにつサイズにつ</p>
+                <table class="pure-u-1">
+                  <colgroup>
+                  <col width="25%" />
+                  <col width="25%" />
+                  <col width="50%" />
+                  </colgroup>
+                  <tr>
+                    <th colspan="2"><div class="text-center">サイズ</div></th>
+                    <th ><div class="text-center">在庫ズ</div></th>
+                  </tr>
+                  <tr>
+                    <td class="size"><div class="text-center">６</div></td>
+                    <td class="size"><div class="text-center">25/25</div></td>
+                    <td><div class="text-center">○</div></td>
+                  </tr>
+                </table>
+                <div class="pure-u-1 pure-g-r">
+                  <ul class="list-group pure-u-1">
+                    <li class="list-group-item"> <span>サイズ選択：</span> <span>
+                      <select class="pure-u-1-2">
+                        <option>選択</option>
+                        <option>1</option>
+                      </select>
+                      </span> </li>
+                    <li class="list-group-item">数量 <span>
+                      <select class="pure-u-1-6">
+                        <option>1</option>
+                        <option>2</option>
+                      </select>
+                      </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-right" style="display:inline-block;"><a href="#"><img src="<!--{$TPL_URLPATH}-->img/page/detail/btn_kaimono.png" border="0" /></a></span> </li>
+                  </ul>
+                </div>
+                <div class="pure-u-1"> </div>
+                <div class="pure-u-1 pure-g-r"> <span class="pure-u-1-2 panel-body"><a href="#"><img src="<!--{$TPL_URLPATH}-->img/page/detail/btn_otodoke.png" border="0" /></a></span> <span class="pure-u-1-2 panel-body"><a href="#"><img src="<!--{$TPL_URLPATH}-->img/page/detail/btn_shiharai.png" border="0" /></a></span> </div>
+                <div class="pure-u-1"> </div>
+                <div class="pure-u-1 text-right"> <a href="#">>> 返品についての詳細はこちら</a> </div>
+                <div class="pure-u-1 text-right"> <a href="#">>> 返品についての詳細はこちら</a> </div>
+                <div class="pure-u-1 text-right"> <a href="#">>> 返品についての詳細はこちら</a> </div>
+              </div>
+            </div>
+          </div>
+          
+          <!--商品詳細１-->
+          <div class="box_product_detail1 pure-u-1">
+            <h2>商品詳細</h2>
+            <div class="pure-g-r">
+              <table class="pure-u-1">
+                <colgroup>
+                <col width="20%" />
+                <col width="80%" />
+                </colgroup>
+                <tr>
+                  <th>在庫</th>
+                  <td>６</td>
+                </tr>
+                <tr>
+                  <th>サイズ</th>
+                  <td>○<br />
+                    ○<br />
+                    ○</td>
+                </tr>
+                <tr>
+                  <th>サイズ</th>
+                  <td>○</td>
+                </tr>
+                <tr>
+                  <th>サイズ</th>
+                  <td>○</td>
+                </tr>
+                <tr>
+                  <th>サイズ</th>
+                  <td>○</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="box_toudouhin pure-u-1">
+            <h2><img src="<!--{$TPL_URLPATH}-->img/page/detail/h3_toudouhin.png" /></h2>
+            <div class="pure-g-r">
+              <div class="pure-u-1-4">
+                <div><a href="#"><img src="<!--{$TPL_URLPATH}-->img/page/detail/img_15.png" border="0" /></a></div>
+                <p> <a href="#">テキスト</a><br />
+                  <a href="#">テキスト</a><br />
+                  テキスト </p>
+              </div>
+              <div class="pure-u-1-4">
+                <div><a href="#"><img src="<!--{$TPL_URLPATH}-->img/page/detail/img_15.png" border="0" /></a></div>
+                <p> <a href="#">テキスト</a><br />
+                  <a href="#">テキスト</a><br />
+                  テキスト </p>
+              </div>
+              <div class="pure-u-1-4">
+                <div><a href="#"><img src="<!--{$TPL_URLPATH}-->img/page/detail/img_15.png" border="0" /></a></div>
+                <p> <a href="#">テキスト</a><br />
+                  <a href="#">テキスト</a><br />
+                  テキスト </p>
+              </div>
+              <div class="pure-u-1-4">
+                <div><a href="#"><img src="<!--{$TPL_URLPATH}-->img/page/detail/img_15.png" border="0" /></a></div>
+                <p> <a href="#">テキスト</a><br />
+                  <a href="#">テキスト</a><br />
+                  テキスト </p>
+              </div>
+            </div>
+          </div>
+    
+    
+    
+    
+    
+    
+    
+    
     <div id="detailarea" class="clearfix">
         <div id="detailphotobloc">
             <div class="photo">

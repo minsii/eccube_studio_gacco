@@ -75,7 +75,8 @@
 
         <!--{* ▼LEFT COLUMN *}-->
         <!--{if $arrPageLayout.LeftNavi|@count > 0}-->
-            <div id="leftcolumn" class="side_column">
+            <div id="leftcolumn" class="side_column pure-g-r">
+			<div class=" pure-u-1">
                 <!--{* ▼左ナビ *}-->
                 <!--{foreach key=LeftNaviKey item=LeftNaviItem from=$arrPageLayout.LeftNavi}-->
                     <!-- ▼<!--{$LeftNaviItem.bloc_name}--> -->
@@ -87,6 +88,7 @@
                     <!-- ▲<!--{$LeftNaviItem.bloc_name}--> -->
                 <!--{/foreach}-->
                 <!--{* ▲左ナビ *}-->
+            </div>
             </div>
         <!--{/if}-->
         <!--{* ▲LEFT COLUMN *}-->
@@ -119,11 +121,11 @@
                 <!--{/foreach}-->
             <!--{/if}-->
             <!--{* ▲メイン上部 *}-->
-
+			<div class="pure-u-1">
             <!-- ▼メイン -->
             <!--{include file=$tpl_mainpage}-->
             <!-- ▲メイン -->
-
+			</div>
             <!--{* ▼メイン下部 *}-->
             <!--{if $arrPageLayout.MainFoot|@count > 0}-->
                 <!--{foreach key=MainFootKey item=MainFootItem from=$arrPageLayout.MainFoot}-->
@@ -142,7 +144,8 @@
 
         <!--{* ▼RIGHT COLUMN *}-->
         <!--{if $arrPageLayout.RightNavi|@count > 0}-->
-            <div id="rightcolumn" class="side_column pure-u-2-6">
+            <div id="rightcolumn" class="side_column pure-u-2-6 pure-g-r ">
+			<div class="pure-u-1 ">
                 <!--{* ▼右ナビ *}-->
                 <!--{foreach key=RightNaviKey item=RightNaviItem from=$arrPageLayout.RightNavi}-->
                     <!-- ▼<!--{$RightNaviItem.bloc_name}--> -->
@@ -154,6 +157,7 @@
                     <!-- ▲<!--{$RightNaviItem.bloc_name}--> -->
                 <!--{/foreach}-->
                 <!--{* ▲右ナビ *}-->
+			</div>
             </div>
         <!--{/if}-->
         <!--{* ▲RIGHT COLUMN *}-->

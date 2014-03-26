@@ -102,37 +102,37 @@
           <div class="pure-u-1-6">
             <h3><span>▶</span> Ｃｏｍｃｅｐｔ</h3>
             <ul>
-              <li><a href="#">・日本の靴メーカーです</a></li>
-              <li><a href="#">・和風ウェスタン</a></li>
-              <li><a href="#">・一生履けるあなたの靴</a></li>
-              <li><a href="#">・隠れウェスタンスタイル</a></li>
+              <li><a href="<!--{$smarty.const.ROOT_URLPATH}-->">・日本の靴メーカーです</a></li>
+              <li><a href="<!--{$smarty.const.ROOT_URLPATH}-->">・和風ウェスタン</a></li>
+              <li><a href="<!--{$smarty.const.ROOT_URLPATH}-->">・一生履けるあなたの靴</a></li>
+              <li><a href="<!--{$smarty.const.ROOT_URLPATH}-->">・隠れウェスタンスタイル</a></li>
             </ul>
           </div>
           <div class="pure-u-1-6">
             <h3><span>▶</span> 知ってほしいこと</h3>
             <ul>
-              <li><a href="#">・革のこと</a></li>
-              <li><a href="#">・刺繍のこと</a></li>
-              <li><a href="#">・足型のこと</a></li>
-              <li><a href="#">・製法のこと</a></li>
-              <li><a href="#">・修理のこと</a></li>
-              <li><a href="#">・お手入れのこと</a></li>
-              <li><a href="#">・サイズのこと</a></li>
-              <li><a href="#">・納期のこと</a></li>
-              <li><a href="#">・セミオーダーのこと</a></li>
+              <li><a href="<!--{$smarty.const.ROOT_URLPATH}-->">・革のこと</a></li>
+              <li><a href="<!--{$smarty.const.ROOT_URLPATH}-->">・刺繍のこと</a></li>
+              <li><a href="<!--{$smarty.const.ROOT_URLPATH}-->">・足型のこと</a></li>
+              <li><a href="<!--{$smarty.const.ROOT_URLPATH}-->">・製法のこと</a></li>
+              <li><a href="<!--{$smarty.const.ROOT_URLPATH}-->">・修理のこと</a></li>
+              <li><a href="<!--{$smarty.const.ROOT_URLPATH}-->">・お手入れのこと</a></li>
+              <li><a href="<!--{$smarty.const.ROOT_URLPATH}-->">・サイズのこと</a></li>
+              <li><a href="<!--{$smarty.const.ROOT_URLPATH}-->">・納期のこと</a></li>
+              <li><a href="<!--{$smarty.const.ROOT_URLPATH}-->">・セミオーダーのこと</a></li>
             </ul>
           </div>
           <div class="pure-u-1-6">
             <h3><span>▶</span> その他</h3>
             <ul>
-              <li><a href="#">・OEM のご案内</a></li>
-              <li><a href="#">・サービス</a></li>
-              <li><a href="#">・お客様の声</a></li>
-              <li><a href="#">・よくある質問</a></li>
-              <li><a href="#">・FAX 注文フォーム</a></li>
-              <li><a href="#">・お問い合わせフォーム</a></li>
-              <li><a href="#">・会社概要</a></li>
-              <li><a href="#">・特商法の表記</a></li>
+              <li><a href="<!--{$smarty.const.ROOT_URLPATH}-->">・OEM のご案内</a></li>
+              <li><a href="<!--{$smarty.const.ROOT_URLPATH}-->">・サービス</a></li>
+              <li><a href="<!--{$smarty.const.ROOT_URLPATH}-->">・お客様の声</a></li>
+              <li><a href="<!--{$smarty.const.ROOT_URLPATH}-->">・よくある質問</a></li>
+              <li><a href="<!--{$smarty.const.ROOT_URLPATH}-->">・FAX 注文フォーム</a></li>
+              <li><a href="<!--{$smarty.const.ROOT_URLPATH}-->contact/">・お問い合わせフォーム</a></li>
+              <li><a href="<!--{$smarty.const.ROOT_URLPATH}-->">・会社概要</a></li>
+              <li><a href="<!--{$smarty.const.ROOT_URLPATH}-->">・特商法の表記</a></li>
             </ul>
           </div>
         </div>

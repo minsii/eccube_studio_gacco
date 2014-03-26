@@ -43,16 +43,16 @@
         <div style="padding:7px 0px">
             <div class="pure-g-r">
               <div class="pure-u-1-4">
-                <div class=" l-box"><a href=""><img src="<!--{$TPL_URLPATH}-->img/page/top/bnr_01.png" width="232" height="39"></a></div>
+                <div class=" l-box"><a href="<!--{$smarty.const.ROOT_URLPATH}-->products/list.php?category_id=1"><img src="<!--{$TPL_URLPATH}-->img/page/top/bnr_01.png" width="232" height="39"></a></div>
               </div>
               <div class="pure-u-1-4">
-                <div class=" l-box"><a href=""><img src="<!--{$TPL_URLPATH}-->img/page/top/bnr_02.png" width="232" height="39"></a></div>
+                <div class=" l-box"><a href="<!--{$smarty.const.ROOT_URLPATH}-->products/list.php?category_id=2"><img src="<!--{$TPL_URLPATH}-->img/page/top/bnr_02.png" width="232" height="39"></a></div>
               </div>
               <div class="pure-u-1-4">
-                <div class=" l-box"><a href=""><img src="<!--{$TPL_URLPATH}-->img/page/top/bnr_03.png" width="232" height="39"></a></div>
+                <div class=" l-box"><a href="<!--{$smarty.const.ROOT_URLPATH}-->abouts/"><img src="<!--{$TPL_URLPATH}-->img/page/top/bnr_03.png" width="232" height="39"></a></div>
               </div>
               <div class="pure-u-1-4">
-                <div class=" l-box"><a href=""><img src="<!--{$TPL_URLPATH}-->img/page/top/bnr_04.png" width="232" height="39"></a></div>
+                <div class=" l-box"><a href="<!--{$smarty.const.ROOT_URLPATH}-->guide/privacy.php"><img src="<!--{$TPL_URLPATH}-->img/page/top/bnr_04.png" width="232" height="39"></a></div>
               </div>
             </div>
         </div>
@@ -107,8 +107,8 @@
 			<!-- ▼バナー　右列 -->
             <div class="pure-u-1-2">
               <div class="pure-g-r">
-                <div class="pure-u-1-2 text-center"><a href="#"><img src="<!--{$TPL_URLPATH}-->img/page/top/img_05.png" width="216" height="81" border="0"></a></div>
-                <div class="pure-u-1-2 text-center"><a href="#"><img src="<!--{$TPL_URLPATH}-->img/page/top/img_06.png" width="216" height="81" border="0"></a></div>
+                <div class="pure-u-1-2 text-center"><a href="<!--{$smarty.const.ROOT_URLPATH}-->products/list.php?category_id=1"><img src="<!--{$TPL_URLPATH}-->img/page/top/img_05.png" width="216" height="81" border="0"></a></div>
+                <div class="pure-u-1-2 text-center"><a href="<!--{$smarty.const.ROOT_URLPATH}-->products/list.php?category_id=2"><img src="<!--{$TPL_URLPATH}-->img/page/top/img_06.png" width="216" height="81" border="0"></a></div>
               </div>
               <div class="box_topbnr_03 pure-g-r">
                 <div class="list-group pure-u-1 pure-g-r">
@@ -234,7 +234,7 @@
                   <div class="pure-u-1-3"><a href="#" class="thumbnail"><img src="<!--{$TPL_URLPATH}-->img/page/top/img_info_06.png" width="124" height="124" border="0"><span class="buttom_right_icon"><img src="../user_data/packages/default/img/page/top/icon_right_down_02.png" width="13" height="13" /></span></a></div>
                   <div class="pure-u-1-3"><a href="#" class="thumbnail"><img src="<!--{$TPL_URLPATH}-->img/page/top/img_info_07.png" width="124" height="124" border="0"><span class="buttom_right_icon"><img src="../user_data/packages/default/img/page/top/icon_right_down_02.png" width="13" height="13" /></span></a></div>
                   <div class="pure-u-1-3"><a href="#" class="thumbnail"><img src="<!--{$TPL_URLPATH}-->img/page/top/img_info_08.png" width="124" height="124" border="0"><span class="buttom_right_icon"><img src="../user_data/packages/default/img/page/top/icon_right_down_02.png" width="13" height="13" /></span></a></div>
-                  <div class="pure-u-1-3"><a href="#" class="thumbnail"><img src="<!--{$TPL_URLPATH}-->img/page/top/img_info_09.png" width="124" height="124" border="0"><span class="buttom_right_icon"><img src="../user_data/packages/default/img/page/top/icon_right_down_02.png" width="13" height="13" /></span></a></div>
+                  <div class="pure-u-1-3"><a href="<!--{$smarty.const.ROOT_URLPATH}-->contact/" class="thumbnail"><img src="<!--{$TPL_URLPATH}-->img/page/top/img_info_09.png" width="124" height="124" border="0"><span class="buttom_right_icon"><img src="../user_data/packages/default/img/page/top/icon_right_down_02.png" width="13" height="13" /></span></a></div>
                 </div>
               </div>
             </div>

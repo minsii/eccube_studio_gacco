@@ -169,17 +169,55 @@
             <h2>うえスタンブーツ</h2>
             <div class="pure-g-r">
               <div class="left_detail_info pure-u-1-2 pure-g-r">
-                <div class="pure-u-1"><a href="#"><img src="<!--{$TPL_URLPATH}-->img/page/detail/img_11.png" border="0" /></a></div>
+                <div class="pure-u-1">
+                <!--{assign var=key value="main_image"}-->
+                <!--★画像★-->
+                <!--{if $arrProduct.main_large_image|strlen >= 1}-->
+                    <a
+                        href="<!--{$smarty.const.IMAGE_SAVE_URLPATH}--><!--{$arrProduct.main_large_image|h}-->"
+                        class="expansion"
+                        target="_blank"
+                    >
+                <!--{/if}-->
+                    <img src="<!--{$arrFile[$key].filepath|h}-->" width="<!--{$arrFile[$key].width}-->" height="<!--{$arrFile[$key].height}-->" alt="<!--{$arrProduct.name|h}-->" class="picture" />
+                <!--{if $arrProduct.main_large_image|strlen >= 1}-->
+                    </a>
+                <!--{/if}--><br />
+
+            <!--{if $arrProduct.main_large_image|strlen >= 1}-->
+                <span class="mini">
+                        <!--★拡大する★-->
+                        <a
+                            href="<!--{$smarty.const.IMAGE_SAVE_URLPATH}--><!--{$arrProduct.main_large_image|h}-->"
+                            class="expansion"
+                            target="_blank"
+                        >
+                            画像を拡大する</a>
+                </span>
+            <!--{/if}-->
+                </div>
+                
                 <div class="pure-u-1-3"><a href="#"><img src="<!--{$TPL_URLPATH}-->img/page/detail/img_12.png" border="0" /></a></div>
                 <div class="pure-u-1-3"><a href="#"><img src="<!--{$TPL_URLPATH}-->img/page/detail/img_13.png" border="0" /></a></div>
                 <div class="pure-u-1-3"><a href="#"><img src="<!--{$TPL_URLPATH}-->img/page/detail/img_14.png" border="0" /></a></div>
               </div>
               <div class="right_detail_info pure-u-1-2">
-                <h4>サイズにつサイズにつサイズにつ</h4>
-                <div>商品コード：WG0099</div>
-                <p>販売価格：<span class="price_number">\21,840</span> (税込)<br />
+                <h4><!--{$arrProduct.name|h}--></h4>
+                <div>商品コード：
+                        <!--{if $arrProduct.product_code_min == $arrProduct.product_code_max}-->
+                            <!--{$arrProduct.product_code_min|h}-->
+                        <!--{else}-->
+                            <!--{$arrProduct.product_code_min|h}-->～<!--{$arrProduct.product_code_max|h}-->
+                        <!--{/if}--></div>
+                <p>販売価格：<span class="price_number"><span id="price02_default"><!--{strip}-->
+                        <!--{if $arrProduct.price02_min_inctax == $arrProduct.price02_max_inctax}-->
+                            <!--{$arrProduct.price02_min_inctax|number_format}-->
+                        <!--{else}-->
+                            <!--{$arrProduct.price02_min_inctax|number_format}-->～<!--{$arrProduct.price02_max_inctax|number_format}-->
+                        <!--{/if}-->
+                    </span><span id="price02_dynamic"></span><!--{/strip}--></span> (税込)<br />
                   発送までの目安：ご注文から○日<br />
-                  サイズにつサイズにつサイズにつ</p>
+                  <!--{$arrProduct.main_comment|nl2br_html}--></p>
                 <table class="pure-u-1">
                   <colgroup>
                   <col width="25%" />
@@ -197,21 +235,61 @@
                   </tr>
                 </table>
                 <div class="pure-u-1 pure-g-r">
+                <input type="hidden" name="mode" value="cart" />
+                <input type="hidden" name="product_id" value="<!--{$tpl_product_id}-->" />
+                <input type="hidden" name="product_class_id" value="<!--{$tpl_product_class_id}-->" id="product_class_id" />
+                <input type="hidden" name="favorite_product_id" value="" />
+            <!--{if $tpl_stock_find}-->
                   <ul class="list-group pure-u-1">
-                    <li class="list-group-item"> <span>サイズ選択：</span> <span>
-                      <select class="pure-u-1-2">
-                        <option>選択</option>
-                        <option>1</option>
-                      </select>
-                      </span> </li>
+                <!--{if $tpl_classcat_find1}-->
+                    <li class="list-group-item"> 
+                    	<span>サイズ選択：</span> <span>
+                        <!--▼規格1-->
+                        <ul class="clearfix">
+                            <li><!--{$tpl_class_name1|h}-->：</li>
+                            <li>
+                                <select name="classcategory_id1" style="<!--{$arrErr.classcategory_id1|sfGetErrorColor}-->">
+                                <!--{html_options options=$arrClassCat1 selected=$arrForm.classcategory_id1.value}-->
+                                </select>
+                                <!--{if $arrErr.classcategory_id1 != ""}-->
+                                <br /><span class="attention">※ <!--{$tpl_class_name1}-->を入力して下さい。</span>
+                                <!--{/if}-->
+                            </li>
+                        </ul>
+                        <!--▲規格1-->
+                        
+                        <!--{if $tpl_classcat_find2}-->
+                        <!--▼規格2-->
+                        <ul class="clearfix">
+                            <li><!--{$tpl_class_name2|h}-->：</li>
+                            <li>
+                                <select name="classcategory_id2" style="<!--{$arrErr.classcategory_id2|sfGetErrorColor}-->">
+                                </select>
+                                <!--{if $arrErr.classcategory_id2 != ""}-->
+                                <br /><span class="attention">※ <!--{$tpl_class_name2}-->を入力して下さい。</span>
+                                <!--{/if}-->
+                            </li>
+                        </ul>
+                        <!--▲規格2-->
+                        <!--{/if}-->
+                      </span> 
+                    </li>
+                <!--{/if}-->
                     <li class="list-group-item">数量 <span>
-                      <select class="pure-u-1-6">
-                        <option>1</option>
-                        <option>2</option>
-                      </select>
-                      </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-right" style="display:inline-block;"><a href="#"><img src="<!--{$TPL_URLPATH}-->img/page/detail/btn_kaimono.png" border="0" /></a></span> </li>
+                        <input type="text" class="pure-u-1-6" name="quantity" value="<!--{$arrForm.quantity.value|default:1|h}-->" maxlength="<!--{$smarty.const.INT_LEN}-->" style="<!--{$arrErr.quantity|sfGetErrorColor}-->" />
+                        <!--{if $arrErr.quantity != ""}-->
+                            <br /><span class="attention"><!--{$arrErr.quantity}--></span>
+                        <!--{/if}-->
+                      </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--★カゴに入れる★-->
+                      <span class="text-right" style="display:inline-block;"><a href="javascript:void(document.form1.submit())"><img src="<!--{$TPL_URLPATH}-->img/page/detail/btn_kaimono.png" alt="カゴに入れる"/></a></span>
+                    </li>
                   </ul>
+            <!--{else}-->
+                <div class="attention">申し訳ございませんが、只今品切れ中です。</div>
+            <!--{/if}-->
+            
                 </div>
+                
                 <div class="pure-u-1"> </div>
                 <div class="pure-u-1 pure-g-r"> <span class="pure-u-1-2 panel-body"><a href="#"><img src="<!--{$TPL_URLPATH}-->img/page/detail/btn_otodoke.png" border="0" /></a></span> <span class="pure-u-1-2 panel-body"><a href="#"><img src="<!--{$TPL_URLPATH}-->img/page/detail/btn_shiharai.png" border="0" /></a></span> </div>
                 <div class="pure-u-1"> </div>
@@ -285,13 +363,7 @@
               </div>
             </div>
           </div>
-    
-    
-    
-    
-    
-    
-    
+      
     
     <div id="detailarea" class="clearfix">
         <div id="detailphotobloc">

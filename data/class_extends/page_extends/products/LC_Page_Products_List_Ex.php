@@ -453,6 +453,9 @@ class LC_Page_Products_List_Ex extends LC_Page_Products_List {
             $searchCondition['where']   .= " AND alldtl.maker_id = ? ";
             $searchCondition['arrval'][] = $arrSearchData['maker_id'];
         }
+        
+        $searchCondition['where_for_count'] = $searchCondition['where'];
+        
         return $searchCondition;
     }
     

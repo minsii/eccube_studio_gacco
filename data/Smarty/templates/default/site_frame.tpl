@@ -40,10 +40,13 @@
 <script type="text/javascript" src="<!--{$smarty.const.ROOT_URLPATH}-->js/navi.js"></script>
 <script type="text/javascript" src="<!--{$smarty.const.ROOT_URLPATH}-->js/win_op.js"></script>
 <script type="text/javascript" src="<!--{$smarty.const.ROOT_URLPATH}-->js/site.js"></script>
-<script type="text/javascript" src="<!--{$smarty.const.ROOT_URLPATH}-->js/jquery-1.4.2.min.js"></script>
-
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="http://malsup.github.com/jquery.cycle2.js"></script>
+<script src="<!--{$TPL_URLPATH}-->js/lightbox-2.6.min.js"></script>
+<script src="<!--{$TPL_URLPATH}-->js/jquery.tools.min.js"></script>
+<link href="<!--{$TPL_URLPATH}-->css/scrollable-checkitem.css" rel="stylesheet" />
+<link href="<!--{$TPL_URLPATH}-->css/lightbox.css" rel="stylesheet" />
+
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
 <!-- Optional theme -->
@@ -70,6 +73,7 @@
 <script type="text/javascript">//<![CDATA[
     <!--{$tpl_javascript}-->
     $(function(){
+        $(".scrollable").scrollable();
         <!--{$tpl_onload}-->
     });
 //]]></script>

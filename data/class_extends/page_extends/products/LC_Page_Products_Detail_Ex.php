@@ -57,6 +57,9 @@ class LC_Page_Products_Detail_Ex extends LC_Page_Products_Detail {
         	$this->arrAllExtraClassCat = $objDb->lfGetAllExtraClassCategory();
         }
         /*## 追加規格 ADD END ##*/
+        
+        $masterData = new SC_DB_MasterData_Ex();
+        $this->arrQUANTITY = $masterData->getMasterData('mtb_quantity');
     }
 
     /**
@@ -334,6 +337,7 @@ class LC_Page_Products_Detail_Ex extends LC_Page_Products_Detail {
         $this->lfSetPageInfo($product_id);
         /*## SEO管理 ## ADD END*/
         
+        $this->arrProductClassStock = $this->lfGetStockTable($product_id);
     }
         
     /*## 追加商品詳細情報 ADD BEGIN ##*/
@@ -507,6 +511,25 @@ class LC_Page_Products_Detail_Ex extends LC_Page_Products_Detail {
 
 		return $arrInfo;
 	}
-	/*## 追加規格 END BEGIN ##*/
+		/* ## 追加規格 END BEGIN ## */
+	
+	function lfGetStockTable($product_id) {
+		$objProduct = new SC_Product_Ex ();
+		$arrProductClassStock = array();
+		
+		if ($this->tpl_classcat_find1 && ! $this->tpl_classcat_find2) {
+			$arrProductClass = $objProduct->getProductsClassFullByProductId($product_id);
+			foreach ( $arrProductClass as $productClass ) {
+				$stock = array (
+						"name" => $productClass["classcategory_name1"],
+						"stock" => $productClass ["stock"],
+						"stock_unlimited" => $productClass ["stock_unlimited"],
+						"custom_made" => $productClass ["custom_made"] 
+				);
+				$arrProductClassStock[$productClass["classcategory_id1"]] = $stock;
+			}
+		}
+		return $arrProductClassStock;
+	}
 }
 ?>

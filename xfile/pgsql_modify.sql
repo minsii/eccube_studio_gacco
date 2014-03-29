@@ -330,6 +330,25 @@ ALTER TABLE dtb_products ADD COLUMN service text;
 ALTER TABLE dtb_products ADD COLUMN packing text;
 ALTER TABLE dtb_products ADD COLUMN attention text;
 
+
+CREATE TABLE mtb_quantity (
+  id smallint NOT NULL,
+  "name" text,
+  rank smallint NOT NULL DEFAULT 0,
+  CONSTRAINT mtb_quantity_pkey PRIMARY KEY (id)
+);
+INSERT INTO mtb_quantity(id, name, rank) VALUES(1, '1', 0);
+INSERT INTO mtb_quantity(id, name, rank) VALUES((SELECT MAX(id)+1 FROM mtb_quantity), '2', (SELECT MAX(rank)+1 FROM mtb_quantity));
+INSERT INTO mtb_quantity(id, name, rank) VALUES((SELECT MAX(id)+1 FROM mtb_quantity), '3', (SELECT MAX(rank)+1 FROM mtb_quantity));
+INSERT INTO mtb_quantity(id, name, rank) VALUES((SELECT MAX(id)+1 FROM mtb_quantity), '4', (SELECT MAX(rank)+1 FROM mtb_quantity));
+INSERT INTO mtb_quantity(id, name, rank) VALUES((SELECT MAX(id)+1 FROM mtb_quantity), '5', (SELECT MAX(rank)+1 FROM mtb_quantity));
+INSERT INTO mtb_quantity(id, name, rank) VALUES((SELECT MAX(id)+1 FROM mtb_quantity), '6', (SELECT MAX(rank)+1 FROM mtb_quantity));
+INSERT INTO mtb_quantity(id, name, rank) VALUES((SELECT MAX(id)+1 FROM mtb_quantity), '7', (SELECT MAX(rank)+1 FROM mtb_quantity));
+INSERT INTO mtb_quantity(id, name, rank) VALUES((SELECT MAX(id)+1 FROM mtb_quantity), '8', (SELECT MAX(rank)+1 FROM mtb_quantity));
+INSERT INTO mtb_quantity(id, name, rank) VALUES((SELECT MAX(id)+1 FROM mtb_quantity), '9', (SELECT MAX(rank)+1 FROM mtb_quantity));
+INSERT INTO mtb_quantity(id, name, rank) VALUES((SELECT MAX(id)+1 FROM mtb_quantity), '10', (SELECT MAX(rank)+1 FROM mtb_quantity));
+
+
 /*######################■メール転送■######################*/
 INSERT INTO mtb_constants (id ,name ,rank ,remarks) VALUES ('USE_ORDER_MAIL_FWD',  'true',  (SELECT MAX(rank)+1 FROM mtb_constants),  '注文メール自動転送フラグ|true:使用');
 INSERT INTO mtb_constants (id ,name ,rank ,remarks) VALUES ('USE_CONTACT_MAIL_FWD',  'true',  (SELECT MAX(rank)+1 FROM mtb_constants),  '問い合わせメール自動転送フラグ|true:使用');

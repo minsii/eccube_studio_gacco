@@ -38,6 +38,14 @@
             closeImage   : '<!--{$smarty.const.ROOT_URLPATH}-->js/jquery.facebox/closelabel.png'
         });
     });
+
+    function changeMainImg(img){
+      $("#main_image").attr("src", img);
+    }
+    function resetMainImg(){
+      $("#main_image").attr("src", "<!--{$arrFile.main_image.filepath|h}-->");
+    }
+
 //]]></script>
 
 <div id="undercolumn" class=" pure-u-1">
@@ -95,7 +103,8 @@
                         data-lightbox="detail" title="<!--{$arrProduct.name|h}-->"
                     >
                 <!--{/if}-->
-                    <img src="<!--{$arrFile[$key].filepath|h}-->" width="<!--{$arrFile[$key].width}-->" height="<!--{$arrFile[$key].height}-->" alt="<!--{$arrProduct.name|h}-->" class="picture" />
+                    <img src="<!--{$arrFile[$key].filepath|h}-->" width="<!--{$arrFile[$key].width}-->" 
+                      height="<!--{$arrFile[$key].height}-->" alt="<!--{$arrProduct.name|h}-->" class="picture" id="main_image"/>
                 <!--{if $arrProduct.main_large_image|strlen >= 1}-->
                     </a>
                 <!--{/if}--><br />
@@ -113,7 +122,9 @@
                     <a href="<!--{$smarty.const.IMAGE_SAVE_URLPATH}--><!--{$arrProductOther[$key1]|h}-->" 
                       data-lightbox="detail" title="<!--{$arrProduct.name|h}-->">
                   <!--{/if}-->
-                      <img src="<!--{$arrFile[$key].filepath|h}-->" width="100" alt="<!--{$arrProductOther[$key_title]|h}-->" border="0"/>
+                      <img src="<!--{$arrFile[$key].filepath|h}-->" width="100" alt="<!--{$arrProductOther[$key_title]|h}-->" border="0" 
+                      onmouseover="changeMainImg('<!--{$smarty.const.IMAGE_SAVE_URLPATH}--><!--{$arrProductOther[$key1]|h}-->');" 
+                      onmouseout="resetMainImg();"/>
                   <!--{if $arrProductOther[$key1]|strlen >= 1}--></a><!--{/if}-->
                 </div>
               <!--{/if}-->

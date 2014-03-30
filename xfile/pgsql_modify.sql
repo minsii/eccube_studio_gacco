@@ -396,3 +396,8 @@ INSERT INTO mtb_constants (id ,name ,rank ,remarks) VALUES ('SEMI_CUSTOM_PAYMENT
 INSERT INTO mtb_constants (id ,name ,rank ,remarks) VALUES ('USE_ORDER_MAKE_DATE',  'true',  (SELECT MAX(rank)+1 FROM mtb_constants),  '店舗作成予定日使用フラグ|true:使用');
 ALTER TABLE dtb_order ADD COLUMN make_date timestamp without time zone;
 
+/*######################■新着情報に画像追加■######################*/
+INSERT INTO mtb_constants (id ,name ,rank ,remarks) VALUES ('USE_NEWS_IMAGE',  'true',  (SELECT MAX(rank)+1 FROM mtb_constants),  '新着情報に画像追加フラグ|true:');
+INSERT INTO mtb_constants (id ,name ,rank ,remarks) VALUES ('NEWS_IMAGE_WIDTH',  'auto',  (SELECT MAX(rank)+1 FROM mtb_constants),  '新着情報画像幅');
+INSERT INTO mtb_constants (id ,name ,rank ,remarks) VALUES ('NEWS_IMAGE_HEIGHT',  '275',  (SELECT MAX(rank)+1 FROM mtb_constants),  '新着情報画像縦');
+ALTER TABLE dtb_news ADD COLUMN image text;

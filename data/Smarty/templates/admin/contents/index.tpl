@@ -109,7 +109,7 @@ function moving(news_id,rank, max_rank) {
 
 
 <div id="admin-contents" class="contents-main">
-<form name="form1" id="form1" method="post" action="?">
+<form name="form1" id="form1" method="post" action="?" enctype="multipart/form-data" >
 <input type="hidden" name="<!--{$smarty.const.TRANSACTION_ID_NAME}-->" value="<!--{$transactionid}-->" />
 <input type="hidden" name="mode" value="" />
 <input type="hidden" name="news_id" value="<!--{$arrForm.news_id|h}-->" />
@@ -154,6 +154,24 @@ function moving(news_id,rank, max_rank) {
             <th>リンク</th>
             <td><label><input type="checkbox" name="link_method" value="2" <!--{if $arrForm.link_method eq 2}--> checked <!--{/if}--> /> 別ウィンドウで開く</label></td>
         </tr>
+        <!--{if $smarty.const.USE_NEWS_IMAGE === true}-->
+        <tr>
+            <th>画像[<!--{$smarty.const.NEWS_IMAGE_WIDTH}--> * <!--{$smarty.const.NEWS_IMAGE_HEIGHT}-->]</th>
+            <td>
+                  <!--{foreach key=key item=item from=$arrHidden}-->
+                  <input type="hidden" name="<!--{$key}-->" value="<!--{$item|h}-->" />
+                  <!--{/foreach}-->
+                  <!--{assign var=key value="image"}-->
+                  <span class="attention"><!--{$arrErr[$key]}--></span>
+                  <!--{if $arrFile[$key].filepath != ""}-->
+                  <img src="<!--{$arrFile[$key].filepath}-->"/>
+                  <a href="" onclick="fnModeSubmit('delete_image', '', ''); return false;">[画像の取り消し]</a><br />
+                  <!--{/if}-->
+                  <input type="file" name="<!--{$key}-->" size="40" style="<!--{$arrErr[$key]|sfGetErrorColor}-->" />
+                  <a class="btn-normal" href="javascript:;" name="btn" onclick="fnModeSubmit('upload_image', '', ''); return false;">アップロード</a>
+            </td>
+        </tr>
+        <!--{/if}-->
         <tr>
             <th>本文作成</th>
             <td>

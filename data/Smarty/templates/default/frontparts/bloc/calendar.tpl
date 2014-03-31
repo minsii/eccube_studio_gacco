@@ -20,37 +20,46 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *}-->
 <!--▼カレンダーここから-->
-<div class="left_box">
- <div class="left_inner">
-  <h2 class="left_ttl"><img src="<!--{$TPL_URLPATH}-->img/side/left_ttl06.gif" width="206" height="42" alt="当店の営業日"></h2>
-  <div id="block-calendar" class="left_cont">
+
+<!--▼カレンダーここから-->
 <!--{section name=num loop=$arrCalendar}-->
-<!--{assign var=arrCal value=`$arrCalendar[num]`}-->
-<!--{section name=cnt loop=$arrCal}-->
-<!--{if $smarty.section.cnt.first}-->
-<table>
-<caption><!--{$arrCal[cnt].year}-->年<!--{$arrCal[cnt].month}-->月</caption>
-<thead><tr><th class="sun">日</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th></tr></thead>
-<!--{/if}-->
-<!--{if $arrCal[cnt].first}-->
-<tr>
-<!--{/if}-->
-<!--{if !$arrCal[cnt].in_month}-->
-<td></td>
-<!--{elseif $arrCal[cnt].holiday}-->
-<td class="off"><!--{$arrCal[cnt].day}--></td>
-<!--{else}-->
-<td><!--{$arrCal[cnt].day}--></td>
-<!--{/if}-->
-<!--{if $arrCal[cnt].last}-->
-</tr>
-<!--{/if}-->
+    <!--{assign var=arrCal value=`$arrCalendar[num]`}-->
+    <!--{section name=cnt loop=$arrCal}-->
+        <!--{if $smarty.section.cnt.first}-->
+        <div class="body">
+          <table>
+            <caption>
+            <!--{$arrCal[cnt].year}-->年<!--{$arrCal[cnt].month}-->月
+            </caption>
+            <thead>
+              <tr>
+                <th><span>月</span></th>
+                <th><span>火</span></th>
+                <th><span>水</span></th>
+                <th><span>木</span></th>
+                <th><span>金</span></th>
+                <th class="sat"><span>土</span></th>
+                <th class="sun"><span>日</span></th>
+              </tr>
+            </thead>
+        <!--{/if}-->
+        <!--{if $arrCal[cnt].first}-->
+            <tr>
+        <!--{/if}-->
+        <!--{if !$arrCal[cnt].in_month}-->
+            <td><span>&nbsp;</span></td>
+        <!--{elseif $arrCal[cnt].holiday}-->
+            <td class="off"><span style="color:red"><!--{$arrCal[cnt].day}--></span></td>
+        <!--{else}-->
+            <td><span><!--{$arrCal[cnt].day}--></span></td>
+        <!--{/if}-->
+        <!--{if $arrCal[cnt].last}-->
+            </tr>
+        <!--{/if}-->
+    <!--{if $smarty.section.cnt.last}-->
+      </table>
+    <!--{/if}-->
+    <!--{/section}-->
+    </div>
 <!--{/section}-->
-<!--{if $smarty.section.cnt.last}-->
-</table>
-<!--{/if}-->
-<!--{/section}-->
-  </div>
- </div>
-</div>
-<!--▲カレンダーここまで-->
+<!--▲カレンダーここまで--> 

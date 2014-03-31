@@ -170,80 +170,8 @@
       <div class="box_shop_calendar">
         <h3><img src="<!--{$TPL_URLPATH}-->img/page/sidebar/boxcalendar/title.png" /></h3>
             <!-- ▼カレンダー --> 
-            <!--▼カレンダーここから-->
-            <div class="body">
-              <table>
-                <caption>
-                2014年3月
-                </caption>
-                <thead>
-                  <tr>
-                    <th><span>月</span></th>
-                    <th><span>火</span></th>
-                    <th><span>水</span></th>
-                    <th><span>木</span></th>
-                    <th><span>金</span></th>
-                    <th class="sat"><span>土</span></th>
-                    <th class="sun"><span>日</span></th>
-                  </tr>
-                </thead>
-                <tr>
-                  <td><span>&nbsp;</span></td>
-                  <td><span>&nbsp;</span></td>
-                  <td><span>&nbsp;</span></td>
-                  <td><span>&nbsp;</span></td>
-                  <td><span>&nbsp;</span></td>
-                  <td><span>&nbsp;</span></td>
-                  <td><span>1</span></td>
-                </tr>
-                <tr>
-                  <td class="off"><span>2</span></td>
-                  <td><span>3</span></td>
-                  <td><span>4</span></td>
-                  <td><span>5</span></td>
-                  <td><span>6</span></td>
-                  <td><span>7</span></td>
-                  <td><span>8</span></td>
-                </tr>
-                <tr>
-                  <td class="off"><span>9</span></td>
-                  <td><span>10</span></td>
-                  <td><span>11</span></td>
-                  <td><span>12</span></td>
-                  <td><span>13</span></td>
-                  <td><span>14</span></td>
-                  <td><span>15</span></td>
-                </tr>
-                <tr>
-                  <td class="off"><span>16</span></td>
-                  <td><span>17</span></td>
-                  <td><span>18</span></td>
-                  <td><span>19</span></td>
-                  <td><span>20</span></td>
-                  <td class="off"><span>21</span></td>
-                  <td><span>22</span></td>
-                </tr>
-                <tr>
-                  <td class="off"><span>23</span></td>
-                  <td><span>24</span></td>
-                  <td><span>25</span></td>
-                  <td><span>26</span></td>
-                  <td><span>27</span></td>
-                  <td><span>28</span></td>
-                  <td><span>29</span></td>
-                </tr>
-                <tr>
-                  <td class="off"><span>30</span></td>
-                  <td><span>31</span></td>
-                  <td><span>&nbsp;</span></td>
-                  <td><span>&nbsp;</span></td>
-                  <td><span>&nbsp;</span></td>
-                  <td><span>&nbsp;</span></td>
-                  <td><span>&nbsp;</span></td>
-                </tr>
-              </table>
-            </div>
-            <!--▲カレンダーここまで--> 
+            <!--{assign var=calender_path value="`$smarty.const.HTML_REALDIR`frontparts/bloc/calendar.php"}-->
+            <!--{include_php file=$calender_path items="include_php"}-->
             <!-- ▲カレンダー --> 
       </div>
       <div class="boxaccessmap">

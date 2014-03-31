@@ -44,6 +44,13 @@ class LC_Page_FrontParts_Bloc_Calendar_Ex extends LC_Page_FrontParts_Bloc_Calend
      * @return void
      */
     function init() {
+        /*## 任意場所にカレンダーブロック挿入 ADD END ##*/
+        if($this->blocItems == "include_php"){
+            $objPageLayout = new SC_Helper_PageLayout_Ex();
+            $arrBloc = $objPageLayout->sfGetBloc("calendar");
+            $this->blocItems = $arrBloc;
+        }
+        /*## 任意場所にカレンダーブロック挿入 ADD END ##*/
         parent::init();
     }
 
@@ -63,5 +70,14 @@ class LC_Page_FrontParts_Bloc_Calendar_Ex extends LC_Page_FrontParts_Bloc_Calend
      */
     function destroy() {
         parent::destroy();
+    }
+    
+    function action() {
+        // 休日取得取得
+        $this->arrHoliday = $this->lfGetHoliday();
+        // 定休日取得取得
+        $this->arrRegularHoliday = $this->lfGetRegularHoliday();
+        // カレンダーデータ取得
+        $this->arrCalendar = $this->lfGetCalendar(1);
     }
 }

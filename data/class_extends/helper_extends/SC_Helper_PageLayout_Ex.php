@@ -62,6 +62,28 @@ class SC_Helper_PageLayout_Ex extends SC_Helper_PageLayout {
 		}
 	}
 	/*## SEO管理 ADD END ##*/
+	
+	/*## 任意場所にブロック挿入 ADD END ##*/
+	/**
+	 * 指定されたブロックの情報を取得する.
+	 *
+	 * @access public
+	 * @param bloc_name ブロック名
+	 * @param integer $device_type_id 端末種別ID
+	 * @param boolean $has_realpath php_path, tpl_path の絶対パスを含める場合 true
+	 * @return array ブロック情報の配列
+	 */
+	function sfGetBloc($bloc_name, $device_type_id = DEVICE_TYPE_PC, $has_realpath = true) {
+	    $objQuery =& SC_Query_Ex::getSingletonInstance();
+	    $where = 'device_type_id = ? AND filename = ?';
+	    $arrParams = array($device_type_id, $bloc_name);
+	    $arrBloc = $objQuery->select('*', 'dtb_bloc', $where, $arrParams);
+	    if ($has_realpath && is_array($arrBloc)) {
+	        $this->setBlocPathTo($device_type_id, $arrBloc);
+	    }
+	    return $arrBloc[0];
+	}
+	/*## 任意場所にブロック挿入 ADD END ##*/
 
 }
 ?>

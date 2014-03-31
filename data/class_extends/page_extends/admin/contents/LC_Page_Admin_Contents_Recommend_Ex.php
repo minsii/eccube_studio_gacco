@@ -45,6 +45,21 @@ class LC_Page_Admin_Contents_Recommend_Ex extends LC_Page_Admin_Contents_Recomme
      */
     function init() {
         parent::init();
+        
+        /* ## トップおすすめ商品 ADD BEGIN ## */
+        $masterData = new SC_DB_MasterData_Ex();
+        if (USE_RECOMMEND_KIND === true) {
+            $this->arrRECOMMEND_KIND_NAME = $masterData->getMasterData("mtb_recommend_kind_name");
+            $this->arrRECOMMEND_KIND_NUM = $masterData->getMasterData("mtb_recommend_kind_num");
+            
+            $max = 0;
+            $this->arrRECOMMEND_KIND_LOOP_MAX = array();
+            foreach ( $this->arrRECOMMEND_KIND_NUM as $id => $num ) {
+                $max += $num;
+                $this->arrRECOMMEND_KIND_LOOP_MAX[$id] = $max;
+            }
+        }
+        /* ## トップおすすめ商品 ADD END ## */
     }
 
     /**
@@ -63,5 +78,15 @@ class LC_Page_Admin_Contents_Recommend_Ex extends LC_Page_Admin_Contents_Recomme
      */
     function destroy() {
         parent::destroy();
+    }
+
+    function action() {
+        parent::action();
+
+        /* ## トップおすすめ商品 ADD BEGIN ## */
+        if (USE_RECOMMEND_KIND === true && ! empty($_POST["rank"])) {
+            $this->tpl_onload .= "location.hash='#pdct_" . $_POST["rank"] . "';";
+        }
+        /* ## トップおすすめ商品 ADD END ## */
     }
 }

@@ -82,6 +82,113 @@ function lfnSortItem(mode,data){
 //-->
 </script>
 
+<!--{*## トップおすすめ商品 ADD BEGIN ##*}-->
+<!--{if $smarty.const.USE_RECOMMEND_KIND === true}-->
+    <!--{foreach key=kid item=kname from=$arrRECOMMEND_KIND_NAME}-->
+    <a href="#rcmd_kind<!--{$kid}-->"><!--{$kname|h}-->の設定へ</a><br /><br />
+    <!--{/foreach}-->
+
+    <!--{foreach key=kid item=knum from=$arrRECOMMEND_KIND_NUM}-->
+    <a name="rcmd_kind<!--{$kid}-->"></a>
+
+    <!--{section name=kcnt loop=$knum}-->
+    <!--{counter assign=cnt}-->
+    <a name="pdct_<!--{$arrItems[$cnt].rank|h}-->"></a>
+
+    <div id="admin-contents" class="contents-main">
+        <table class="list center" id="recommend-table">
+            <col width="13%" />
+            <col width="68%" />
+            <col width="6%" />
+            <col width="6%" />
+            <col width="7%" />
+            <tr>
+                <th>順位</th>
+                <th>商品/コメント</th>
+                <th>編集</th>
+                <th>削除</th>
+                <th>並び替え</th>
+            </tr>
+
+            <tr>
+                <td><!--{$arrRECOMMEND_KIND_NAME[$kid]}-->(<!--{$smarty.section.kcnt.iteration}-->)</td>
+                    <!--{if $arrItems[$cnt].product_id}-->
+                        <td>
+                            <div id="table-wrap" class="clearfix">
+                                <div class="table-img">
+                                    <!--{if $arrItems[$cnt].product_id}-->
+                                        <img src="<!--{$smarty.const.IMAGE_SAVE_URLPATH}--><!--{$arrItems[$cnt].main_list_image|sfNoImageMainList|h}-->" alt="<!--{$arrItems[$cnt].name|h}-->" width="100" height="100" />
+                                    <!--{/if}-->
+                                </div>
+                                <div class="table-detail">
+                                    <div class="detail-name">商品名： <!--{$arrItems[$cnt].name|h}--></div>
+                                        <div class="detail-form">
+                                            <form name="form<!--{$cnt}-->" id="form<!--{$cnt}-->" method="post" action="?">
+                                                <input type="hidden" name="<!--{$smarty.const.TRANSACTION_ID_NAME}-->" value="<!--{$transactionid}-->" />
+                                                <input type="hidden" name="mode" value="regist" />
+                                                <input type="hidden" name="product_id" value="<!--{$arrItems[$cnt].product_id|h}-->" />
+                                                <input type="hidden" name="category_id" value="<!--{$category_id|h}-->" />
+                                                <input type="hidden" name="rank" value="<!--{$arrItems[$cnt].rank|h}-->" />
+                                                <span class="attention"><!--{$arrErr[$cnt].comment}--></span>
+                                                <textarea class="top" name="comment" cols="45" rows="4" style="width: 586px; height: 80px; <!--{$arrErr[$cnt].comment|sfGetErrorColor}-->" <!--{$arrItems[$cnt].product_id|sfGetEnabled}-->><!--{"\n"}--><!--{$arrItems[$cnt].comment|h}--></textarea>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    <!--{else}-->
+                        <td class="AlignLeft">
+                            <a class="btn-action-m" href="javascript:;" onclick="lfnCheckSetItem('<!--{$cnt}-->'); return false;" target="_blank"><span class="btn-next">商品を選択する</span></a>
+                            <form name="form<!--{$cnt}-->" id="form<!--{$cnt}-->" method="post" action="?">
+                                <input type="hidden" name="<!--{$smarty.const.TRANSACTION_ID_NAME}-->" value="<!--{$transactionid}-->" />
+                                <input type="hidden" name="mode" value="regist" />
+                                <input type="hidden" name="product_id" value="<!--{$arrItems[$cnt].product_id|h}-->" />
+                                <input type="hidden" name="category_id" value="<!--{$category_id|h}-->" />
+                                <input type="hidden" name="rank" value="<!--{$arrItems[$cnt].rank|h}-->" />
+                            </form>
+                        </td>
+                    <!--{/if}-->
+                <td>
+                    <!--{if $arrItems[$cnt].product_id}-->
+                        <a href="javascript:;" onclick="lfnCheckSetItem('<!--{$cnt}-->'); return false;" target="_blank">
+                            編集</a>
+                    <!--{else}-->
+                        - -
+                    <!--{/if}-->
+                </td>
+                <td>
+                    <!--{if $arrItems[$cnt].product_id}-->
+                            <a href="javascript:;" onClick="return fnInsertValAndSubmit( document.form<!--{$cnt}-->, 'mode', 'delete', '削除します。宜しいですか' )">削除</a>
+                    <!--{else}-->
+                        - -
+                    <!--{/if}-->
+                </td>
+                <td>
+                    <!--{* 移動 *}-->
+                    <!--{if $cnt != 1 && $arrItems[$cnt].product_id}-->
+                        <a href="?" onclick="lfnSortItem('up',<!--{$arrItems[$cnt].rank}-->); return false;">上へ</a><br>
+                    <!--{/if}-->
+                    <!--{if $cnt != $tpl_disp_max && $arrItems[$cnt].product_id}-->
+                        <a href="?" onclick="lfnSortItem('down',<!--{$arrItems[$cnt].rank}-->); return false;">下へ</a>
+                    <!--{/if}-->
+                </td>
+            </tr>
+
+            <tr><td colspan="4" class="no-border-w" height="20"></td></tr>
+            <!--{if $arrItems[$cnt].product_id}-->
+            <tr><td colspan="4" class="no-border">
+            <a class="btn-action" href="javascript:;" onclick="lfnCheckSubmit(document.form<!--{$cnt}-->); return false;"><span class="btn-next">この内容で登録する</span></a>
+            </td>
+            </tr>
+            <!--{/if}-->
+        <!--▲おすすめ商品<!--{$cnt}-->-->
+        <!--{/section}-->
+
+    <!--{/foreach}-->
+<!--{else}-->
+<!--{*## トップおすすめ商品 ADD END ##*}-->
+
         <!--{section name=cnt loop=$tpl_disp_max}-->
 
 <div id="admin-contents" class="contents-main">
@@ -172,5 +279,6 @@ function lfnSortItem(mode,data){
         <!--{/if}-->
     <!--▲おすすめ商品<!--{$smarty.section.cnt.iteration}-->-->
     <!--{/section}-->
+<!--{/if}-->
     </table>
 </div>

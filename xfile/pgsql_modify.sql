@@ -401,3 +401,26 @@ INSERT INTO mtb_constants (id ,name ,rank ,remarks) VALUES ('USE_NEWS_IMAGE',  '
 INSERT INTO mtb_constants (id ,name ,rank ,remarks) VALUES ('NEWS_IMAGE_WIDTH',  'auto',  (SELECT MAX(rank)+1 FROM mtb_constants),  '新着情報画像幅');
 INSERT INTO mtb_constants (id ,name ,rank ,remarks) VALUES ('NEWS_IMAGE_HEIGHT',  '275',  (SELECT MAX(rank)+1 FROM mtb_constants),  '新着情報画像縦');
 ALTER TABLE dtb_news ADD COLUMN image text;
+
+/*######################■トップおすすめ商品管理■######################*/
+INSERT INTO mtb_constants(id, name, rank, remarks) VALUES('USE_RECOMMEND_KIND', 'true', (SELECT MAX(rank)+1 FROM mtb_constants), 'トップおすすめ商品管理を使用するフラグ|true:使用');
+UPDATE mtb_constants SET name='8' WHERE id='RECOMMEND_NUM';
+
+CREATE TABLE mtb_recommend_kind_name (
+  id serial,
+  "name" text,
+  rank smallint NOT NULL DEFAULT 0,
+  CONSTRAINT mtb_recommend_kind_name_pkey PRIMARY KEY (id)
+);
+INSERT INTO mtb_recommend_kind_name(name, rank) VALUES('Men''s Item' , 0);
+INSERT INTO mtb_recommend_kind_name(name, rank) VALUES('Lady''s Item', 1);
+
+CREATE TABLE mtb_recommend_kind_num (
+  id serial,
+  "name" text,
+  rank smallint NOT NULL DEFAULT 0,
+  CONSTRAINT mtb_recommend_kind_num_pkey PRIMARY KEY (id)
+);
+INSERT INTO mtb_recommend_kind_num(name, rank) VALUES('4', 0);
+INSERT INTO mtb_recommend_kind_num(name, rank) VALUES('4', 1);
+

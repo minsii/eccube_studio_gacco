@@ -112,6 +112,14 @@ function lfPopwinSubmit(formName) {
             <span style="font-size: 80%;">※未入力時は表示されません。</span><br />
         </td>
     </tr>
+    <tr>
+        <th>注意事項</th>
+        <td>
+            <!--{if $arrErr.attention}--><span class="attention"><!--{$arrErr.attention}--></span><!--{/if}-->
+            <textarea name="attention" cols="47" rows="4"/><!--{$arrForm.attention|h}--></textarea>
+            <br />(<!--{$smarty.const.LTEXT_LEN}-->文字数)
+        </td>
+    </tr>
     <!--{if $smarty.const.USE_POINT !== false}-->
         <tr>
             <th>ポイント表記</th>

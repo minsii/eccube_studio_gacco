@@ -64,4 +64,10 @@ class LC_Page_Admin_Order_Pdf_Ex extends LC_Page_Admin_Order_Pdf {
     function destroy() {
         parent::destroy();
     }
+    
+    function lfInitParam(&$objFormParam) {
+        
+        parent::lfInitParam($objFormParam);
+        $objFormParam->addParam('注意事項', 'attention', LTEXT_LEN, 'KVa', array('MAX_LENGTH_CHECK'));
+    }
 }

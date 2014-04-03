@@ -51,44 +51,44 @@
 <div id="undercolumn" class=" pure-u-1">
     <form name="form1" id="form1" method="post" action="?">
     <input type="hidden" name="<!--{$smarty.const.TRANSACTION_ID_NAME}-->" value="<!--{$transactionid}-->" />
-    
-    
-    
-    
-    
+
+
+
+
+
           <!--★タイトル★-->
           <div class="pure-u-1 detail_main_img">
           <!--{$arrProductOther.main_comment}--><!--{* 詳細コメント1 *}-->
           </div>
-          
+
           <!--オイルレザーに本格的なウエスタン-->
           <!--{if $arrProductOther.comment2}-->
           <div class="pure-u-1 box_detail_product_point">
           <!--{$arrProductOther.comment2}--><!--{* 詳細コメント２ *}-->
           </div>
           <!--{/if}-->
-          
+
           <!--使い込むほどに味が出るチョコのオイルレザー-->
           <!--{if $arrProductOther.comment4}-->
           <div class="pure-u-1 box_detail_product_point2">
           <!--{$arrProductOther.comment4}--><!--{* 詳細コメント3 *}-->
           </div>
           <!--{/if}-->
-          
+
           <!--スタッフ職人の声-->
           <!--{if $arrProductOther.comment4}-->
           <div class="pure-u-1">
           <!--{$arrProductOther.comment5}--><!--{* 詳細コメント4 *}-->
           </div>
           <!--{/if}-->
-          
+
           <!--サイズについて-->
           <!--{if $arrProductOther.comment6}-->
           <div class="box_sizu_info pure-u-1">
           <!--{$arrProductOther.comment6}--><!--{* 詳細コメント5 *}-->
           </div>
           <!--{/if}-->
-          
+
           <!--商品詳細-->
           <div class="box_product_detail pure-u-1">
             <h2><!--{$arrProduct.name|h}--></h2>
@@ -103,13 +103,13 @@
                         data-lightbox="detail" title="<!--{$arrProduct.name|h}-->"
                     >
                 <!--{/if}-->
-                    <img src="<!--{$arrFile[$key].filepath|h}-->" width="<!--{$arrFile[$key].width}-->" 
+                    <img src="<!--{$arrFile[$key].filepath|h}-->" width="<!--{$arrFile[$key].width}-->"
                       height="<!--{$arrFile[$key].height}-->" alt="<!--{$arrProduct.name|h}-->" class="picture" id="main_image"/>
                 <!--{if $arrProduct.main_large_image|strlen >= 1}-->
                     </a>
                 <!--{/if}--><br />
                 </div>
-                
+
 
               <!--{section name=cnt loop=$smarty.const.PRODUCTSUB_MAX}-->
               <!--★サブ画像<!--{$smarty.section.cnt.iteration}-->-->
@@ -119,11 +119,11 @@
               <!--{if $arrProductOther[$key]|strlen >= 1}-->
                 <div class="pure-u-1-3">
                   <!--{if $arrProductOther[$key1]|strlen >= 1}-->
-                    <a href="<!--{$smarty.const.IMAGE_SAVE_URLPATH}--><!--{$arrProductOther[$key1]|h}-->" 
+                    <a href="<!--{$smarty.const.IMAGE_SAVE_URLPATH}--><!--{$arrProductOther[$key1]|h}-->"
                       data-lightbox="detail" title="<!--{$arrProduct.name|h}-->">
                   <!--{/if}-->
-                      <img src="<!--{$arrFile[$key].filepath|h}-->" width="100" alt="<!--{$arrProductOther[$key_title]|h}-->" border="0" 
-                      onmouseover="changeMainImg('<!--{$smarty.const.IMAGE_SAVE_URLPATH}--><!--{$arrProductOther[$key1]|h}-->');" 
+                      <img src="<!--{$arrFile[$key].filepath|h}-->" width="100" alt="<!--{$arrProductOther[$key_title]|h}-->" border="0"
+                      onmouseover="changeMainImg('<!--{$smarty.const.IMAGE_SAVE_URLPATH}--><!--{$arrProductOther[$key1]|h}-->');"
                       onmouseout="resetMainImg();"/>
                   <!--{if $arrProductOther[$key1]|strlen >= 1}--></a><!--{/if}-->
                 </div>
@@ -186,7 +186,7 @@
             <!--{if $tpl_stock_find}-->
                   <ul class="list-group pure-u-1">
                 <!--{if $tpl_classcat_find1}-->
-                    <li class="list-group-item"> 
+                    <li class="list-group-item">
                     	<span>
                         <!--▼規格1-->
                         <ul class="clearfix">
@@ -200,7 +200,7 @@
                             </li>
                         </ul>
                         <!--▲規格1-->
-                        
+
                         <!--{if $tpl_classcat_find2}-->
                         <!--▼規格2-->
                         <ul class="clearfix">
@@ -214,7 +214,7 @@
                         </ul>
                         <!--▲規格2-->
                         <!--{/if}-->
-                      </span> 
+                      </span>
                     </li>
                 <!--{/if}-->
                     <li class="list-group-item">数量 <span>
@@ -238,9 +238,9 @@
                     </li>
                   </ul>
             <!--{/if}-->
-            
+
                 </div>
-                
+
                 <div class="pure-u-1"> </div>
                 <div class="pure-u-1 pure-g-r"> <span class="pure-u-1-2 panel-body"><a href="#"><img src="<!--{$TPL_URLPATH}-->img/page/detail/btn_otodoke.png" border="0" /></a></span> <span class="pure-u-1-2 panel-body"><a href="#"><img src="<!--{$TPL_URLPATH}-->img/page/detail/btn_shiharai.png" border="0" /></a></span> </div>
                 <div class="pure-u-1"> </div>
@@ -257,7 +257,7 @@
               </div>
             </div>
           </div>
-          
+
           <!--商品詳細１-->
           <div class="box_product_detail1 pure-u-1">
             <h2>商品詳細</h2>
@@ -325,7 +325,7 @@
           </div>
 
 
-          <div class="box_toudouhin pure-u-1">
+          <div class="box_toudouhin pure-u-1 hide" >
             <h2><img src="<!--{$TPL_URLPATH}-->img/page/detail/h3_toudouhin.png" /></h2>
             <div class="pure-g-r">
               <div class="pure-u-1-4">
@@ -359,13 +359,11 @@
       <!--{if $arrRecommend}-->
       <div class="box_toudouhin pure-u-1">
         <h2><img src="<!--{$TPL_URLPATH}-->img/page/detail/h3_toudouhin.png" /></h2>
-        <div class="pure-g-r" style="margin:0 auto; position:relative;">
+        <div class="pure-g-r">
             <!-- "previous page" action -->
             <a class="prev browse left">◀</a>
             <!-- root element for scrollable -->
             <div class="scrollable body" id="scrollable">
-              <!-- root element for the items -->
-              <div class="items">
               <!--{foreach from=$arrRecommend item=arrItem name="arrRecommend"}-->
                 <!--{assign var=price01_min value=`$arrItem.price01_min`}-->
                 <!--{assign var=price01_max value=`$arrItem.price01_max`}-->
@@ -376,10 +374,10 @@
                 <!--{assign var=taxfree value=`$arrItem.taxfree`}-->
                 <!--{math equation="x % y == 0" x=$smarty.foreach.arrRecommend.iteration y=4 assign=right}-->
                 <!--{math equation="x % y == 1" x=$smarty.foreach.arrRecommend.iteration y=4 assign=left}-->
-              
+
                 <!--{if $left}--><div id="<!--{$smarty.foreach.arrRecommend.iteration}--> "><!-- <!--{$smarty.foreach.arrRecommend.iteration}--> start --><!--{/if}-->
                 <div class="pure-u-1-4">
-                  <div> 
+                  <div>
                     <a href="<!--{$smarty.const.P_DETAIL_URLPATH|sfGetFormattedUrl:$arrItem.product_id}-->">
                       <img src="<!--{$smarty.const.IMAGE_SAVE_URLPATH}--><!--{$arrItem.main_list_image|h}-->" width="156" alt="<!--{$arrItem.name|h}-->" />
                     </a>
@@ -407,9 +405,7 @@
                   </p>
                 </div>
                 <!--{if $right || $smarty.foreach.arrRecommend.last}--></div><!--{/if}-->
-                
               <!--{/foreach}-->
-              </div><!-- /items -->
             </div><!-- /scrollable -->
             <!-- "next page" action -->
             <a class="next browse right">▶</a>

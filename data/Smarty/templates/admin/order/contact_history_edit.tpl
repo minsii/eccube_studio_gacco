@@ -75,6 +75,16 @@
             <th>送信内容</th>
             <td><!--{$arrDisp.body|h|nl2br}--></td>
         </tr>
+        <!--{if $arrDisp.attachment}-->
+        <tr>
+            <th>添付ファイル</th>
+            <td>
+              <!--{foreach item=attach from=$arrDisp.attachment}-->
+                <a href="<!--{$attach|h}-->" target="_attach"><img src="<!--{$attach|h}-->" width="100px"/></a><br />
+              <!--{/foreach}-->
+            </td>
+        </tr>
+        <!--{/if}-->
     </table>
 
     <div class="btn-area">

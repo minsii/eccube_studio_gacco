@@ -426,3 +426,23 @@ INSERT INTO mtb_recommend_kind_num(name, rank) VALUES('4', 1);
 
 /*######################■ MIMEメール対応 ■######################*/
 INSERT INTO mtb_constants(id, name, rank, remarks) VALUES('USE_MIME_MAIL', 'true', (SELECT MAX(rank)+1 FROM mtb_constants), 'MIME送信を有効にするフラグ|true:有効');
+
+/*######################■修理フォーム■######################*/
+INSERT INTO dtb_pagelayout VALUES ('10', (SELECT MAX(page_id)+1 FROM dtb_pagelayout WHERE device_type_id=10), '修理フォーム（入力ページ）', 'repair/index.php', 'repair/index', '1', '1', '2', '', '', '', '', 'NOW()', 'NOW()', '', '', '');
+INSERT INTO dtb_pagelayout VALUES ('10', (SELECT MAX(page_id)+1 FROM dtb_pagelayout WHERE device_type_id=10), '修理フォーム（完了ページ）', 'repair/complete.php', 'repair/complete', '1', '1', '2', '', '', '', '', 'NOW()', 'NOW()', '', '', '');
+
+CREATE TABLE mtb_repair_type (
+  id smallint NOT NULL,
+  "name" text,
+  rank smallint NOT NULL DEFAULT 0,
+  CONSTRAINT mtb_repair_type_pkey PRIMARY KEY (id)
+);
+
+INSERT INTO mtb_repair_type(id, name, rank) VALUES(1, '化粧取替え', 0);
+INSERT INTO mtb_repair_type(id, name, rank) VALUES((SELECT MAX(id)+1 FROM mtb_repair_type), 'ヒール取替え', (SELECT MAX(rank)+1 FROM mtb_repair_type));
+INSERT INTO mtb_repair_type(id, name, rank) VALUES((SELECT MAX(id)+1 FROM mtb_repair_type), '本底取替え', (SELECT MAX(rank)+1 FROM mtb_repair_type));
+INSERT INTO mtb_repair_type(id, name, rank) VALUES((SELECT MAX(id)+1 FROM mtb_repair_type), 'その他', (SELECT MAX(rank)+1 FROM mtb_repair_type));
+
+INSERT INTO mtb_mail_template VALUES ((SELECT MAX(id)+1 FROM mtb_mail_template), '修理登録メール', (SELECT MAX(rank)+1 FROM mtb_mail_template));
+INSERT INTO mtb_mail_tpl_path VALUES ((SELECT id FROM mtb_mail_template WHERE name='修理登録メール'), 'mail_templates/repair_mail.tpl', (SELECT MAX(rank)+1 FROM mtb_mail_tpl_path));
+INSERT INTO mtb_constants (id ,name ,rank ,remarks) VALUES ('REPAIR_MAIL_TPL', (SELECT id FROM mtb_mail_template WHERE name='修理登録メール'), (SELECT MAX(rank)+1 FROM mtb_constants), '修理登録メールテンプレートID');

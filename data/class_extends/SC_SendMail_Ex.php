@@ -34,6 +34,11 @@ require_once CLASS_REALDIR . 'SC_SendMail.php';
  * @version $Id: SC_SendMail_Ex.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
  */
 class SC_SendMail_Ex extends SC_SendMail {
+    /*## MIMEメール対応 ADD BEGIN ##*/
+    var $arrAttachments = array();
+    /*## MIMEメール対応 ADD END ##*/
+    
+    
 	/*## 送信結果一時保存 ADD BEGIN ##*/
 	var $send_result;
 	var $org_subject;
@@ -100,4 +105,76 @@ BODY:
 		return parent::sendMail($isHtml);
 	}
 	/*## 送信結果一時保存 ADD END ##*/
+	
+	/*## MIMEメール対応 ADD BEGIN ##*/
+	function sendMimeMail($isHtml = false){
+	    if(USE_MIME_MAIL !== true) return false;
+	    	
+	    if(!file_exists(DATA_REALDIR.'module/Mail/mime.php')){
+	        return false;
+	    }
+	    @include_once DATA_REALDIR.'module/Mail/mime.php';
+            
+        /* ## 送信結果一時保存 ADD BEGIN ## */
+        if (defined("LOCAL_SEND_MAIL_HISTORY_FILE_PATH") && 
+            LOCAL_SEND_MAIL_HISTORY_FILE_PATH != false) {
+            $attachs = join(", ", $this->arrAttachments);
+            $mail =
+"
+======================================================================= BEGIN ======
+FROM: {$this->from}
+TO: {$this->org_to}
+BCC: {$this->bcc}
+REPLY-TO: {$this->replay_to}
+SUBJECT: {$this->org_subject}
+ATTACHMENT: {$attachs}
+BODY:
+-------------------------------------------------------------------------------
+{$this->org_body}
+======================================================================= END ======
+";
+            GC_Utils_Ex::gfPrintLog($mail, LOCAL_SEND_MAIL_HISTORY_FILE_PATH, false);
+        }
+        /* ## 送信結果一時保存 ADD END ## */
+            
+        // MIMEコンテンツ設定
+        $mime = new Mail_mime(array('eol' => "\n"));
+        if ($isHtml) {
+            $mime->setHTMLBody($this->body);
+        } else {
+            $mime->setTXTBody($this->body);
+        }
+        
+        foreach ( $this->arrAttachments as $attach ) {
+            $mime->addAttachment($attach);
+        }
+        
+        $body = $mime->get(array("text_encoding" => "7bit","text_charset" => "ISO-2022-JP"));
+        $header = $mime->headers($this->getBaseHeader());
+        $recip = $this->getRecip();
+        
+        // メール送信
+        $result = $this->objMail->send($recip, $header, $body);
+        var_dump($result);
+        if (PEAR::isError($result)) {
+            GC_Utils_Ex::gfPrintLog($result->getMessage());
+            GC_Utils_Ex::gfDebugLog($header);
+            $this->send_result = false;
+            return false;
+        }
+        
+        $this->send_result = true;
+        return true;
+    }
+
+    /**
+     * メールに添付ファイルを追加する
+     * 
+     * @param $file_path ファイルの絶対パス
+     */
+    function addAttachment($file_path) {
+        $this->arrAttachments[] = $file_path;
+    }
+    /*## MIMEメール対応 ADD END ##*/
+    
 }

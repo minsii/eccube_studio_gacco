@@ -424,3 +424,5 @@ CREATE TABLE mtb_recommend_kind_num (
 INSERT INTO mtb_recommend_kind_num(name, rank) VALUES('4', 0);
 INSERT INTO mtb_recommend_kind_num(name, rank) VALUES('4', 1);
 
+/*######################■ MIMEメール対応 ■######################*/
+INSERT INTO mtb_constants(id, name, rank, remarks) VALUES('USE_MIME_MAIL', 'true', (SELECT MAX(rank)+1 FROM mtb_constants), 'MIME送信を有効にするフラグ|true:有効');

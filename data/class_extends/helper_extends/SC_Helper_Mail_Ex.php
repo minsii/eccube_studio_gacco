@@ -194,7 +194,7 @@ class SC_Helper_Mail_Ex extends SC_Helper_Mail {
     }
     
     // 問い合わせメール配信履歴への登録
-    function sfSaveContactHistory($to, $subject, $body, $customer_id = null, $contact_type=1, $attachment = "") {
+    function sfSaveContactHistory($to, $subject, $body, $customer_id = null, $contact_type=1, $attachments = array()) {
         $sqlval = array();
         $sqlval['contact_type'] = $contact_type;
         $sqlval['status'] = 1;
@@ -204,7 +204,12 @@ class SC_Helper_Mail_Ex extends SC_Helper_Mail {
         $sqlval['sender_email'] = $to;
         $sqlval['subject'] = $subject;
         $sqlval['body'] = $body;
-       	$sqlval['attachment'] = $attachment;
+        /*## MIMEメール対応 ADD BEGIN ##*/
+        if(USE_MIME_MAIL === true &&
+            is_array($attachments) && count($attachments) > 0){
+            $sqlval['attachment'] = serialize($attachments);
+        }
+        /*## MIMEメール対応 ADD END ##*/
         
         $sqlval['create_date'] = 'now()';
         $sqlval['update_date'] = 'now()';
@@ -213,5 +218,50 @@ class SC_Helper_Mail_Ex extends SC_Helper_Mail {
         $objQuery->insert('dtb_contact_history', $sqlval);
     }
     /*## 問い合わせ履歴管理 ADD END ##*/
+    
+    /* DBに登録されたテンプレートメールの送信 */
+    function sfSendTemplateMail($to, $to_name, $template_id, &$objPage, $from_address = '', $from_name = '', $reply_to = '', $bcc = '',
+            $attachments = array()) {
+    
+        $objQuery =& SC_Query_Ex::getSingletonInstance();
+        // メールテンプレート情報の取得
+        $where = 'template_id = ?';
+        $arrRet = $objQuery->select('subject, header, footer', 'dtb_mailtemplate', $where, array($template_id));
+        $objPage->tpl_header = $arrRet[0]['header'];
+        $objPage->tpl_footer = $arrRet[0]['footer'];
+        $tmp_subject = $arrRet[0]['subject'];
+    
+        $arrInfo = SC_Helper_DB_Ex::sfGetBasisData();
+    
+        $objMailView = new SC_SiteView_Ex();
+        $objMailView->setPage($this->getPage());
+        // メール本文の取得
+        $objMailView->assignobj($objPage);
+        $body = $objMailView->fetch($this->arrMAILTPLPATH[$template_id]);
+    
+        // メール送信処理
+        $objSendMail = new SC_SendMail_Ex();
+        if ($from_address == '') $from_address = $arrInfo['email03'];
+        if ($from_name == '') $from_name = $arrInfo['shop_name'];
+        if ($reply_to == '') $reply_to = $arrInfo['email03'];
+        $error = $arrInfo['email04'];
+        $tosubject = $this->sfMakeSubject($tmp_subject, $objMailView);
+    
+        $objSendMail->setItem('', $tosubject, $body, $from_address, $from_name, $reply_to, $error, $error, $bcc);
+        $objSendMail->setTo($to, $to_name);
+        
+        /*## MIMEメール対応 ADD BEGIN ##*/
+        if(USE_MIME_MAIL === true &&
+            is_array($attachments) && count($attachments) > 0){
+            foreach ( $attachments as $a ) {
+                $objSendMail->addAttachment($a);
+            }
+            $ret = $objSendMail->sendMimeMail();
+            return $ret;
+        }
+        /*## MIMEメール対応 ADD END ##*/
+        
+        $objSendMail->sendMail();    // メール送信
+    }
 }
 ?>

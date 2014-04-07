@@ -22,18 +22,17 @@
  */
 
 // {{{ requires
-require_once CLASS_REALDIR . 'pages/admin/order/LC_Page_Admin_Order_Pdf.php';
+require_once CLASS_EX_REALDIR . 'page_extends/LC_Page_Ex.php';
 
 /**
- * 帳票出力 のページクラス(拡張).
+ * 修理フォーム(完了ページ) のページクラス
  *
- * LC_Page_Admin_Order_Pdf をカスタマイズする場合はこのクラスを編集する.
+ * LC_Page_Repair_Complete をカスタマイズする場合はこのクラスを編集する.
  *
  * @package Page
- * @author LOCKON CO.,LTD.
- * @version $Id: LC_Page_Admin_Order_Pdf_Ex.php 22796 2013-05-02 09:11:36Z h_yoshimoto $
+ * @author m.si
  */
-class LC_Page_Admin_Order_Pdf_Ex extends LC_Page_Admin_Order_Pdf {
+class LC_Page_Repair_Complete_Ex extends LC_Page_Ex {
 
     // }}}
     // {{{ functions
@@ -45,6 +44,8 @@ class LC_Page_Admin_Order_Pdf_Ex extends LC_Page_Admin_Order_Pdf {
      */
     function init() {
         parent::init();
+        $this->tpl_title = '修理フォーム(完了ページ)';
+        $this->tpl_mainno = 'repair';
     }
 
     /**
@@ -54,6 +55,20 @@ class LC_Page_Admin_Order_Pdf_Ex extends LC_Page_Admin_Order_Pdf {
      */
     function process() {
         parent::process();
+        $this->action();
+        $this->sendResponse();
+    }
+
+    /**
+     * Page のアクション.
+     *
+     * @return void
+     */
+    function action() {
+
+        // do nothing...
+
+
     }
 
     /**
@@ -63,11 +78,5 @@ class LC_Page_Admin_Order_Pdf_Ex extends LC_Page_Admin_Order_Pdf {
      */
     function destroy() {
         parent::destroy();
-    }
-    
-    function lfInitParam(&$objFormParam) {
-        
-        parent::lfInitParam($objFormParam);
-        $objFormParam->addParam('注意事項', 'attention', LTEXT_LEN, 'KVa', array('MAX_LENGTH_CHECK'));
     }
 }

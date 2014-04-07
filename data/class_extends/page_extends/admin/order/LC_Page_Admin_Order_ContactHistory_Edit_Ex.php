@@ -127,7 +127,16 @@ class LC_Page_Admin_Order_ContactHistory_Edit_Ex extends LC_Page_Admin_Ex {
     
     function getContactDetail($contact_id){
     	$objQuery =& SC_Query_Ex::getSingletonInstance();
-    	return $objQuery->getRow("*", "dtb_contact_history", "contact_id=? AND del_flg=0", array($contact_id));
+    	$arrDisp = $objQuery->getRow("*", "dtb_contact_history", "contact_id=? AND del_flg=0", array($contact_id));
+    	if(!empty($arrDisp["attachment"]))
+    	   $arrDisp["attachment"] = unserialize($arrDisp["attachment"]);
+    	
+    	foreach($arrDisp["attachment"] as $no => $a){
+    	   $arrDisp["attachment"][$no] = str_replace(IMAGE_SAVE_REALDIR, IMAGE_SAVE_URLPATH, $a);
+    	}
+    	var_dump($arrDisp["attachment"]);
+    	
+    	return $arrDisp;
     }
     
     /**

@@ -450,3 +450,4 @@ INSERT INTO mtb_constants (id ,name ,rank ,remarks) VALUES ('REPAIR_MAIL_TPL', (
 
 /*######################■ トップページ動的化 ■######################*/
 UPDATE dtb_bloc SET php_path='frontparts/bloc/news.php' WHERE filename='top_tokushu';
+UPDATE dtb_bloc SET php_path='frontparts/bloc/recommend.php' WHERE filename='top_banner_2';

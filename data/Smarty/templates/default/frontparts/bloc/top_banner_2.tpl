@@ -53,62 +53,37 @@
               </div>
               <div class="box_topbnr_03 pure-g-r">
                 <div class="list-group pure-u-1 pure-g-r">
-                  <div class="pure-u-1-2"> <a href="#" class="list-group-item">
-                    <div class="media"> <img src="<!--{$TPL_URLPATH}-->img/page/top/img_07.png" alt="..." width="68" height="68" class="media-object pull-left">
+
+                <!--{* Men's item *}-->
+                <!--{foreach from=$arrBestProducts1 item=arrProduct name="recommend_products"}-->
+                  <div class="pure-u-1-2"> <div href="#" class="list-group-item">
+                    <div class="media">
+                      <a href="<!--{$smarty.const.P_DETAIL_URLPATH|sfGetFormattedUrl:$arrProduct.product_id}-->">
+                        <img src="<!--{$smarty.const.ROOT_URLPATH}-->resize_image.php?image=<!--{$arrProduct.main_list_image|sfNoImageMainList|h}-->&amp;width=68" alt="<!--{$arrProduct.name|h}-->" 
+                          width="68" height="68" class="media-object pull-left"/>
+                      </a>
                       <div class="media-body">
-                        <h4 class="media-heading"><strong>ショートウェスタン</strong></h4>
-                        <p>テキストテキストテキスト</p> </div>
+                        <h4 class="media-heading"><strong><!--{$arrProduct.name|h}--></strong></h4>
+                        <p><!--{$arrProduct.comment|h|nl2br}--></p> </div>
                     </div>
-                    </a> </div>
-                  <div class="pure-u-1-2"> <a href="#" class="list-group-item">
-                    <div class="media"> <img src="<!--{$TPL_URLPATH}-->img/page/top/img_07.png" alt="..." width="68" height="68" class="media-object pull-left">
+                    </div> </div>
+                <!--{/foreach}-->
+
+                <!--{* Lady's item *}-->
+                <!--{foreach from=$arrBestProducts2 item=arrProduct name="recommend_products"}-->
+                  <div class="pure-u-1-2"> <div href="#" class="list-group-item">
+                    <div class="media">
+                      <a href="<!--{$smarty.const.P_DETAIL_URLPATH|sfGetFormattedUrl:$arrProduct.product_id}-->">
+                        <img src="<!--{$smarty.const.ROOT_URLPATH}-->resize_image.php?image=<!--{$arrProduct.main_list_image|sfNoImageMainList|h}-->&amp;width=68" alt="<!--{$arrProduct.name|h}-->" 
+                          width="68" height="68" class="media-object pull-left">
+                      </a>
                       <div class="media-body">
-                        <h4 class="media-heading"><strong>ショートウェスタン</strong></h4>
-                        <p>テキストテキストテキスト</p> </div>
+                        <h4 class="media-heading"><strong><!--{$arrProduct.name|h}--></strong></h4>
+                        <p><!--{$arrProduct.comment|h|nl2br}--></p> </div>
                     </div>
-                    </a> </div>
-                  <div class="pure-u-1-2"> <a href="#" class="list-group-item">
-                    <div class="media"> <img src="<!--{$TPL_URLPATH}-->img/page/top/img_07.png" alt="..." width="68" height="68" class="media-object pull-left">
-                      <div class="media-body">
-                        <h4 class="media-heading"><strong>ショートウェスタン</strong></h4>
-                        <p>テキストテキストテキスト</p> </div>
-                    </div>
-                    </a> </div>
-                  <div class="pure-u-1-2"> <a href="#" class="list-group-item">
-                    <div class="media"> <img src="<!--{$TPL_URLPATH}-->img/page/top/img_07.png" alt="..." width="68" height="68" class="media-object pull-left">
-                      <div class="media-body">
-                        <h4 class="media-heading"><strong>ショートウェスタン</strong></h4>
-                        <p>テキストテキストテキスト</p> </div>
-                    </div>
-                    </a> </div>
-                  <div class="pure-u-1-2"> <a href="#" class="list-group-item">
-                    <div class="media"> <img src="<!--{$TPL_URLPATH}-->img/page/top/img_07.png" alt="..." width="68" height="68" class="media-object pull-left">
-                      <div class="media-body">
-                        <h4 class="media-heading"><strong>ショートウェスタン</strong></h4>
-                        <p>テキストテキストテキスト</p> </div>
-                    </div>
-                    </a> </div>
-                  <div class="pure-u-1-2"> <a href="#" class="list-group-item">
-                    <div class="media"> <img src="<!--{$TPL_URLPATH}-->img/page/top/img_07.png" alt="..." width="68" height="68" class="media-object pull-left">
-                      <div class="media-body">
-                        <h4 class="media-heading"><strong>ショートウェスタン</strong></h4>
-                        <p>テキストテキストテキスト</p> </div>
-                    </div>
-                    </a> </div>
-                  <div class="pure-u-1-2"> <a href="#" class="list-group-item">
-                    <div class="media"> <img src="<!--{$TPL_URLPATH}-->img/page/top/img_07.png" alt="..." width="68" height="68" class="media-object pull-left">
-                      <div class="media-body">
-                        <h4 class="media-heading"><strong>ショートウェスタン</strong></h4>
-                        <p>テキストテキストテキスト</p> </div>
-                    </div>
-                    </a> </div>
-                  <div class="pure-u-1-2"> <a href="#" class="list-group-item">
-                    <div class="media"> <img src="<!--{$TPL_URLPATH}-->img/page/top/img_07.png" alt="..." width="68" height="68" class="media-object pull-left">
-                      <div class="media-body">
-                        <h4 class="media-heading"><strong>ショートウェスタン</strong></h4>
-                        <p>テキストテキストテキスト</p> </div>
-                    </div>
-                    </a> </div>
+                    </div> </div>
+                <!--{/foreach}-->
+
                 </div>
               </div>
             </div>

@@ -446,3 +446,7 @@ INSERT INTO mtb_repair_type(id, name, rank) VALUES((SELECT MAX(id)+1 FROM mtb_re
 INSERT INTO mtb_mail_template VALUES ((SELECT MAX(id)+1 FROM mtb_mail_template), '修理登録メール', (SELECT MAX(rank)+1 FROM mtb_mail_template));
 INSERT INTO mtb_mail_tpl_path VALUES ((SELECT id FROM mtb_mail_template WHERE name='修理登録メール'), 'mail_templates/repair_mail.tpl', (SELECT MAX(rank)+1 FROM mtb_mail_tpl_path));
 INSERT INTO mtb_constants (id ,name ,rank ,remarks) VALUES ('REPAIR_MAIL_TPL', (SELECT id FROM mtb_mail_template WHERE name='修理登録メール'), (SELECT MAX(rank)+1 FROM mtb_constants), '修理登録メールテンプレートID');
+
+
+/*######################■ トップページ動的化 ■######################*/
+UPDATE dtb_bloc SET php_path='frontparts/bloc/news.php' WHERE filename='top_tokushu';

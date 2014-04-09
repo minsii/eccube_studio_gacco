@@ -16,27 +16,25 @@
                 <div class="box_news">
                   <!-- NEWS -->
                   <h3 class="title"><img src="<!--{$TPL_URLPATH}-->img/page/top/icon_h3.png" /> NEWS</h3>
-                  <div class="list-group pure-u-1 pure-g-r">
+                  <div class="list-group pure-u-1 pure-g-r"  style="height:275px; overflow:auto;">
 
-                      <!--{section name=data loop=$arrNews}-->
-                    <div class="pure-u-1"> <a href="#" class="list-group-item">
-                      <div class="media"> <img src="<!--{$TPL_URLPATH}-->img/page/top/img_07.png" alt="..." width="68" height="68" class="media-object pull-left">
+                    <!--{section name=data loop=$arrNews}-->
+                      <div class="pure-u-1"> <div class="list-group-item">
+                      <div class="media">
+                        <!--{if $arrNews[data].image}-->
+                        <img src="<!--{$smarty.const.IMAGE_SAVE_URLPATH|sfTrimURL}-->/<!--{$arrNews[data].image|h}-->" alt="..." width="60" class="media-object pull-left" >
+                        <!--{/if}-->
                         <div class="media-body">
-                          <h4 class="media-heading"><strong><!--{$arrNews[data].news_date_disp|date_format:"%Y&#24180;%m&#26376;%d&#26085;"}--> <!--{if $arrNews[data].news_url}-->
-						      <a href="<!--{$arrNews[data].news_url}-->"
-						        <!--{if $arrNews[data].link_method eq "2"}-->
-						        target="_blank"
-						        <!--{/if}-->>
-						      <!--{/if}-->
-						      <!--{$arrNews[data].news_title|escape|nl2br}-->
-						        <!--{if $arrNews[data].news_url}-->
-						      </a>
-						        <!--{/if}--></strong></h4>
-		                          <p><!--{$arrNews[data].news_comment|escape|nl2br}--> </p>
-		                      </div>
-		                      </div>
-		                      </a> </div>
-						<!--{/section}-->
+                          <h4 class="media-heading"><strong><!--{$arrNews[data].news_date_disp|date_format:"%Y.%m.%d"}--> &nbsp&nbsp
+                            <!--{if $arrNews[data].news_url}--><a href="<!--{$arrNews[data].news_url}-->" <!--{if $arrNews[data].link_method eq "2"}--> target="_blank"<!--{/if}-->><!--{/if}-->
+						                <!--{$arrNews[data].news_title|escape|nl2br}-->
+						                <!--{if $arrNews[data].news_url}--></a><!--{/if}-->
+                          </strong></h4>
+		                      <p><!--{$arrNews[data].news_comment|escape|nl2br}--> </p>
+		                    </div>
+		                  </div>
+                    </div></div>
+      						  <!--{/section}-->
                   </div>
                 </div>
               </div>

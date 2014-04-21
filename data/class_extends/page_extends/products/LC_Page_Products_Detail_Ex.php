@@ -517,7 +517,7 @@ class LC_Page_Products_Detail_Ex extends LC_Page_Products_Detail {
 		$objProduct = new SC_Product_Ex ();
 		$arrProductClassStock = array();
 		
-		if ($this->tpl_classcat_find1 && ! $this->tpl_classcat_find2) {
+		if ($this->tpl_classcat_find1) {
 			$arrProductClass = $objProduct->getProductsClassFullByProductId($product_id);
 			foreach ( $arrProductClass as $productClass ) {
 				$stock = array (

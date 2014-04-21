@@ -149,15 +149,14 @@
                   発送までの目安：ご注文から<!--{$arrDELIVERYDATE[$arrProduct.deliv_date_id]|h}--><br />
 
                 <!--{*在庫表*}-->
-                <!--{if $tpl_classcat_find1 && !$tpl_classcat_find2}-->
+                <!--{if $tpl_classcat_find1}-->
                 <table class="pure-u-1">
                   <colgroup>
-                  <col width="25%" />
-                  <col width="25%" />
+                  <col width="50%" />
                   <col width="50%" />
                   </colgroup>
                   <tr>
-                    <th colspan="2"><div class="text-center"><!--{$tpl_class_name1|h}--></div></th>
+                    <th><div class="text-center"><!--{$tpl_class_name1|h}--></div></th>
                     <th ><div class="text-center">在庫</div></th>
                   </tr>
                   <tr>
@@ -166,7 +165,6 @@
                     <!--{assign var=pdctClsStock value=$arrProductClassStock[$clsid]}-->
                     <tr>
                       <td class="size"><div class="text-center"><!--{$pdctClsStock.name|h}--></div></td>
-                      <td class="size"><div class="text-center">25/25</div></td>
                       <td><div class="text-center">
                           <!--{if  $pdctClsStock.custom_made}-->▲
                           <!--{elseif $pdctClsStock.stock>0 || $pdctClsStock.stock_unlimited}-->○<!--{else}-->×<!--{/if}-->

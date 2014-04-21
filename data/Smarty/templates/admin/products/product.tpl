@@ -375,6 +375,33 @@ $(function() {
                 <span class="attention"> (上限<!--{$smarty.const.MTEXT_LEN}-->文字)</span>
             </td>
         </tr>
+        <tr>
+            <th>大きさ(高さ)</th>
+            <td>
+                <!--{assign var=key value="size_height"}-->
+                <span class="attention"><!--{$arrErr[$key]}--></span>
+                <input type="text" name="<!--{$key}-->" value="<!--{$arrForm[$key]|h}-->" maxlength="<!--{$smarty.const.STEXT_LEN}-->" size="60" class="box60" style="<!--{$arrErr.comment1|sfGetErrorColor}-->" />
+                <span class="attention"> (上限<!--{$smarty.const.MTEXT_LEN}-->文字)</span>
+            </td>
+        </tr>
+        <tr>
+            <th>大きさ(筒幅)</th>
+            <td>
+                <!--{assign var=key value="size_insidelen"}-->
+                <span class="attention"><!--{$arrErr[$key]}--></span>
+                <input type="text" name="<!--{$key}-->" value="<!--{$arrForm[$key]|h}-->" maxlength="<!--{$smarty.const.STEXT_LEN}-->" size="60" class="box60" style="<!--{$arrErr.comment1|sfGetErrorColor}-->" />
+                <span class="attention"> (上限<!--{$smarty.const.MTEXT_LEN}-->文字)</span>
+            </td>
+        </tr>
+        <tr>
+            <th>使用素材(本体)＝革</th>
+            <td>
+                <!--{assign var=key value="material_corium"}-->
+                <span class="attention"><!--{$arrErr[$key]}--></span>
+                <input type="text" name="<!--{$key}-->" value="<!--{$arrForm[$key]|h}-->" maxlength="<!--{$smarty.const.STEXT_LEN}-->" size="60" class="box60" style="<!--{$arrErr.comment1|sfGetErrorColor}-->" />
+                <span class="attention"> (上限<!--{$smarty.const.MTEXT_LEN}-->文字)</span>
+            </td>
+        </tr>
 <!--{*
         <tr>
             <th>メーカー</th>

@@ -151,9 +151,9 @@
                             ￥<!--{$arrProduct.price02_min_inctax|number_format}-->～<!--{$arrProduct.price02_max_inctax|number_format}-->
                         <!--{/if}-->(税込)</h3>
                       <ul class="list-group">
-                        <li class="list-group-item"><span class="pure-u-1-3">高さ</span>タイトル</li>
-                        <li class="list-group-item"><span class="pure-u-1-3">筒幅</span>タイトルタイトル</li>
-                        <li class="list-group-item"><span class="pure-u-1-3">革</span>タイトルタイトル</li>
+                        <li class="list-group-item"><span class="pure-u-1-3">高さ</span><!--{$arrProduct.size_height|h}--></li>
+                        <li class="list-group-item"><span class="pure-u-1-3">筒幅</span><!--{$arrProduct.size_insidelen|h}--></li>
+                        <li class="list-group-item"><span class="pure-u-1-3">革</span><!--{$arrProduct.material_corium|h}--></li>
                       </ul>
                       <p><!--{$arrProduct.main_list_comment|h|nl2br}--></p>
                     </div>

@@ -198,6 +198,9 @@ class LC_Page_Admin_Products_Product_Ex extends LC_Page_Admin_Products_Product {
 		$objFormParam->addParam('各種サービス', 'service', MTEXT_LEN, 'KVa', array('SPTAB_CHECK', 'MAX_LENGTH_CHECK'));
 		$objFormParam->addParam('梱包仕様', 'packing', MTEXT_LEN, 'KVa', array('SPTAB_CHECK', 'MAX_LENGTH_CHECK'));
 		$objFormParam->addParam('商品の注意', 'attention', MTEXT_LEN, 'KVa', array('SPTAB_CHECK', 'MAX_LENGTH_CHECK'));
+		$objFormParam->addParam('大きさ(高さ)', 'size_height', STEXT_LEN, 'KVa', array('SPTAB_CHECK', 'MAX_LENGTH_CHECK'));
+		$objFormParam->addParam('大きさ(筒幅)', 'size_insidelen', STEXT_LEN, 'KVa', array('SPTAB_CHECK', 'MAX_LENGTH_CHECK'));
+		$objFormParam->addParam('使用素材(本体)＝革', 'material_corium', STEXT_LEN, 'KVa', array('SPTAB_CHECK', 'MAX_LENGTH_CHECK'));
 		
 		$objFormParam->addParam('詳細メインコメント2', 'comment2', LLTEXT_LEN, 'KVa', array('SPTAB_CHECK', 'MAX_LENGTH_CHECK'));
 		$objFormParam->addParam('詳細メインコメント3', 'comment4', LLTEXT_LEN, 'KVa', array('SPTAB_CHECK', 'MAX_LENGTH_CHECK'));
@@ -286,6 +289,9 @@ class LC_Page_Admin_Products_Product_Ex extends LC_Page_Admin_Products_Product {
         $sqlval['service'] = $arrList['service'];
         $sqlval['packing'] = $arrList['packing'];
         $sqlval['attention'] = $arrList['attention'];
+        $sqlval['size_height'] = $arrList['size_height'];
+        $sqlval['size_insidelen'] = $arrList['size_insidelen'];
+        $sqlval['material_corium'] = $arrList['material_corium'];
         
         $objQuery->begin();
 

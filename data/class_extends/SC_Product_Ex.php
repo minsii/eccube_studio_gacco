@@ -250,6 +250,8 @@ __EOS__;
         }
         /*## 商品非課税指定 ADD END ##*/
         
+        $col .= ", size_height, size_insidelen, material_corium";
+        
         $res = $objQuery->select($col, $this->alldtlSQL());
         return $res;
     }
@@ -335,6 +337,11 @@ __EOS__;
 		if(USE_DELIV_DATE_PER_PRODUCT_CLASS === true){
 			$col = str_replace("dtb_products.deliv_date_id", "T4.deliv_date_id_min, T4.deliv_date_id_max, T4.deliv_date_id", $col);
 		}
+		
+		$col = str_replace("dtb_products.update_date", 
+		        "dtb_products.update_date, dtb_products.size_height, ".
+		        "dtb_products.size_insidelen, dtb_products.material_corium", 
+		        $col);
         /*## 商品規格単位で発送日目安管理 ADD END ##*/
         $from = <<< __EOS__
                 FROM dtb_products

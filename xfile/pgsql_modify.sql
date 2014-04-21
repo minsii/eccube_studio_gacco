@@ -329,6 +329,9 @@ ALTER TABLE dtb_products ADD COLUMN material text;
 ALTER TABLE dtb_products ADD COLUMN service text;
 ALTER TABLE dtb_products ADD COLUMN packing text;
 ALTER TABLE dtb_products ADD COLUMN attention text;
+ALTER TABLE dtb_products ADD COLUMN size_height text;
+ALTER TABLE dtb_products ADD COLUMN size_insidelen text;
+ALTER TABLE dtb_products ADD COLUMN material_corium text;
 
 
 CREATE TABLE mtb_quantity (

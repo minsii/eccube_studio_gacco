@@ -249,6 +249,18 @@
             <th>商品の注意</th>
             <td><!--{$arrForm.attention|nl2br_html}--></td>
         </tr>
+        <tr>
+            <th>大きさ(高さ)</th>
+            <td><!--{$arrForm.size_height|h}--></td>
+        </tr>
+        <tr>
+            <th>大きさ(筒幅)</th>
+            <td><!--{$arrForm.size_insidelen|h}--></td>
+        </tr>
+        <tr>
+            <th>使用素材(本体)＝革</th>
+            <td><!--{$arrForm.material_corium|h}--></td>
+        </tr>
 <!--{*
         <tr>
             <th>メーカー</th>

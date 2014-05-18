@@ -284,7 +284,7 @@ div#leftcolumn h2 img{
 }*/
 div#rightcolumn {
     float: right;
-    width: 166px;
+    /*width: 166px;*/
 }
 
 div#rightcolumn h2 {
@@ -311,8 +311,12 @@ div#three_maincolumn h2 {
 /* 2カラム設定 */
 div#two_maincolumn {
 	float: left;
+	width: 700px;
+}
+div#two_maincolumn_left {
+	float: left;
 	width: 731px;
-	padding: 10px 10px 0 9px;
+	padding: 10px 0px 0 9px;
 }
 
 /*div#two_maincolumn h2 {

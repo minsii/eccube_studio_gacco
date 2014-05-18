@@ -35,7 +35,7 @@
     background-color: #fff;
 }
 .side_column {
-    overflow-x: hidden; /* IE6 表示乱れ防止 */
+    /*overflow-x: hidden;*/ /* IE6 表示乱れ防止 */
 }
 .side_column .block_outer {
     margin: 10px 7%;

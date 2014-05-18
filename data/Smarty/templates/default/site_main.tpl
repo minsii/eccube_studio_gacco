@@ -180,7 +180,6 @@
         <!--{/if}-->
         <!--{* ▲BOTTOM COLUMN*}-->
 		
-	<!--{include file='./bottom_navi.tpl'}-->
     </div>
 
     <!--{* ▼FOOTER *}-->

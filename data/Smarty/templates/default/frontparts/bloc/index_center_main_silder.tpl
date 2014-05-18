@@ -1,7 +1,6 @@
 
-    <div class="main_image cycle-slideshow" data-cycle-fx=scrollHorz data-cycle-timeout=0
-    data-cycle-pager="#adv-custom-pager" 
-    data-cycle-pager-template="<a href='#' class='pure-u-1-4' ><img src='{{src}}' width=232></a>">
+<div class="main_image cycle-slideshow"
+				data-cycle-fx=scrollHorz data-cycle-timeout=0>
   <!-- prev/next links -->
   <div class="cycle-prev"></div>
   <div class="cycle-next"></div>

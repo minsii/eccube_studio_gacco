@@ -1,10 +1,7 @@
 
 		<!-- ▼バナー -->
         <div style="padding:7px 0px">
-        <!-- empty element for pager links -->
-        <div id=adv-custom-pager class="center external pure-g-r"></div>
-        
-          <div class="pure-g-r" style="display:none">
+            <div class="pure-g-r">
               <div class="pure-u-1-4">
                 <div class=" l-box"><a href="<!--{$smarty.const.ROOT_URLPATH}-->products/list.php?category_id=1"><img src="<!--{$TPL_URLPATH}-->img/page/top/bnr_01.png" width="232" height="39"></a></div>
               </div>

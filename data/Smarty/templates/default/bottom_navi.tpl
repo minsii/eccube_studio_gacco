@@ -3,7 +3,7 @@
         <div class="pure-u-1">
           <div class="pure-g-r">
             <div class="pure-u-3-4">
-              <h3 class="title"><img src="<!--{$TPL_URLPATH}-->img/page/top/icon_h3.png" /> 無料でおこってます</h3>
+              <h3 class="title"><img src="<!--{$TPL_URLPATH}-->img/page/top/icon_h3.png" /> 無料で行っています</h3>
               <div class="pure-u-1 row">
                 <div class="col-xs-4"><a href="#" class="thumbnail"><img src="<!--{$TPL_URLPATH}-->img/page/top/bnr_05.png" width="206" height="95" border="0"></a></div>
                 <div class="col-xs-4"><a href="#" class="thumbnail"><img src="<!--{$TPL_URLPATH}-->img/page/top/bnr_06.png" width="206" height="95" border="0"></a></div>
@@ -21,7 +21,7 @@
         <div class="pure-u-1">
           <div class="pure-g-r">
             <div class="pure-u-3-4">
-              <h3 class="title"><img src="<!--{$TPL_URLPATH}-->img/page/top/icon_h3.png" /> こンテンツ</h3>
+              <h3 class="title"><img src="<!--{$TPL_URLPATH}-->img/page/top/icon_h3.png" /> コンテンツ</h3>
               <div class="pure-u-1 row">
                 <div class="col-xs-4"><a href="#" class="thumbnail"><img src="<!--{$TPL_URLPATH}-->img/page/top/bnr_08.png" width="206" height="95" border="0"></a></div>
                 <div class="col-xs-4"><a href="#" class="thumbnail"><img src="<!--{$TPL_URLPATH}-->img/page/top/bnr_09.png" width="206" height="95" border="0"></a></div>

@@ -26,6 +26,7 @@
     <header class="page_header">
       <div class="pure-g-r ">
         <div class="pure-u-1-2 text-left">
+          <p style="font-family: serif; font-weight: bold; font-size: 12px;"><!--{$tpl_title}--></p>
           <h1 class="logo"> <a href="<!--{$smarty.const.ROOT_URLPATH}-->"><img src="<!--{$TPL_URLPATH}-->img/page/common/logo.png" /></a> </h1>
         </div>
         <div class="pure-u-1-2 text-left">

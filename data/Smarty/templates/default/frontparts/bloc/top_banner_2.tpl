@@ -58,9 +58,9 @@
                 <!--{foreach from=$arrBestProducts1 item=arrProduct name="recommend_products"}-->
                   <div class="pure-u-1-2"> <div href="#" class="list-group-item">
                     <div class="media">
-                      <a href="<!--{$smarty.const.P_DETAIL_URLPATH|sfGetFormattedUrl:$arrProduct.product_id}-->">
+                      <a href="<!--{$smarty.const.P_DETAIL_URLPATH|sfGetFormattedUrl:$arrProduct.product_id}-->" class="pull-left">
                         <img src="<!--{$smarty.const.ROOT_URLPATH}-->resize_image.php?image=<!--{$arrProduct.main_list_image|sfNoImageMainList|h}-->&amp;width=68" alt="<!--{$arrProduct.name|h}-->" 
-                          width="68" height="68" class="media-object pull-left"/>
+                          width="68" height="68" class="media-object"/>
                       </a>
                       <div class="media-body">
                         <h4 class="media-heading"><strong><!--{$arrProduct.name|h}--></strong></h4>
@@ -73,9 +73,9 @@
                 <!--{foreach from=$arrBestProducts2 item=arrProduct name="recommend_products"}-->
                   <div class="pure-u-1-2"> <div href="#" class="list-group-item">
                     <div class="media">
-                      <a href="<!--{$smarty.const.P_DETAIL_URLPATH|sfGetFormattedUrl:$arrProduct.product_id}-->">
+                      <a href="<!--{$smarty.const.P_DETAIL_URLPATH|sfGetFormattedUrl:$arrProduct.product_id}-->" class="pull-left">
                         <img src="<!--{$smarty.const.ROOT_URLPATH}-->resize_image.php?image=<!--{$arrProduct.main_list_image|sfNoImageMainList|h}-->&amp;width=68" alt="<!--{$arrProduct.name|h}-->" 
-                          width="68" height="68" class="media-object pull-left">
+                          width="68" height="68" class="media-object">
                       </a>
                       <div class="media-body">
                         <h4 class="media-heading"><strong><!--{$arrProduct.name|h}--></strong></h4>

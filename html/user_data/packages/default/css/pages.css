@@ -116,7 +116,7 @@ h3.sub_title:before{
 	margin-right:10px;
 }
 div#rightcolumn {
-	width: 250px;
+	/*width: 250px;*/
 }
 div#rightcolumn > div{
 	width: 217px;

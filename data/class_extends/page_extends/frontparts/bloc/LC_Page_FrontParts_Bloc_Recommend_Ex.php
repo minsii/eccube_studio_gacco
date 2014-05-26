@@ -56,7 +56,6 @@ class LC_Page_FrontParts_Bloc_Recommend_Ex extends LC_Page_FrontParts_Bloc_Recom
         /*## トップおすすめ商品 ADD BEGIN ##*/
         if(USE_RECOMMEND_KIND === true){
             $this->arrRECOMMEND_KIND_NUM = $masterData->getMasterData("mtb_recommend_kind_num");
-            var_dump($this->arrRECOMMEND_KIND_NUM);
         }
         /*## トップおすすめ商品 ADD END ##*/
     }

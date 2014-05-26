@@ -76,7 +76,7 @@
           <!--{/if}-->
 
           <!--スタッフ職人の声-->
-          <!--{if $arrProductOther.comment4}-->
+          <!--{if $arrProductOther.comment5}-->
           <div class="pure-u-1">
           <!--{$arrProductOther.comment5}--><!--{* 詳細コメント4 *}-->
           </div>

@@ -24,4 +24,27 @@
 require_once CLASS_REALDIR . 'SC_Fpdf.php';
 
 class SC_Fpdf_Ex extends SC_Fpdf {
+    /**
+     * 備考の出力を行う
+     *
+     * @param string $str 入力文字列
+     * @return string 変更後の文字列
+     */
+    function setEtcData() {
+        $this->Cell(0, 10, '', 0, 1, 'C', 0, '');
+        
+        if (strlen($this->arrData['etc1']) || strlen($this->arrData['etc2']) 
+            || strlen($this->arrData['etc3'])) {
+            $this->SetFont('Gothic', 'B', 9);
+            $this->MultiCell(0, 6, '＜ 備考 ＞', 'T', 2, 'L', 0, '');
+            $this->SetFont('SJIS', '', 8);
+            $text = SC_Utils_Ex::rtrim($this->arrData['etc1'] . "\n" . $this->arrData['etc2'] . "\n" . $this->arrData['etc3']);
+            $this->MultiCell(0, 4, $text, '', 2, 'L', 0, '');
+        }
+        if (strlen($this->arrData['attention'])) {
+            $this->SetFont('Gothic', 'B', 9);
+            $this->MultiCell(0, 6, '＜ 注意事項 ＞', 'T', 2, 'L', 0, '');
+            $this->MultiCell(0, 4, $this->arrData['attention'], '', 2, 'L', 0, '');
+        }
+    }
 }

@@ -172,6 +172,7 @@
         </div>
         
         </div>
+
         <!--ページネット-->
         <div class="box_pagination pure-u-1 ">
           <div class="pure-g-r"> <span class="pure-u-1-5"><!--{$tpl_linemax}-->件の商品がございます</span>
@@ -215,7 +216,7 @@
 	}
 	
 	$(document).ready(function() {
-		equalHeight($('.thumbnail'));
+		equalHeight($('.box_product_list .thumbnail'));
 	});
 
 </script>
